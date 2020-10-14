@@ -1,0 +1,115 @@
+{% load static %}
+<!doctype html>
+<html>
+    <head>
+    {% block header %}
+    {% endblock header %}
+    {% block css %}
+    {% endblock %}
+    </head>
+    <script>
+
+
+    </script>
+  <!-- <body onload="myfunctio();myFunctionsss(); openPage('NHQ', this, 'orange')" style="background-image: url({% static 'images/banner/mainbg.jpg' %}); font-family: 'Whitney SSm A', 'Whitney SSm B', Arial, sans-ser,Lato' !import;"> -->
+<!-- <div class="overlay"></div> -->
+<body onload="myfunctio();myFunctionsss(); openPage('NHQ', this, 'orange')" style="background-image: url({% static 'images/banner/13.jpg' %}); font-family: 'Whitney SSm A', 'Whitney SSm B', Arial, sans-ser,Lato !import; " >
+
+    <style>
+* {box-sizing: border-box}
+
+/* Style tab links */
+.tablink {
+  background-color: rgba(13,48,84);
+  color: white;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 4px 16px;
+  font-size: 17px;
+  width: 20%;
+}
+
+.tablink:hover {
+  background-color: #0087c9;
+}
+
+
+.tablinks {
+  background-color: #9AD7F987;
+  color: white;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 17px;
+  width: 20%;
+}
+
+.tablinks:hover {
+  background-color: #ffcb05;
+}
+
+/* Style the tab content (and add height:100% for full page content) */
+.tabcontent {
+  color: white;
+  display: none;
+  padding: -40px 0px;
+  height: 100%;
+}
+.tabcontents {
+  color: white;
+  display: none;
+  padding: -40px 20px;
+  height: 100%;
+}
+
+
+#Home {background-color: white;}
+#News {background-color: white;}
+#Contact {background-color: white;}
+#About {background-color: white;}
+.odd{
+  borderWidth :1px;
+  borderStyle:solid
+font-weight:bold;}
+
+  .even{font-weight:bold;
+  borderWidth :1px;
+borderStyle:solid}
+
+</style>
+<script>
+
+function openPage(pageName,elmnt,color) {
+ // alert(pageName)
+
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].style.backgroundColor = "";
+  }
+  document.getElementById(pageName).style.display = "block";
+  elmnt.style.backgroundColor = color;
+  elmnt.style.color='black'
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script>
+
+        {% block base_content %}
+
+        {% endblock base_content %}
+
+        {% include 'application/js.html' %}
+        {% block htmljs %}
+        {% endblock htmljs %}
+    </body>
+</html>

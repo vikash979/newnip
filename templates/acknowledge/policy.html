@@ -1,0 +1,943 @@
+
+{% extends "application/base.html" %}
+
+{% load static %}
+{% block header %}
+<!DOCTYPE html>
+<html lang="en">
+   <!-- Basic -->
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <!-- Mobile Metas -->
+   <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+   <!-- Site Metas -->
+   {% block title %}{% endblock %}
+   <meta name="keywords" content="">
+   <meta name="description" content="">
+   <meta name="author" content="">
+   <!-- Site Icons -->
+   <link rel="shortcut icon" href="" type="image/x-icon" />
+   <link rel="apple-touch-icon" href="">
+   <!-- <script src="{% static 'js/commander.js' %}"></script> -->
+   <!-- Bootstrap CSS -->
+   <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+   <!-- Site CSS -->
+   <link rel="stylesheet" href="{% static 'style.css' %}">
+   <!-- Colors CSS -->
+   <link rel="stylesheet" href="{% static 'css/colors.css' %}">
+   <!-- ALL VERSION CSS -->
+   <link rel="stylesheet" href="{% static 'css/versions.css' %}">
+   <!-- Responsive CSS -->
+   <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+   <!-- Custom CSS -->
+   <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+   <!-- font family -->
+   <!-- end font family -->
+   <link rel="stylesheet" href="{% static 'css/3dslider.css' %}" />
+
+
+
+   <style>
+                          ul, #myULtag {
+                            list-style-type: none;
+                          }
+
+                          #myULtag {
+                            margin: 0;
+                            padding: 0;
+                            border-left: 1px dotted #aaa;
+                          }
+
+                          .box {
+                            cursor: pointer;
+                            -webkit-user-select: none; /* Safari 3.1+ */
+                            -moz-user-select: none; /* Firefox 2+ */
+                            -ms-user-select: none; /* IE 10+ */
+                            user-select: none;
+                          }
+
+                          .box::before {
+                            content: "\2610";
+                            color: black;
+                            display: inline-block;
+                            margin-right: 6px;
+                          }
+
+                          .check-box::before {
+                            content: "\2611";
+                            color: dodgerblue;
+                          }
+
+                          .nested {
+                            display: none;
+                            padding-left: 18px;
+                            border-left: 1px dotted #aaa;
+                          }
+
+                          .actives {
+                            display: block;
+                          }
+
+
+                          /*------------------------------*/
+                          #fontSizeWrapper { font-size: 16px; }
+
+                        #fontSize {
+                          width: 100px;
+                          font-size: 1em;
+                          }
+
+                        /* ————————————————————–
+                          Tree core styles
+                        */
+                        .tree { margin: 1em; }
+
+                        .tree input {
+                          position: absolute;
+                          clip: rect(0, 0, 0, 0);
+                          }
+
+                        .tree input ~ ul { display: none; }
+
+                        .tree input:checked ~ ul { display: block; }
+
+                        /* ————————————————————–
+                          Tree rows
+                        */
+                        .tree li {
+                          line-height: 1.2;
+                          position: relative;
+                          padding: 0 0 1em 1em;
+                          }
+
+                        .tree ul li { padding: 1em 0 0 1em; }
+
+                        .tree > li:last-child { padding-bottom: 0; }
+
+                        /* ————————————————————–
+                          Tree labels
+                        */
+                        .tree_label {
+                          position: relative;
+                          display: inline-block;
+                          /* background: #fff; */
+                          }
+
+                        label.tree_label { cursor: pointer; }
+
+                        label.tree_label:hover { color: #666; }
+
+                        /* ————————————————————–
+                          Tree expanded icon
+                        */
+                        label.tree_label:before {
+                          background: #000;
+                          color: #fff;
+                          position: relative;
+                          z-index: 1;
+                          float: left;
+                          margin: 0 1em 0 -2em;
+                          width: 1em;
+                          height: 1em;
+                          border-radius: 1em;
+                          content: '+';
+                          text-align: center;
+                          line-height: .9em;
+                          }
+
+                        :checked ~ label.tree_label:before { content: '–'; }
+
+                        /* ————————————————————–
+                          Tree branches
+                        */
+                        .tree li:before {
+                          position: absolute;
+                          top: 0;
+                          bottom: 0;
+                          left: -.5em;
+                          display: block;
+                          width: 0;
+                          border-left: 1px solid #777;
+                          content: "";
+                          }
+
+                        .tree_label:after {
+                          position: absolute;
+                          top: 0;
+                          left: -1.5em;
+                          display: block;
+                          height: 0.5em;
+                          width: 1em;
+                          border-bottom: 1px solid #777;
+                          border-left: 1px solid #777;
+                          border-radius: 0 0 0 .3em;
+                          content: '';
+                          }
+
+                        label.tree_label:after { border-bottom: 0; }
+
+                        :checked ~ label.tree_label:after {
+                          border-radius: 0 .3em 0 0;
+                          border-top: 1px solid #777;
+                          border-right: 1px solid #777;
+                          border-bottom: 0;
+                          border-left: 0;
+                          bottom: 0;
+                          top: 0.5em;
+                          height: auto;
+                          }
+
+                        .tree li:last-child:before {
+                          height: 1em;
+                          bottom: auto;
+                          }
+
+                        .tree > li:last-child:before { display: none; }
+
+                        .tree_custom {
+                          display: block;
+                          background: #eee;
+                          padding: 1em;
+                          border-radius: 0.3em;
+                        }
+
+                        .dropbtn {
+
+                          color: white;
+                          padding: 16px;
+                          font-size: 16px;
+                          border: none;
+                          cursor: pointer;
+                        }
+
+                        .dropbtn:hover, .dropbtn:focus {
+
+                        }
+
+                        .dropdown {
+                          position: relative;
+                          display: inline-block;
+                        }
+
+                        .dropdown-content {
+                          display: none;
+                          position: absolute;
+                          background-color: #fff;
+                          min-width: 160px;
+                          overflow: auto;
+                          box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                          z-index: 10;
+                        }
+
+                        .dropdown-content a {
+                          color: black;
+                          padding: 12px 16px;
+                          text-decoration: none;
+                          display: block;
+                        }
+
+                        .dropdown a:hover {color: #ddd;}
+
+                        .show {display: block;}
+</style>
+<script>
+/* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>
+
+
+   {% endblock header %}
+   {% block css %}
+
+
+   {% endblock %}
+   {% block base_content %}
+
+
+     <script>
+       $(window).on('load',function(){
+
+     })
+       </script>
+
+      <!-- LOADER -->
+      <div id="preloader">
+         <img class="preloader" src="{% static 'images/loading-img.gif'%}" alt="">
+      </div>
+      <!-- END LOADER -->
+
+      <section id="top" class="contant" style="background-image:url({% static 'images/Banner-top.jpg' %});  ">
+        <div class="container">
+           <div class="header-top">
+              <div class="row">
+                 <div class="col-md-6">
+                    <div class="full">
+                       <div class="logo">
+                        <!--
+                          <a href="index.html"><img src="{% static 'images/navy_logo.png' %}" alt="#" width="100%" height="20%"/></a> -->
+
+                          <span style="font-weight: bold;  color:#05328e; font-size:28px; margin-left:40px; text-shadow:-1px 4px 2px #fff;"> Naval Intranet Portal</span>
+
+                       </div>
+                    </div>
+                 </div>
+                 <div class="col-md-6">
+                    <div class="right_top_section">
+
+
+
+
+
+                           {% if request.user.is_authenticated %}
+
+                             <div class="dropdown">
+                                <a onclick="myFunction()" class="dropbtn" style="color:#05328e; text-shadow:-1px 4px 2px #fff; ">{{user.name}}</a>
+
+                            <div id="myDropdown" class="dropdown-content"><input type="hidden" id="userId" value="{{user.name}}">
+                              <a href="#home" style="color:#05328e">Logout</a>
+
+                            </div>
+                    </div>
+                        <a href="#home" style="color:#05328e; text-shadow:-1px 4px 2px #fff; ">Logout</a>{% endif %}
+                          <!-- <li class="login-modal">
+                             <a href="#" class="login"><i class="fa fa-user"></i>Login</a>
+                          </li> -->
+                          <!-- <li>
+
+                             <div class="cart-option">
+                                <a href="#"><i class="fa fa-shopping-cart"></i>Register</a>
+                             </div>
+                          </li> -->
+
+
+                    </div>
+                 </div>
+              </div>
+           </div>
+
+        </div>
+
+        </section>
+          <section id="top" style="background-color: #fff;">
+            <div class="container" >
+              {% include 'application/nav.html' %}
+
+            </div>
+
+          </section>
+
+
+
+      <section id="contant" class="contant"  data-aos="flip-left" data-aos="flip-left"
+     data-aos-easing="ease-out-cubic"
+     data-aos-duration="2000">
+
+
+
+
+
+
+         <div class="container"   >
+            <div class="row" id="ack_mens">
+              <div class="col-lg-4 col-sm-4 col-xs-4" >
+                <aside id="sidebar" class="left-bar" style="background-color: #cbedef63">
+                  <input type="hidden" name="" id="ackdetail" value="{{menu_bar}}">
+
+
+            <style>
+            .even
+            {
+              border-bottom: 1px solid grey;
+              background-color: #f3ce9399;
+            }
+            .odd
+            {
+              border-bottom: 1px dotted black;
+              background-color: #c2e0ef9e ;
+            }
+            </style>
+
+            <ul class="tree" style="background-color: #f0f0f0">
+             {% for manu_bar in sub_menu %}
+
+
+
+
+              <li  class="{% if forloop.counter|divisibleby:2 %}even{% else %}odd{% endif %}" style="padding-top:4%" data-aos="zoom-out-up"
+     data-aos-easing="ease-out-cubic"
+     data-aos-duration="2000"  >
+                <input type="checkbox" id="c_{{manu_bar.id}}" onclick="megafolder(this.id); " />
+                <label class="tree_label"  for="c_{{manu_bar.id}}"><span style=" font-family: Times New Roman, cursive, serif; color:#000; padding-top:3%">{{manu_bar.submenu_name}}</span></label>
+                <ul class="nested" id="nested_{{manu_bar.id}}" >
+
+                </ul>
+              </li>
+
+              {% endfor %}
+              <li></li>
+            </ul>
+
+
+                    <script src="{% static 'js/a076d05399.js' %}" ></script>
+                    <style>
+                      .blu
+                      {
+
+                        border-bottom: 1px solid #cfeceb;
+                        background-color: #d0f2f23d;
+                      }
+                      .greens
+                      {
+                        border-bottom: 1px solid #8080802e;
+                        background-color: #e0f7e082;
+                      }
+
+
+                    </style>
+
+                  <script>
+                  var toggler = document.getElementsByClassName("box");
+                  var i;
+
+                  for (i = 0; i < toggler.length; i++) {
+                    toggler[i].addEventListener("click", function() {
+                      this.parentElement.querySelector(".nested").classList.toggle("actives");
+                      this.classList.toggle("check-box");
+                    });
+                  }
+
+                   function megafolder(idd)
+
+                          {
+                            var ackdetail =  $('#ackdetail').val()
+
+                             var i;
+                             var id_obj = idd.split("_")
+                             var id_ob = id_obj[1]
+                             var nested = '#nested_'+id_ob
+                             var image = '#img_'+id_ob
+                             $.ajax({
+                                  url:  '/publication_view/'+id_ob+'/',
+                                  type: "GET",
+                                  dataType: "json",
+                                  data:{"menubar":ackdetail},
+                                  success: function(response){
+
+
+
+                                    $('#ackid').empty()
+                                   var total = response['policy'].length + response['obj'].length-1
+
+                                      $('#totallength').html( "Total: " + total)
+                                    if((response['policy'].length > 0) || (response['obj'].length > 0))
+                                    {
+
+
+                                      if ((ackdetail == 'Policy Letters') || (ackdetail == 'Publications') || (ackdetail == 'Navy_Instructions') || (ackdetail == 'Guidelines') || (ackdetail == 'Standards')  || (ackdetail == 'Navy Orders') )
+                                      {$('#ackid').empty()
+                                    for (var i =0; i<response['policy'].length-1;i++)
+                                        {
+
+                                          $('#ackid').append(`<div class="col-lg-12 col-sm-12 col-xs-12" style="padding-top:3%; " id="divId_${response['policy'][i]['id']}" ><div class="col-lg-2 col-sm-2 col-xs-2"><a href="#" ><img src="http://159.12.107.251:8000/static/images/foldericon.jpg" height="50px"> </a></div><div class="col-lg-6 col-sm-6 col-xs-6" style="align:justify"><a href="#" id="fold_${response['policy'][i]['id']}" target="_blank">${response['policy'][i]['folder_title']}</a></div><div class="col-lg-2 col-sm-2 col-xs-2" style="align:justify"><img src="http://159.12.107.251:8000/static/images/downloads_icon.png" height="30px" width="30px"></div><div class="col-lg-2 col-sm-2 col-xs-2" style="align:justify">${response['policy'][i]['added_on'] }</div></div>`)
+                                            if (i % 2 == 0)
+                                          {
+
+
+
+                                            var pubId = `#divId_${response['policy'][i]['id']}`
+                                            //var elem = document.querySelector('#'+pubId);
+                                            //elem.style.border-bottom='1px solid grey'
+                                            $(pubId).addClass('greens');
+                                          }
+                                          else
+                                          {
+                                            var pubId = `#divId_${response['policy'][i]['id']}`
+                                            //var elem = document.querySelector('#'+pubId);
+                                            //elem.style.border-bottom='1px solid grey'
+                                            $(pubId).addClass('blu');
+
+                                          }
+
+                                          if (ackdetail == 'Policy Letters')
+                                          {
+                                            var links = '#image_tag_'+response['policy'][i]['id']
+                                            var foldid = "#fold_"+response['policy'][i]['id']
+                                            hrf = "http://159.12.107.251:8000"+response['policy'][i]['file']
+                                            $(links).attr("href",hrf );
+                                            $(foldid).attr("href",hrf );
+                                            var links = '#image_tag_'+response['policy'][i]['id']
+                                           //alert(response[i]['file'])
+                                           // $(links).html(`<img src="http://159.12.107.251:8000${response['policy'][i]['publicationfile']}" width="50px; height="50px">`)
+                                           $(links).html(`<img class="img grens" src="http://159.12.107.251:8000/static/openfolder.jpg" width="40px"; height="40px" style="padding:15px; 15px  15px 15px; color:#FF6347;border-radius: 100%; border: 1px solid #ddd;
+                                           border-radius: 100%;
+                                           padding: 5px;
+                                           width: auto; "  >`)
+
+                                          }
+
+                                          if (ackdetail == 'Publications')
+                                          {
+                                             var links = '#image_tag_'+response['policy'][i]['id']
+                                            //alert(response[i]['file'])
+                                            // $(links).html(`<img src="http://159.12.107.251:8000${response['policy'][i]['publicationfile']}" width="50px; height="50px">`)
+                                            $(links).html(`<img class="img grens" src="http://159.12.107.251:8000/static/openfolder.jpg" width="40px"; height="40px" style="padding:15px; 15px  15px 15px; color:#FF6347;border-radius: 100%; border: 1px solid #ddd;
+                                            border-radius: 100%;
+                                            padding: 5px;
+                                            width: auto; "  >`)
+                                          }
+                                          if (ackdetail == 'Navy_Instructions')
+                                          {
+                                            var links = '#image_tag_'+response['policy'][i]['id']
+                                            //alert(response[i]['file'])
+                                            $(links).html(`<img src="http://159.12.107.251:8000${response[i]['file']}">`)
+                                          }
+
+                                           if (ackdetail == 'Guidelines')
+                                          {
+                                            var links = '#image_tag_'+response['policy'][i]['id']
+
+                                            //alert(response[i]['file'])
+                                            //$(links).html(`<img src="http://159.12.107.251:8000${response[i]['file']}">`)
+                                            $(links).html(`<img class="img grens" src="http://159.12.107.251:8000/static/openfolder.jpg" width="40px"; height="40px" style="padding:15px; 15px  15px 15px; color:#FF6347;border-radius: 100%; border: 1px solid #ddd;
+                                            border-radius: 100%;
+                                            padding: 5px;
+                                            width: auto; "  >`)
+                                          }
+
+                                          if (ackdetail == 'Standards')
+                                          {
+                                            var links = '#image_tag_'+response['policy'][i]['id']
+                                            //alert(response[i]['file'])
+                                            //$(links).html(`<img src="http://159.12.107.251:8000${response[i]['file']}">`)
+                                            $(links).html(`<img class="img grens" src="http://159.12.107.251:8000/static/openfolder.jpg" width="40px"; height="40px" style="padding:15px; 15px  15px 15px; color:#FF6347;border-radius: 100%; border: 1px solid #ddd;
+                                            border-radius: 100%;
+                                            padding: 5px;
+                                            width: auto;"  >`)
+                                          }
+
+
+                                        }
+
+                                       for (var ii =0; ii<response['obj'].length;ii++)
+                                        {
+
+                                              $('#ackid').append(`<div class="col-lg-12 col-sm-12 col-xs-12" style="padding-top:3%; " id="divId_${response['obj'][ii]['id']}" ><div class="col-lg-2 col-sm-2 col-xs-2"><a href="#" id="image_tag_${response['obj'][ii]['id']}"><i class="fa fa-file-pdf-o" style="font-size:36px;color:#FF6347; border: 1px solid #ddd;
+                                          border-radius: 4px;
+                                          padding: 5px;
+                                          width: auto; border-color: #f7b7c2;"></i> </a></div><div class="col-lg-6 col-sm-6 col-xs-6" style="align:justify"><a href="#" id="fold_${response['obj'][ii]['id']}" target="_blank">${response['obj'][ii]['folder_title']}</a></div><div class="col-lg-2 col-sm-2 col-xs-2" style="align:justify"></div><div class="col-lg-2 col-sm-2 col-xs-2" style="align:justify">${response['obj'][ii]['added_on']}</div></div>`)
+                                            if (ii % 2 == 0)
+                                          {
+
+
+
+                                            var pubId = `#divId_${response['obj'][ii]['id']}`
+                                            //var elem = document.querySelector('#'+pubId);
+                                            //elem.style.border-bottom='1px solid grey'
+                                            $(pubId).addClass('greens');
+                                          }
+                                          else
+                                          {
+                                            var pubId = `#divId_${response['obj'][ii]['id']}`
+                                            //var elem = document.querySelector('#'+pubId);
+                                            //elem.style.border-bottom='1px solid grey'
+                                            $(pubId).addClass('blu');
+
+                                          }
+
+                                        }
+
+
+                                      }
+
+                                    }
+
+                                  }
+
+                                })
+
+                             $.ajax({
+                                  url:  '/policyView/'+id_ob+'/',
+                                  type: "GET",
+                                  dataType: "json",
+                                  data:{"menubar":ackdetail},
+                                  success: function(response){
+                                    $(nested).empty()
+
+                                     for (var i=0; i<response.length;i++)
+                                              {
+                                                  // alert(JSON.stringify(response))
+
+                                               //    $(nested).append(`<li style="border-bottom:1px dotted black;border-top:1px dotted black;"><input type="radio" id="bb_${response[i]['id']}" name="megafols" class="box" onclick="megafolders(this.id,this.className)"><img src="http://192.168.0.8:8088/static/images/foldericon.jpg" width="10%" height="10%" id="img_${response[i]['id']}">${response[i]['submenu_name']}<ul class="nested" id="nested_${response[i]['id']}" style="border-top:1px dotted black;">
+                                               // </ul></li>`)
+                                              $(nested).append(`<li><input type="checkbox" id="c_${response[i]['id']}" onclick="megafolders(this.id); " /> <label for="c_${response[i]['id']}" class="tree_label"><span style="border-bottom:1px dotted black; font-family: Times New Roman, cursive, serif; color:#000; ">${response[i]['submenu_name']}</span></label><ul class="nested" id="nested_${response[i]['id']}" ></ul></li>`)
+
+                                              }
+
+                                  }
+                                })
+
+
+                           }
+
+                           function megafolders(idd)
+                          {
+
+                            var ackdetail =  $('#ackdetail').val()
+                            var i;
+                             var id_obj = idd.split("_")
+                             var id_ob = id_obj[1]
+                             var nested = '#nested_'+id_ob
+
+                             $.ajax({
+                                  url:  '/policyView/'+id_ob+'/',
+                                  type: "GET",
+                                  dataType: "json",
+                                  data:{"menubar":ackdetail},
+                                  success: function(response){
+
+
+                                    if(response.length > 0)
+                                    {
+
+                                      // $('#totallength').html(response.length)
+                                      $(nested).empty()
+                                     // if (ackdetail == 'Policy Letters')
+                                      //{
+
+                                        for (var i =0; i<response.length;i++)
+                                        {
+
+
+                                         $(nested).append(`<li><input type="checkbox" id="c_${response[i]['id']}" onclick="megafolders(this.id); " /> <label for="c_${response[i]['id']}" class="tree_label"><span style="border-bottom:1px dotted black; font-family: Times New Roman, cursive, serif; color:#000; ">${response[i]['submenu_name']}</span></label><ul class="nested" id="nested_${response[i]['id']}" ></ul></li>`)
+                                        }
+                                      //}
+
+                                    }
+
+                                  }
+
+                                })
+                             $.ajax({
+                                  url:  '/publication_view/'+id_ob+'/',
+                                  type: "GET",
+                                  dataType: "json",
+                                  data:{"menubar":ackdetail},
+                                  success: function(response){
+                                   // alert(JSON.stringify(response['policy']))
+                                    $('#ackid').empty()
+                                     var total = response['policy'].length + response['obj'].length-1
+
+                                      $('#totallength').html( "Total: " + total)
+                                    if((response['policy'].length > 0) || (response['obj'].length > 0))
+                                    {
+
+
+                                      if ((ackdetail == 'Policy Letters') || (ackdetail == 'Publications') || (ackdetail == 'Navy_Instructions') || (ackdetail == 'Guidelines') || (ackdetail == 'Standards') || (ackdetail == 'Navy Orders') )
+                                      {$('#ackid').empty()
+
+
+                                        for (var i =0; i<response['policy'].length-1;i++)
+                                        {
+
+                                           $('#ackid').append(`<div class="col-lg-12 col-sm-12 col-xs-12" style="padding-top:3%; " id="divId_${response['policy'][i]['id']}" ><div class="col-lg-2 col-sm-2 col-xs-2"><a href="#" id="image_tag_${response['policy'][i]['id']}"><i class="fa fa-file-pdf-o" style="font-size:36px;color:#FF6347; border: 1px solid #ddd;
+                                            border-radius: 4px;
+                                            padding: 5px;
+                                          width: auto; border-color: #f7b7c2;"></i> </a></div><div class="col-lg-6 col-sm-6 col-xs-6" style="align:justify"><a href="#" id="fold_${response['policy'][i]['id']}" target="_blank">${response['policy'][i]['folder_title']}</a></div><div class="col-lg-2 col-sm-2 col-xs-2" style="align:justify"><img src="http://159.12.107.251:8000/static/images/downloads_icon.png" height="30px" width="30px"></div><div class="col-lg-2 col-sm-2 col-xs-2" style="align:justify">${response['policy'][i]['added_on'] }</div></div>`)
+                                            if (i % 2 == 0)
+                                          {
+
+
+
+                                            var pubId = `#divId_${response['policy'][i]['id']}`
+                                            //var elem = document.querySelector('#'+pubId);
+                                            //elem.style.border-bottom='1px solid grey'
+                                            $(pubId).addClass('greens');
+                                          }
+                                          else
+                                          {
+                                            var pubId = `#divId_${response['policy'][i]['id']}`
+                                            //var elem = document.querySelector('#'+pubId);
+                                            //elem.style.border-bottom='1px solid grey'
+                                            $(pubId).addClass('blu');
+
+                                          }
+                                          if (ackdetail == 'Policy Letters')
+                                          {
+                                            var links = '#image_tag_'+response['policy'][i]['id']
+                                            var foldid = "#fold_"+response['policy'][i]['id']
+                                            hrf = "http://159.12.107.251:8000"+response['policy'][i]['file']
+                                            $(links).attr("href",hrf );
+                                            $(foldid).attr("href",hrf );
+
+                                          }
+                                          if (ackdetail == 'Publications')
+                                          {
+                                            var links = '#image_tag_'+response['policy'][i]['id']
+
+                                            //alert(response[i]['file'])
+                                            // $(links).html(`<img src="http://159.12.107.251:8000${response[i]['publicationfile']}">`)
+                                            $(links).html(`<img class="img grens" src="http://159.12.107.251:8000/static/openfolder.jpg" width="40px"; height="40px" style="padding:15px; 15px  15px 15px; color:#FF6347;border-radius: 100%; border: 1px solid #ddd;
+                                            border-radius: 100%;
+                                            padding: 5px;
+                                            width: auto; "  >`)
+                                          }
+                                          if (ackdetail == 'Navy_Instructions')
+                                          {
+                                            var links = '#image_tag_'+response[i]['id']
+                                            //alert(response[i]['file'])
+                                            $(links).html(`<img src="http://159.12.107.251:8000${response[i]['file']}">`)
+                                          }
+                                           if (ackdetail == 'Guidelines')
+                                          {
+                                            var links = '#image_tag_'+response['policy'][i]['id']
+
+
+                                            $(links).html(`<img class="img grens" src="http://159.12.107.251:8000/static/openfolder.jpg" width="40px"; height="40px" style="padding:15px; 15px  15px 15px; color:#FF6347;border-radius: 100%; border: 1px solid #ddd;
+                                            border-radius: 100%;
+                                            padding: 5px;
+                                            width: auto; "  >`)
+                                          }
+                                          if (ackdetail == 'Standards')
+                                          {
+                                            var links = '#image_tag_'+response['policy'][i]['id']
+
+                                            $(links).html(`<<img class="img grens" src="http://159.12.107.251:8000/static/openfolder.jpg" width="40px"; height="40px" style="padding:15px; 15px  15px 15px; color:#FF6347;border-radius: 100%; border: 1px solid #ddd;
+                                            border-radius: 100%;
+                                            padding: 5px;
+                                            width: auto; "  >`)
+                                          }
+
+                                           if (ackdetail == 'Navy Orders')
+                                          {
+                                            var links = '#image_tag_'+response['policy'][i]['id']
+
+                                            $(links).html(`<img class="img grens" src="http://159.12.107.251:8000/static/openfolder.jpg" width="40px"; height="40px" style="padding:15px; 15px  15px 15px; color:#FF6347;border-radius: 100%; border: 1px solid #ddd;
+                                            border-radius: 100%;
+                                            padding: 5px;
+                                            width: auto; "  >`)
+                                          }
+                                        }
+                                        for (var ii =0; ii<response['obj'].length;ii++)
+                                        {
+                                           $('#ackid').append(`<div class="col-lg-12 col-sm-12 col-xs-12" style="padding-top:3%; " id="divId_${response['obj'][ii]['id']}" ><div class="col-lg-2 col-sm-2 col-xs-2"><a href="#" id="image_tag_${response['obj'][ii]['id']}"><i class="fa fa-file-pdf-o" style="font-size:36px;color:#FF6347; border: 1px solid #ddd;
+                                          border-radius: 4px;
+                                          padding: 5px;
+                                          width: auto; border-color: #f7b7c2;"></i> </a></div><div class="col-lg-6 col-sm-6 col-xs-6" style="align:justify"><a href="#" id="fold_${response['obj'][ii]['id']}" target="_blank">${response['obj'][ii]['folder_title']}</a></div><div class="col-lg-2 col-sm-2 col-xs-2" style="align:justify"></div><div class="col-lg-2 col-sm-2 col-xs-2" style="align:justify">${response['obj'][ii]['added_on']}</div></div>`)
+                                            if (ii % 2 == 0)
+                                          {
+
+
+
+                                            var pubId = `#divId_${response['obj'][ii]['id']}`
+                                            //var elem = document.querySelector('#'+pubId);
+                                            //elem.style.border-bottom='1px solid grey'
+                                            $(pubId).addClass('greens');
+                                          }
+                                          else
+                                          {
+                                            var pubId = `#divId_${response['obj'][ii]['id']}`
+                                            //var elem = document.querySelector('#'+pubId);
+                                            //elem.style.border-bottom='1px solid grey'
+                                            $(pubId).addClass('blu');
+
+                                          }
+                                        }
+                                      }
+                                    }
+
+                                  }
+
+                                })
+                          }
+
+
+
+                      </script>
+                  <div class="feature-matchs" >
+                  </div>
+                </aside>
+              </div>
+              <div class="col-lg-8 col-sm-8 col-xs-8" >
+                <aside id="sidebar" class="left-bar" style="background-color: #f0f0f0; border-top-left-radius:30px;border-top-right-radius:30px">
+                     <div class="feature-matchs"   >
+                      <style>
+                        .fnt
+                        {
+                          /*font-family: Open Sans", sans-serif, Arial, Helvetica"*/
+                          font-family: -apple-system,BlinkMacSystemFont,open_sanslight,"Helvetica Neue",Helvetica,Arial,sans-serif !important
+                        }
+                          input[type=text] {
+                          float: right;
+                          padding: 6px;
+                          margin-top: 8px;
+                          margin-right: 16px;
+                          border: none;
+                          font-size: 17px;
+                          border: 1px solid #000;
+                        }
+                      </style>
+                      <script>
+                        function file_data()
+                        {
+                          //alert("ok")
+                        }
+
+                      </script>
+                        <h4 style="border-bottom:1px dotted grey; background-color: #f39c12; color:#fff;border-top-left-radius:30px;border-top-right-radius:30px; font-weight:bold; " class="fnt"> {{menu_bar}}</h4><!-- <input type="text" onchange="file_data()" placeholder="Search.."> -->
+                        <div class="team-btw-match" style="background-color: #cbedef63;">
+                          <div class="col-lg-12 col-sm-12 col-xs-12 " >
+                            <div class="col-lg-4 col-sm-4 col-xs-4"><h3> <span id="totallength"></span></h3>
+                            </div>
+                            <div class="col-lg-8 col-sm-8 col-xs-8">
+                              {% if menu_bar == 'AckenowledgepublicationSubmenuSerializer' %}
+                              <img src="http://159.12.107.251:8000/static/images/publications.jpg" width="200px" height="100px" class="rounded-circle" alt="Cinque Terre" >
+                              {% elif  menu_bar == 'Policy Letterss' %}
+                              <img src="http://159.12.107.251:8000/static/images/policy_red.png" class="rounded-circle" alt="Cinque Terre" >
+                              {% elif  menu_bar == 'Guideliness' %}
+                              <img src="http://159.12.107.251:8000/static/images/guideleines.png" width="200px" height="100px" class="rounded-circle" alt="Cinque Terre" >
+                              {% endif %}
+                            </div>
+                          </div>
+                          <style>
+                            .evens
+                            {
+                              border-bottom:1px  dotted #243b55
+                            }
+                            .odd
+                            {
+                              border-bottom:1px  dotted #06beb6
+                            }
+                          </style>
+
+
+                          <div class="col-lg-12 col-sm-12 col-xs-12" id="ackid" style="background-color: #cbedef63; ">
+
+
+
+
+                            {% for manu_bar in policy %}
+                            <div class="col-lg-12 col-sm-12 col-xs-12 {% if forloop.counter|divisibleby:2 %}even{% else %}odd{% endif %}" style="padding-top:3%; " data-aos="zoom-out-down"
+     data-aos-easing="ease-out-cubic"
+     data-aos-duration="2000" ><div class="col-lg-2 col-sm-2 col-xs-2"><img class="img grens" src="{% static 'images/openfolder.jpg' %}" width="40px"; height="40px" style="padding:15px; 15px  15px 15px; color:#FF6347;border-radius: 100%;
+     border-radius: 100%;
+     padding: 5px;
+     width: auto; "  ><!-- <i class="fa fa-file-pdf-o" style="font-size:36px;color:#FF6347; border: 1px solid #ddd;
+                              border-radius: 4px;
+                              padding: 5px;
+                              width: auto; border-color: #f7b7c2;"></i> --> </div><div class="col-lg-6 col-sm-6 col-xs-6" style="align:justify"><a href="#">{{manu_bar}}</a></div> <div class="col-lg-2 col-sm-2 col-xs-2" style="align:justify"><a href="#">{% if forloop.counter|divisibleby:2 %}<img src="http://159.12.107.251:8000/static/images/downloads_icon.png" height="30px" height="30px">{% else %}<img src="http://159.12.107.251:8000/static/images/downloads.png" height="30px" height="30px"> {% endif %}</a></div><div class="col-lg-2 col-sm-2 col-xs-2" style="align:justify">{{manu_bar.added_on | date:"m-d-Y"}}</div></div>
+
+                            {% endfor %}
+                            <div class="col-lg-12 col-sm-12 col-xs-12 pagination"   style="">
+
+                              <div class="col-lg-6 col-sm-12 col-xs-12 pagination"   style="">
+                              </div>
+                              <div class="col-lg-6 col-sm-12 col-xs-12 pagination"   style="">
+
+
+                            {% if policy.has_other_pages == True %}
+                             <a href="#">&laquo;</a>
+                                {% if policy.has_other_pages == True %}
+
+
+                                {% if policy.has_previous == True %}
+
+
+
+                                <a id="page{{policy.previous_page_number}}" href="/ackpolicy/?page={{policy.previous_page_number}}&&menutype={{menu_bar}}">prev</a>
+
+                                {% endif %}
+
+                                {% endif %}
+
+
+
+                                {% for i in PAGINATION_COUNT%}
+
+                                {% if i == policy.number %}
+
+
+
+                                <a id="page{{i}}" class="selected active" href="/ackpolicy/?page={{i}}&&menutype={{menu_bar}}" >{{i}}</a>
+
+
+<!--
+                                <a id="page{{i}}" class="selected active" href="/blog/blog_list/?page={{i}}">{{i}}</a> -->
+
+                                {% else %}
+                               <!--  <a id="page{{i}}" href="/blog/blog_list/?page={{i}}">{{i}}</a> -->
+
+                                 <a id="page{{i}}" class="" href="/ackpolicy/?page={{i}}&&menutype={{menu_bar}}">{{i}}</a>
+
+                                {% endif %}
+
+
+                                {% endfor %}
+                                {% if staff_image.has_next == True %}
+                                <a id="page{{policy.next_page_number}}" href="/ackpolicy/?page={{policy.next_page_number}}&&menutype={{menu_bar}}">next</a>
+                                {% endif %}
+                                <a href="#">&raquo;</a>
+                                {% endif %}
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                     </div>
+                  </aside>
+              </div>
+              <!-- <div class="col-lg-6 col-sm-6 col-xs-6">
+                <aside id="sidebar" class="left-bar">
+                  <div class="feature-matchs">
+                  </div>
+                </aside>
+              </div> -->
+
+
+
+
+            </div>
+         </div>
+      </section>
+
+       {% include 'application/footer.html' %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <!-- ALL JS FILES -->
+
+
+</html>
+{% endblock base_content %}
+
+{% block htmljs %}
+
+
+{% endblock htmljs %}

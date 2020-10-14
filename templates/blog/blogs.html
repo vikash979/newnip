@@ -1,0 +1,394 @@
+
+{% extends "application/base.html" %}
+
+{% load static %}
+{% block header %}
+<!DOCTYPE html>
+<html lang="en">
+   <!-- Basic -->
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <!-- Mobile Metas -->
+   <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+   <!-- Site Metas -->
+   {% block title %}{% endblock %}
+   <meta name="keywords" content="">
+   <meta name="description" content="">
+   <meta name="author" content="">
+   <!-- Site Icons -->
+   <link rel="shortcut icon" href="" type="image/x-icon" />
+   <link rel="apple-touch-icon" href="">
+   <!-- <script src="{% static 'js/commander.js' %}"></script> -->
+   <!-- Bootstrap CSS -->
+   <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+   <!-- Site CSS -->
+   <link rel="stylesheet" href="{% static 'style.css' %}">
+   <!-- Colors CSS -->
+   <link rel="stylesheet" href="{% static 'css/colors.css' %}">
+   <!-- ALL VERSION CSS -->
+   <link rel="stylesheet" href="{% static 'css/versions.css' %}">
+   <!-- Responsive CSS -->
+   <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+   <!-- Custom CSS -->
+   <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+   <!-- font family -->
+   <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+   <!-- end font family -->
+   <link rel="stylesheet" href="{% static 'css/3dslider.css' %}" />
+   <script src="{% static 'js_css/jquery.min.js' %}"></script>
+   <!-- <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css"> -->
+  <style>
+.dropbtn {
+
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  min-width: 160px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 10;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown a:hover {color: #ddd;}
+
+.show {display: block;}
+</style>
+<script>
+/* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>
+
+
+   {% endblock header %}
+   {% block css %}
+
+
+   {% endblock %}
+   {% block base_content %}
+
+
+     <script>
+       $(window).on('load',function(){
+
+     })
+       </script>
+
+      <!-- LOADER -->
+      <div id="preloader">
+         <img class="preloader" src="{% static 'images/loading-img.gif'%}" alt="">
+      </div>
+      <!-- END LOADER -->
+      <section id="top" class="contant" style="background-image:url({% static 'images/Banner-top.jpg' %});   ">
+        <div class="container">
+           <div class="header-top">
+              <div class="row">
+                 <div class="col-md-6">
+                    <div class="full">
+                       <div class="logo">
+                        <!--
+                          <a href="index.html"><img src="{% static 'images/navy_logo.png' %}" alt="#" width="100%" height="20%"/></a> -->
+
+                          <span style="font-weight: bold;  color:#05328e; font-size:28px; margin-left:45px;text-shadow:-1px 4px 2px #d4af37; "> Naval <span style="text-shadow:-1px 4px 2px #d4af37;">Intranet </span> Portal</span>
+
+                       </div>
+                    </div>
+                 </div>
+                 <div class="col-md-6">
+                    <div class="right_top_section">
+
+
+
+
+
+                           {% if request.user.is_authenticated %}
+
+                             <div class="dropdown">
+                                <a onclick="myFunction()" class="dropbtn" style="color:#05328e; text-shadow:-1px 4px 2px #fff; font-size:16px; font-weight:bold ">{{user.name}}</a>
+
+                            <div id="myDropdown" class="dropdown-content"><input type="hidden" id="userId" value="{{user.name}}">
+                              <a href="#home" style="color:#05328e">Logout</a>
+
+                            </div>
+                    </div>
+                        <a href="#home" style="color:#05328e; text-shadow:-1px 4px 2px #fff; font-size:16px; font-weight:bold">Logout</a>{% endif %}
+                          <!-- <li class="login-modal">
+                             <a href="#" class="login"><i class="fa fa-user"></i>Login</a>
+                          </li> -->
+                          <!-- <li>
+
+                             <div class="cart-option">
+                                <a href="#"><i class="fa fa-shopping-cart"></i>Register</a>
+                             </div>
+                          </li> -->
+
+
+                    </div>
+                 </div>
+              </div>
+           </div>
+
+        </div>
+
+        </section>
+        <section id="top"  style="background:#fff; ">
+          <div class="container">
+
+              {% include 'application/nav.html' %}
+          </div>
+
+          </section>
+
+
+      <section id="contant" class="contant" >
+         <div class="container">
+            <div class="row">
+              <div class="col-lg-6 col-sm-4 col-xs-12">
+                <aside id="sidebar" class="left-bar"style="border-top-left-radius:30px; border-top-right-radius:30px">
+                     <div class="banner-sidebar">
+                       <span id="LatestNews"><h4 style="font-weight:bold;background-color: #75a537;color:#fff; border-top-left-radius:30px; border-top-right-radius:30px">ENEWS</h4></span>
+
+                       <table><tr><td><span ><center style="background-color: #fadadd; border-radius: 10px; width:30%; margin-top: 2%">Punjab News</center></span><span><h3>Coronavirus | Punjab extends lockdown by two weeks, with limited relief </h3></span>
+                        <br/>
+                        <span style="padding-left:5%">Comments : </span> &nbsp;&nbsp;&nbsp; <span style="padding-left:5%">Views: 30 April 2020</span></td></tr>
+                      <tr><td><span ><center style="margin-top: 2%; background-color: #fadadd; border-radius: 10px; width:30%">Punjab News</center></span><span><h3>Coronavirus | Punjab extends lockdown by two weeks, with limited relief </h3></span>
+                        <br/>
+                        <span style="padding-left:5%">Comments : </span> &nbsp;&nbsp;&nbsp; <span style="padding-left:5%">Views: 30 April 2020</span></td></tr>
+
+
+                      </table>
+                          <!-- <span id="latest_new"><marquee scrolldelay="100" direction="up" onmouseout="this.setAttribute('scrollamount', 2, 0);" onmouseover="this.setAttribute('scrollamount', 0, 0); "><table ><tbody id="lastest_obj"></tbody></tbody></table></marquee></span>   <hr>
+                          <br/> -->
+                     </div>
+                  </aside>
+              </div>
+               <div class="col-lg-6 col-sm-4 col-xs-12">
+                  <aside id="sidebar" class="left-bar" style="border-top-left-radius:30px; border-top-right-radius:30px">
+                    <div class="banner-sidebar" >
+                      <div class="banner-sidebar" >
+                        <span id="LatestNews"><h4 style="font-weight:bold;background-color: #008dd2;color:#fff; border-top-left-radius:30px; border-top-right-radius:30px">Blog</h4></span>
+                        <style>
+.accordion {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+}
+
+.active, .accordion:hover {
+  background-color: #ccc;
+}
+
+.panel {
+  padding: 0 18px;
+  display: none;
+  background-color: white;
+  overflow: hidden;
+  color:#000;
+  font-family: 'Poppins', sans-serif;
+}
+</style>
+
+{% for class_ob in staff_image %}
+                                <input type="hidden" id="block_count_{{class_ob.id}}" value="{{class_ob.blog_count}}">
+<button class="accordion" id="accordian_{{class_ob.id}}" style="color:#000" onclick="accordian(this.id,'{{class_ob.blog_count}}','{{request.user.email}}')">{{class_ob.blog_heading}}
+
+                                </button>
+<div class="panel">
+  <p id="panel_{{class_ob.id}}" style="color:#000; font-size:16px; font-family:'Titillium Web', sans-serif; font-weight:400;">
+    <br/>
+
+  </p>
+  <span style="color: #000" >Views : <span id="views_{{class_ob.id}}" style="color: #000" ></span></span>
+                                  &nbsp;<span>Created By:<span style="color: #000" id="created_by_{{class_ob.id}}"></span></span> <span style="color: #000" >Date: <span id="date_{{class_ob.id}}" style="color: #000" ></span> </span><br/><br/>
+</div>
+{% endfor %}
+
+
+
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.display === "block") {
+      panel.style.display = "none";
+    } else {
+      panel.style.display = "block";
+    }
+  });
+}
+
+
+function accordian(idd,viewcount, userid)
+                            {
+
+
+                                var blog_id = idd.split("_")
+                                var blogId =  blog_id[1]
+                                var block_count = '#block_count_'+blogId
+                                var viewcount = $(block_count).val()
+                                var viewsby ='#views_'+blogId
+                                var created_by = '#created_by_'+blogId
+                                var subdate  = '#date_'+blogId
+
+                               var datString = JSON.stringify({"parent_id":blogId,"viewcount":viewcount})
+                               var panel = '#panel_'+blogId
+                                 $.ajax({
+                                            url:  '/blog_view/',
+                                            contentType : 'application/json',
+
+                                            type: "POST",
+
+                                            data:datString,
+                                            beforeSend: function (xhr, settings) {
+                                                xhr.setRequestHeader("X-CSRFToken", '{{ csrf_token }}');
+                                            },
+                                            success: function(response){
+
+                                               for (var i=0; i<response.length;i++)
+                                               {
+                                                for (var j=response[i]['text'].length-1; j<response[i]['text'].length;j++)
+                                                {
+                                                     $(panel).html(`<span style="color:#000; background:#c2e0ef9e ">${response[i]['text'][j]['text']} </span>`)
+
+                                                     var dates = response[i]['text'][j]['added_on'].split('T')
+
+
+                                                        $(subdate).html(dates[0])
+
+                                                        if (userid == response[i]['text'][j]['user']['email'])
+                                                    {
+                                                        $(created_by).html(`<a href="/addcommment/${blogId}/">${response[i]['text'][j]['user']['email']}</a>`)
+                                                    }
+                                                    else{
+                                                        $(created_by).html(response[i]['text'][j]['user']['email'])
+                                                    }
+                                                }
+                                                $(viewsby).html(response[i]['blog_count'])
+                                               $(block_count).val(response[i]['blog_count'])
+                                              }
+                                             }
+                                        })
+
+                            }
+</script>
+{% if staff_image.has_other_pages == True %}
+                                {% if staff_image.has_other_pages == True %}
+
+
+                                {% if staff_image.has_previous == True %}
+                                <a id="page{{staff_image.previous_page_number}}" href="/blogs/blog_list/?page={{staff_image.previous_page_number}}">prev</a>
+
+                                {% endif %}
+
+                                {% endif %}
+
+
+
+                                {% for i in PAGINATION_COUNT%}
+
+                                {% if i == staff_image.number %}
+                                <a id="page{{i}}" class="selected" href="/blog/blog_list/?page={{i}}">{{i}}</a>
+
+                                {% else %}
+                                <a id="page{{i}}" href="/blog/blog_list/?page={{i}}">{{i}}</a>
+
+                                {% endif %}
+
+
+                                {% endfor %}
+                                {% if staff_image.has_next == True %}
+                                <a id="page{{staff_image.next_page_number}}" href="/blog/blog_list/?page={{staff_image.next_page_number}}">next</a>
+                                {% endif %}
+                                {% endif %}
+
+                      </div>
+
+                    </div>
+                  </aside>
+
+
+
+               </div>
+              <div class="col-lg-6 col-sm-4 col-xs-12">
+              </div>
+
+
+
+               </div>
+            </div>
+
+      </section>
+
+
+
+
+
+
+
+
+
+
+
+
+      {% include 'application/footer.html' %}
+      <!-- ALL JS FILES -->
+
+
+</html>
+{% endblock base_content %}
+
+{% block htmljs %}
+
+
+{% endblock htmljs %}

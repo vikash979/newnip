@@ -1,0 +1,604 @@
+{% extends "application/base4.html" %}
+
+
+{% load static %}
+{% block header %}
+{% include 'application/header_2.html' %}
+
+
+
+  <link rel="stylesheet" href="{% static 'vassets/css/reset.css' %}"> <!-- CSS reset -->
+  <link rel="stylesheet" href="{% static 'vassets/css/style.css' %}"> <!-- Resource style -->
+  <script src="{% static 'vassets/js/modernizr.js' %}"></script> <!-- Modernizr -->
+  <script src = "{% static 'js/menubar.js' %}"></script>
+  <!---------------------Old navy Slider---------------------->
+
+
+  <link href="{% static 'sliders/css/DesktopModules_CrossImageFlow_js_imageflow.packed.css' %}" media="all" type="text/css" rel="stylesheet"/>
+
+
+  <script type="text/javascript" src="{% static 'sliders/js/ImageFlow.Packed.js' %}"></script>
+
+  <!----------------------------End of Old Navy Slider--------->
+
+   {% endblock header %}
+   {% block css %}
+
+
+   {% endblock %}
+   {% block base_content %}
+   <style>
+     .header2 {
+
+         float: left;
+         width: 84%;
+         position: absolute;
+         z-index: 1;
+         top: 0;
+         min-height: 20px;
+
+     }
+   </style>
+
+   <div id="preloader">
+       <img class="preloader" src="{% static 'images/loading-img.gif'%}" alt="">
+    </div>
+    <!-- END LOADER -->
+    <div class="logo_icon" style="position:absolute; z-index:20000; margin-top:1.0vh;  " >
+  		<img id="cnss_order_id" class="indian_facebook" src="{% static 'images/COMMAND-ICON/Indian-Navy_1.png' %}">
+  	</div>
+<div class="container" id="backg">
+
+
+    <section id="tops" class="header2 " onmouseover="headerchange()" onmouseout="headerimagehide()" style=" z-index:9911;   " onmouseover="quickhide()" onmouseover="menuhover()">
+      <!-- <div class="overlay3">
+        </div> -->
+
+          <!-- <div class="" style="" > -->
+            <div class="col-md-12 p-0 m-0 ">
+              <img class="logoicons" style="" src="{% static '/images/logo/logo2.png'%}">
+            </div>
+             <div class="header-top">
+                <div class="">
+                   <div class="col-md-9" style="margin-top:-27px !important">
+                      <div class="right_top_section">
+                        <ul class="exo-menu"  id= "exo-menu" style="font-family:WhitneyHTF-Book ;" onmouseover="menuhover()">
+                          <li><a class="" style="font-family:WhitneyHTF-Book ; font-weight:bold" href="/homesmain/"> Home</a></li>
+
+                          </ul>
+                        <!-- <img src="{% static 'images/gif/logo.jpg'%}" > -->
+
+
+
+                      </div>
+                   </div>
+                </div>
+             </div>
+
+          <!-- </div> -->
+       </section>
+
+       <section id="top" style="z-index:999; "  >
+          <div class="full-slider " style="margin-top:0px;border:none;" onmouseover="menuhover()">
+            <div class="hero-area" style="z-index:999 ">
+              <div class="hero-slideshow owl-carousel" style="" >
+
+              <!-- Single Slide -->
+
+              <div class="single-slide bg-img" style="background-image: url({% static 'images/banner/NIPbg3.jpg' %}); z-index:999">
+                  <!-- Background Image-->
+                  <div class="slide-bg-img bg-img " style="background-image: url({% static 'images/banner/Slider-img/189.png' %});"></div>
+                  <!-- Welcome Text -->
+                  <div class="container h-100">
+                    <div class="row h-100 align-items-center justify-content-center">
+                        <div class="col-12 col-lg-12">
+                          <div class="welcome-text text-center mt-5 pt-5" style="margin-top:22vh !important;">
+                              <h2 class="mt-5 pt-1"  data-animation="fadeInDown" data-delay="300ms">har kaam<span> desh ke</span> naam</h2>
+
+
+                          </div>
+                        </div>
+                    </div>
+                  </div>
+                  <!-- Slide Duration Indicator -->
+                  <div class="slide-du-indicator"></div>
+              </div>
+              <div class="single-slide bg-img" style="background-image: url({% static 'images/banner/NIPbg3.jpg' %})">
+                  <!-- Background Image-->
+                  <div class="slide-bg-img bg-img " style="background-image: url({% static 'images/banner/Slider-img/41-46.png' %});"></div>
+                  <!-- Welcome Text -->
+                  <div class="container h-100">
+                    <div class="row h-100 align-items-center justify-content-center">
+                        <div class="col-12 col-lg-12">
+                          <div class="welcome-text text-center mt-5 pt-5" style="margin-top:22vh !important;">
+                              <h2 class="mt-5 pt-1"  data-animation="fadeInDown" data-delay="300ms">har kaam<span> desh ke</span> naam</h2>
+
+
+                          </div>
+                        </div>
+                    </div>
+                  </div>
+                  <!-- Slide Duration Indicator -->
+                  <div class="slide-du-indicator"></div>
+              </div>
+              <div class="single-slide bg-img" style="background-image: url({% static 'images/banner/NIPbg3.jpg' %})">
+                  <!-- Background Image-->
+                  <div class="slide-bg-img bg-img " style="background-image: url({% static 'images/banner/Slider-img/44.jpg' %});"></div>
+                  <!-- Welcome Text -->
+                  <div class="row h-100 align-items-center justify-content-center">
+                    <div class="col-12 col-lg-12">
+                      <div class="welcome-text text-center mt-5 pt-5" style="margin-top:22vh !important;">
+                          <h2 class="mt-5 pt-1"  data-animation="fadeInDown" data-delay="300ms">har kaam<span> desh ke</span> naam</h2>
+
+
+                      </div>
+                    </div>
+                </div>
+                  <!-- Slide Duration Indicator -->
+                  <div class="slide-du-indicator"></div>
+              </div>
+                <div class="single-slide bg-img" style="background-image: url({% static 'images/banner/NIPbg3.jpg' %})">
+                  <!-- Background Image-->
+                  <div class="slide-bg-img bg-img  " style="background-image: url({% static 'images/banner/Slider-img/4.jpg' %}); "></div>
+                  <!-- Welcome Text -->
+                  <div class="row h-100 align-items-center justify-content-center">
+                    <div class="col-12 col-lg-12">
+                        <div class="welcome-text text-center mt-5 pt-5" style="margin-top:22vh !important;">
+                            <h2 class="mt-5 pt-1"  data-animation="fadeInDown" data-delay="300ms">har kaam<span> desh ke</span> naam</h2>
+
+
+                        </div>
+                    </div>
+                </div>
+                  <!-- Slide Duration Indicator -->
+                  <div class="slide-du-indicator"></div>
+              </div>
+
+              <!-- Single Slide -->
+              <div class="single-slide bg-img" style="background-image: url({% static 'images/banner/NIPbg3.jpg' %})">
+                  <!-- Background Image-->
+                  <div class="slide-bg-img bg-img " style="background-image: url({% static 'images/banner/Slider-img/Dec14.png' %});"></div>
+                  <!-- Welcome Text -->
+                  <div class="container h-100">
+                    <div class="row h-100 align-items-center justify-content-center">
+                        <div class="col-12 col-lg-12">
+                          <div class="welcome-text text-center mt-5 pt-5" style="margin-top:22vh !important;">
+                              <h2 class="mt-5 pt-1"  data-animation="fadeInDown" data-delay="300ms">har kaam<span> desh ke</span> naam</h2>
+
+
+                          </div>
+                        </div>
+                    </div>
+                  </div>
+                  <!-- Slide Duration Indicator -->
+                  <div class="slide-du-indicator"></div>
+              </div>
+
+
+              <div class="single-slide bg-img" style="background-image: url({% static 'images/banner/NIPbg3.jpg' %})">
+                  <!-- Background Image-->
+                  <div class="slide-bg-img bg-img " style="background-image: url({% static 'images/banner/Slider-img/215.jpg' %});"></div>
+                  <!-- Welcome Text -->
+                  <div class="container h-100">
+                    <div class="row h-100 align-items-center justify-content-center">
+                        <div class="col-12 col-lg-12">
+                          <div class="welcome-text text-center mt-5 pt-5" style="margin-top:22vh !important;">
+                              <h2 class="mt-5 pt-1"  data-animation="fadeInDown" data-delay="300ms">har kaam<span> desh ke</span> naam</h2>
+
+
+                          </div>
+                        </div>
+                    </div>
+                  </div>
+                  <!-- Slide Duration Indicator -->
+                  <div class="slide-du-indicator"></div>
+              </div>
+
+
+
+              <!-- Single Slide -->
+
+
+              <!-- Single Slide -->
+              <div class="single-slide bg-img" style="background-image: url({% static 'images/banner/NIPbg3.jpg' %})">
+                  <!-- Background Image-->
+                  <div class="slide-bg-img bg-img " style="background-image: url({% static 'images/banner/Slider-img/16.png' %});"></div>
+                  <!-- Welcome Text -->
+                  <div class="row h-100 align-items-center justify-content-center">
+                    <div class="col-12 col-lg-12">
+                      <div class="welcome-text text-center mt-5 pt-5" style="margin-top:22vh !important;">
+                          <h2 class="mt-5 pt-1"  data-animation="fadeInDown" data-delay="300ms">har kaam<span> desh ke</span> naam</h2>
+
+
+                      </div>
+                    </div>
+                </div>
+                  <!-- Slide Duration Indicator -->
+                  <div class="slide-du-indicator"></div>
+              </div>
+
+              <!----------------------Sixth---------------------->
+
+              <div class="single-slide bg-img" style="background-image: url({% static 'images/banner/NIPbg3.jpg' %})">
+                  <!-- Background Image-->
+                  <div class="slide-bg-img bg-img " style="background-image: url({% static 'images/banner/Slider-img/24.png' %});"></div>
+                  <!-- Welcome Text -->
+                  <div class="container h-100">
+                    <div class="row h-100 align-items-center justify-content-center">
+                        <div class="col-12 col-lg-12">
+                          <div class="welcome-text text-center mt-5 pt-5" style="margin-top:22vh !important;">
+                              <h2 class="mt-5 pt-1"  data-animation="fadeInDown" data-delay="300ms">har kaam<span> desh ke</span> naam</h2>
+
+
+                          </div>
+                        </div>
+                    </div>
+                  </div>
+                  <!-- Slide Duration Indicator -->
+                  <div class="slide-du-indicator"></div>
+              </div>
+
+              <!-------------------------Seventh---------------->
+
+              <div class="single-slide bg-img" style="background-image: url({% static 'images/banner/NIPbg3.jpg' %})">
+                  <!-- Background Image-->
+                  <div class="slide-bg-img bg-img " style="background-image: url({% static 'images/banner/Slider-img/11.png' %});"></div>
+                  <!-- Welcome Text -->
+                  <div class="container h-100">
+                    <div class="row h-100 align-items-center justify-content-center">
+                        <div class="col-12 col-lg-12">
+                          <div class="welcome-text text-center mt-5 pt-5" style="margin-top:22vh !important;">
+                              <h2 class="mt-5 pt-1"  data-animation="fadeInDown" data-delay="300ms">har kaam<span> desh ke</span> naam</h2>
+
+
+                          </div>
+                        </div>
+                    </div>
+                  </div>
+                  <!-- Slide Duration Indicator -->
+                  <div class="slide-du-indicator"></div>
+              </div>
+
+              <!----------------------------Eight----------------->
+
+
+
+              </div>
+            </div>
+          </div>
+
+          <div class=" pt-0 mt-0 mb-1 img-rounded " style="z-index:99999" onmouseover="menuhover()" >
+
+
+                    <div class="row" style="background-image: url({% static 'images/prettyphoto/CNS-Message-BG.png' %}); background-repeat:no-repeat; background-size:cover !important; box-shadow: 3px 3px 5px #292929; width:100%; margin-left: 0px;z-index:999; position:relative">
+                       <!-- <div class="col-lg-1 col-md-1 col-xl-1 "></div> -->
+                        <div class="col-lg-9 col-md-9 col-xl-9 " id="cns_form"   >
+                          <ul class="exo-menu"   style="font-family:WhitneyHTF-Book ;" onmouseover="menuhover()">
+                            <li class="blog-drop-down" ><a href="#" style="font-family: 'Whitney SSm A', 'Whitney SSm B', Arial, sans-serif,Lato,sans-serif; font-weight:bold"> CNS Message</a>
+                              <div class="Blog animated fadeIn">
+                                <div class="col-lg-12">
+                                  <div class="blog-des">
+                                    <a class="text-white  pl-4" href="https://soc.indiannavy.mil/video/CNSMSG3.aspx" target="_blank" style="font-weight: 700;font-size: 18px; color:#002060;
+                                     font-family:WhitneyHTF-Book ;">
+                                      <i class="fa fa-dot-circle-o pr-5"></i> CNS address at MP-IDSA via Webinar (11 Jun 20)</a>
+                                   </div>
+                                </div>
+                                <div class="col-lg-12">
+                                  <div class="blog-des">
+                                    <a class="text-white  pl-4" href="https://soc.indiannavy.mil/video/CNSMSG2.aspx" target="_blank" style="font-weight: 700;font-size: 18px; color:#002060;
+                                     font-family:WhitneyHTF-Book ;">
+                                      <i class="fa fa-dot-circle-o pr-5 "></i> CNS Message to IN Personnel on Future Actions/ Readiness for COVID-19 (05 Jun 20)
+                                      </a>
+                                   </div>
+                                </div>
+                                <div class="col-lg-12">
+                                  <div class="blog-des">
+                                    <a class="text-white  pl-4" href="https://soc.indiannavy.mil/video/CNSmsg.aspx" target="_blank" style="font-weight: 700;font-size: 18px; color:#002060;
+                                     font-family:WhitneyHTF-Book ;">
+                                      <i class="fa fa-dot-circle-o pr-5"></i> CNS Message to IN Personnel on Preparations/ Readiness for COVID-19 (07 Apr 20)
+                                      </a>
+                                   </div>
+                                </div>
+                                <div class="col-lg-12">
+                                  <div class="blog-des">
+                                    <a class="text-white  pl-4" style="font-weight: 700;font-size: 18px; color:#002060;
+                                     font-family:WhitneyHTF-Book ;" href="http://intranet.indiannavy.mil/CNS-Guidance"  target="_blank">
+                                      <i class="fa fa-dot-circle-o pr-5"></i> CNS Guidance - Course to Steer 2019
+                                      </a>
+                                   </div>
+                                </div>
+                                <div class="col-lg-12">
+                                  <div class="blog-des">
+                                    <a class="text-white  pl-4" style="font-weight: 700;font-size: 18px; color:#002060;
+                                     font-family:WhitneyHTF-Book ;" href="http://videos.indiannavy.mil/YouPHPTube/videoEmbed/inspirational-speech-on-leadership-by-admiral-ronnie-l-pereira"target="_blank" >
+                                       <i class="fa fa-dot-circle-o  pr-5"></i> Admiral RL Pereira Inspirational Speech - Naval Leadership
+                                      </a>
+                                   </div>
+                                </div>
+
+
+
+
+                              </div>
+                            </li>
+
+                            </ul>
+
+                            <!-- <div class="col-lg-12 col-sm-12 col-xs-12 mt-4 "  >
+                              <a class="text-white  pl-4" href="https://soc.indiannavy.mil/video/CNSMSG3.aspx" target="_blank" style="font-weight: 700;font-size: 18px; color:#002060;
+                               font-family:WhitneyHTF-Book ;">
+                                <i class="fa fa-dot-circle-o pr-5"></i> CNS address at MP-IDSA via Webinar (11 Jun 20)</a>
+                            </div>
+                              <div class="col-lg-12 col-sm-12 col-xs-12"  >
+                                <a class="text-white  pl-4" href="https://soc.indiannavy.mil/video/CNSMSG2.aspx" target="_blank" style="font-weight: 700;font-size: 18px; color:#002060;
+                                 font-family:WhitneyHTF-Book ;">
+                                  <i class="fa fa-dot-circle-o pr-5 "></i> CNS Message to IN Personnel on Future Actions/ Readiness for COVID-19 (05 Jun 20)
+                                  </a>
+                              </div>
+                              <div class="col-lg-12 col-sm-12 col-xs-12" >
+                                <a class="text-white  pl-4" href="https://soc.indiannavy.mil/video/CNSmsg.aspx" target="_blank" style="font-weight: 700;font-size: 18px; color:#002060;
+                                 font-family:WhitneyHTF-Book ;">
+                                  <i class="fa fa-dot-circle-o pr-5"></i> CNS Message to IN Personnel on Preparations/ Readiness for COVID-19 (07 Apr 20)
+                                  </a>
+                              </div>
+                              <div class="col-lg-12 col-sm-12 col-xs-12"  style="" >
+                                <a class="text-white  pl-4" style="font-weight: 700;font-size: 18px; color:#002060;
+                                 font-family:WhitneyHTF-Book ;" href="http://intranet.indiannavy.mil/CNS-Guidance"  target="_blank">
+                                  <i class="fa fa-dot-circle-o pr-5"></i> CNS Guidance - Course to Steer 2019
+                                  </a>
+                              </div>
+
+                            <div class="col-lg-12 col-sm-12 col-xs-12"  style="font-weight: 700;font-size: 18px; color:#002060; font-family:WhitneyHTF-Book ;" >
+                              <a class="text-white  pl-4" style="font-weight: 700;font-size: 18px; color:#002060;
+                               font-family:WhitneyHTF-Book ;" href="http://videos.indiannavy.mil/YouPHPTube/videoEmbed/inspirational-speech-on-leadership-by-admiral-ronnie-l-pereira"target="_blank" >
+                                 <i class="fa fa-dot-circle-o  pr-5"></i> Admiral RL Pereira Inspirational Speech - Naval Leadership
+                                </a>
+                              </div> -->
+                        </div>
+
+                        <div class="col-lg-3 col-md-3 col-xl-3 pl-0 ml-0" >
+
+                          <img class="imgheight " style="" src="{% static 'images/prettyphoto/CNS.png'%}" />
+                        <!-- <img class="imgheight " style="" src="{% static 'images/COMMAND-ICON/Indian-Navy.png'%}" /> -->
+
+                        </div>
+                    </div>
+                  <!-- </div> -->
+
+          </div>
+
+          <div class="" id="whatnews" >
+            <div class="row" >
+              <div class="col-md-1 col-lg-1 pl-0 pr-0 ml-0 mr-0  pt-0" style="margin-top:4.5px; background:#0c0c0cb3" onmouseover="menuhover()"><img src="{% static 'signal/WhatsNew.png'%}" class="w-100"></div>
+              <div id="typewrit" class="col-md-10 col-lg-10 pl-0 pr-0 ml-0  border  mt-2 pt-1 pb-2 pr-2 text-white   " onmouseover="menuhover()" style="background:#0c0c0cb3; "><span href="" id="changeme" class="typewrite" data-period="1000" >
+              <span class="wrap"></span>
+              </span></div>
+              <div class="col-md-1 col-lg-1 pl-0 ml-0 pt-0 mt-1  arror h4"><i class="fa fa-arrow-circle-left fa-2x"></i>  <i class="fa fa-arrow-circle-right fa-2x"></i></div>
+            </div>
+          </div>
+          <div  class="extheight" ></div>
+          </div>
+
+
+
+
+
+
+
+
+
+      <script>
+      function openCity(evt, cityName) {
+
+        if(cityName =='London')
+        {
+          $('#img_cns').show()
+          $('#img_ig').hide()
+          $('#img_dng').hide()
+          $('#ig').show()
+          $('#DNG').show()
+          $('#cns').hide()
+
+
+        }
+        if(cityName =='Paris')
+        {
+          $('#img_cns').hide()
+          $('#img_ig').show()
+          $('#img_dng').hide()
+          $('#ig').hide()
+          $('#DNG').show()
+          $('#cns').show()
+        }
+
+        if(cityName =='Tokyo')
+        {
+          $('#img_cns').hide()
+          $('#img_ig').hide()
+          $('#img_dng').show()
+          $('#ig').show()
+          $('#DNG').hide()
+          $('#cns').show()
+        }
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+          tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(cityName).style.display = "block";
+        evt.currentTarget.className += " active";
+      }
+
+      // Get the element with id="defaultOpen" and click on it
+      document.getElementById("defaultOpen").click();
+
+      /////////////////////////////////////////////////////
+
+      $(document).ready(function(){
+
+
+      	//----------Select the first tab and div by default
+
+      	$('#vertical_tab_nav > ul > li > a').eq(0).addClass( "selected" );
+      	$('#vertical_tab_nav > div > article').eq(0).css('display','block');
+
+
+      	//---------- This assigns an onclick event to each tab link("a" tag) and passes a parameter to the showHideTab() function
+
+      		$('#vertical_tab_nav > ul').click(function(e){
+
+            if($(e.target).is("a")){
+
+              /*Handle Tab Nav*/
+              $('#vertical_tab_nav > ul > li > a').removeClass( "selected");
+              $(e.target).addClass( "selected");
+
+              /*Handles Tab Content*/
+              var clicked_index = $("a",this).index(e.target);
+              $('#vertical_tab_nav > div > article').css('display','none');
+              $('#vertical_tab_nav > div > article').eq(clicked_index).fadeIn();
+
+            }
+
+              $(this).blur();
+              return false;
+
+      		});
+
+      });//end ready
+      </script>
+
+         <div class="p-0 m-0" style="padding:5px 25px; background-size:cover !important; background-image: url({% static 'images/gif/NIPbg4.png' %}); background-size:cover !important; height:50%!important;  ">
+           <div class="container" style="" >
+
+
+
+            <div class="row">
+              <div class="container">
+                <div class="row">
+                  <span class="defencezone">
+
+                    </span>
+                  <div class="col-lg-3 col-md-2 "></div>
+                    <div class="col-lg-7 col-md-8 pr-2">
+
+                      <div id="dnn_ctr2745_View_ctl00_divImageFlow" class="imageflow " >
+                        <img src="{% static 'images/officer/President.png'%}" longdesc="{% static 'images/officer/President.png'%}" alt="001" width="120" height="150" />
+                        <img src="{% static 'images/officer/CNS.png'%}" longdesc="{% static 'images/officer/CNS.png'%}" alt="002" width="120" height="150" />
+                        <img src="{% static 'images/officer/CNC-WEST.png'%}" longdesc="{% static 'images/officer/CNC-WEST.png'%}" alt="007" width="120" height="150" />
+                        <img src="{% static 'images/officer/CNC-SOUTH.png'%}" longdesc="{% static 'images/officer/CNC-SOUTH.png'%}" alt="008" width="120" height="150" />
+                        <img src="{% static 'images/officer/CNC-EAST.png'%}" longdesc="{% static 'images/officer/CNC-EAST.png'%}" alt="009" width="120" height="150" />
+                        <img src="{% static 'images/officer/VCNS.png'%}" longdesc="{% static 'images/officer/VCNS.png'%}" alt="010" width="120" height="150" />
+                        <img src="{% static 'images/officer/COP.png'%}" longdesc="{% static 'images/officer/COP.png'%}" alt="012" width="120" height="150" />
+                        <img src="{% static 'images/officer/DCNS.png'%}" longdesc="{% static 'images/officer/DCNS.png'%}" alt="013" width="120" height="150" />
+                        <img src="{% static 'images/officer/COM.png'%}" longdesc="{% static 'images/officer/COM.png'%}" alt="14" width="120" height="150" />
+
+
+                      </div>
+                      <div class="" >
+                        <h2 class="text-white text-center pt-3 officertext " >Know Your Officers</h2>
+
+                      </div>
+                    </div>
+                    <div class="col-lg-2 col-md-2 ">
+
+                    </div>
+                </div>
+
+
+                    <script type="text/javascript">
+                    //<![CDATA[
+                    domReady(function(){
+                    var imageFlow2745 = new ImageFlow();
+                    imageFlow2745.init(
+                    {
+                    animationSpeed:50,
+                    aspectRatio:1.964,
+                    buttons:false,
+                    captions:false,
+                    circular:true,
+                    imageCursor:'pointer',
+                    ImageFlowID:'dnn_ctr2745_View_ctl00_divImageFlow',
+                    imageFocusM:1.0,
+                    imageFocusMax:4,
+                    imageScaling:true,
+                    imagesHeight:0.67,
+                    imagesM:1.0,
+                    percentLandscape:118,
+                    percentOther:100,
+                    preloadImages:true,
+                    reflections:false,
+                    reflectionP:0.5,
+                    reflectionPNG:false,
+                    reflectionGET:'',
+                    reflectPath:'',
+                    startID:1,
+                    startAnimation:false,
+                    slider:false,
+                    sliderCursor:'default',
+                    sliderWidth:14,
+                    slideshow:true,
+                    slideshowSpeed:1500,
+                    slideshowAutoplay:true,
+                    xStep:150,
+                    onClick: function() { return hs.expand(this,
+                                  { src: this.getAttribute('longdesc'),
+                                     outlineType: 'rounded-white',
+                                     fadeInOut: true,
+                                     captionText: this.getAttribute('alt') } ); }
+                    });
+                    });
+                    //]]>
+                    </script>
+
+                </div>
+
+                </div>
+
+
+
+
+            </div>
+         </div>
+       </div>
+</div>
+
+
+
+</section>
+
+
+<script src="{% static 'vassets/js/jquery-2.1.1.js' %}"></script>
+<script src="{% static 'vassets/js/jquery.menu-aim.js' %}"></script> <!-- menu aim -->
+<script src="{% static 'vassets/js/main.js' %}"></script>
+
+
+         {% include 'application/footer.html' %}
+
+         </div>
+
+
+
+            <!-- </div> -->
+
+
+
+
+
+
+
+
+            <!-- ALL JS FILES -->
+
+
+      </html>
+      {% endblock base_content %}
+
+      {% block htmljs %}
+
+
+      {% endblock htmljs %}

@@ -1,0 +1,1478 @@
+
+{% extends "application/base.html" %}
+
+{% load static %}
+{% block header %}
+<!DOCTYPE html>
+<html lang="en">
+   <!-- Basic -->
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <!-- Mobile Metas -->
+   <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+   <!-- Site Metas -->
+   {% block title %}{% endblock %}
+   <meta name="keywords" content="">
+   <meta name="description" content="">
+   <!---------------------------babu slider---->
+   <link rel="stylesheet" href="{% static 'vendor/owl.carousel/assets/owl.carousel.css' %}">
+   <link rel="stylesheet" href="{% static 'vendor/owl.carousel/assets/owl.theme.default.css' %}">
+
+
+   <link rel="stylesheet" href="{% static 'css/style.default.css' %}">
+   <!---------------->
+   <style>
+
+
+    .primary-nav {
+    text-align: center;
+    border-radius: 4px;
+    overflow: hidden; /* [1] */
+}
+
+        .primary-nav a {
+            padding: 1em;
+            background-color: #BADA55;
+            color: #fff;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .primary-nav a:hover {
+            background-color: #A3C43B;
+        }
+
+
+@import url({% static 'fonts/text_fonts/candal.css'%});
+@import url({% static 'fonts/text_fonts/dafoe.css'%});
+@import url({% static 'fonts/text_fonts/monton.css'%});
+@import url({% static 'fonts/text_fonts/righteous.css'%});
+
+@import url({% static 'fonts/text_fonts/titillium.css'%});
+
+@import url({% static 'fonts/text_fonts/marker.css'%});
+   </style>
+   <meta name="author" content="">
+   <!-- Site Icons -->
+   <link rel="shortcut icon" href="" type="image/x-icon" />
+   <link rel="apple-touch-icon" href="">
+   <!-- <script src="{% static 'js/commander.js' %}"></script> -->
+   <!-- Bootstrap CSS -->
+   <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+   <!-- Site CSS -->
+   <link rel="stylesheet" href="{% static 'style.css' %}">
+   <!-- Colors CSS -->
+   <link rel="stylesheet" href="{% static 'css/colors.css' %}">
+   <!-- ALL VERSION CSS -->
+   <link rel="stylesheet" href="{% static 'css/versions.css' %}">
+   <!-- Responsive CSS -->
+   <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+   <!-- Custom CSS -->
+   <link rel="stylesheet" href="{% static 'css/custom-scroll.css' %}">
+   <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+
+
+   <!-- font family -->
+   <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+   <!-- end font family -->
+   <link rel="stylesheet" href="{% static 'css/3dslider.css' %}" />
+
+
+
+
+  <!--------------------------slider and new Features---------------->
+         <link href="{% static 'themes/css/main.css' %}" rel="stylesheet"/>
+
+      <!-- scripts -->
+
+   <link rel="stylesheet" href="{% static 'aos.css' %}">
+
+      <!-- ALL PLUGINS -->
+
+   <script src="{% static 'aos.js' %}"></script>
+   <script src="{% static 'js_css/bootstrap.min.js' %}"></script>
+   <script src="{% static 'js_css/popper.min.js' %}"></script>
+   <script src="{% static 'js_css/jquery.min.js' %}"></script>
+
+
+
+
+
+
+
+  <!-------------------------------------------------------------------------------------->
+
+  <style>
+.dropbtn {
+
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  min-width: 160px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 10;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown a:hover {color: #ddd;}
+
+.show {display: block;}
+
+
+
+/*------------------------------------------*/
+.text-white{
+  color: #fff !important;
+}
+
+.bg-white{
+  background: white !important;
+}
+</style>
+
+<script>
+/* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>
+
+
+   {% endblock header %}
+   {% block css %}
+
+
+   {% endblock %}
+   {% block base_content %}
+
+
+     <script>
+       $(window).on('load',function(){
+
+     })
+       </script>
+       <!-------------------------------------------slider-------------------->
+
+    <!-------------------------------------------slider-------------------->
+
+      <!-- LOADER -->
+     <div id="preloader">
+         <img class="preloader" src="{% static 'images/loading-img.gif'%}" alt="">
+      </div>
+      <!-- END LOADER -->
+
+      <section id="tops" style="background-image:url({% static 'images/Banner-top-v5.jpg' %}); background-repeat:no-repeat; background-size:cover;  ">
+        <div class="overlay3">
+          </div>
+
+            <div class="container" >
+               <div class="header-top">
+                  <div class="row">
+
+                     <div class="col-md-6">
+                        <div class="full">
+                           <div class="logo mt-1 pt-1">
+
+                            <!--
+                              <a href="index.html"><img src="{% static 'images/navy_logo.png' %}" alt="#" width="100%" height="20%"/></a> -->
+
+                              <span style="font-weight: bold;  color:#fff; font-size:28px;padding-left: 67px;" class="mt-2 ml-2"> <img class="logoicon" src="{% static 'images/banner/NIP-v2.png'%}"></span>
+
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-md-6">
+                        <div class="right_top_section">
+                          <!-- <img src="{% static 'images/gif/logo.jpg'%}" > -->
+
+
+
+
+
+                               {% if request.user.is_authenticated %}
+
+                                 <div class="dropdown">
+                                    <a onclick="myFunction()" class="dropbtn">{{user.name}}</a>
+
+                                <div id="myDropdown" class="dropdown-content"><input type="hidden" id="userId" value="{{user.name}}">
+                                  <a href="#home">Logout</a>
+
+                                </div>
+                        </div>
+                            {% endif %}
+                              <!-- <li class="login-modal">
+                                 <a href="#" class="login"><i class="fa fa-user"></i>Login</a>
+                              </li> -->
+                              <!-- <li>
+
+                                 <div class="cart-option">
+                                    <a href="#"><i class="fa fa-shopping-cart"></i>Register</a>
+                                 </div>
+                              </li> -->
+
+
+                        </div>
+                     </div>
+                  </div>
+               </div>
+
+            </div>
+         </section>
+          <section id="top" style="background-color: #10147E; !important">
+            <div class="container" >
+              <div class="row">
+                <!-- <div class="col-lg-3 col-sm-12 col-xs-12">
+                  <span style="font-weight: bold;  color:#fff; font-size:20px;"> Naval Intranet Portal</span>
+
+                  </div>-->
+
+                  <div class="col-lg-12 col-sm-12 col-xs-12">
+
+
+
+
+
+              <script>
+              $(function () {
+               $('.toggle-menu').click(function(){
+                $('.exo-menu').toggleClass('display');
+
+               });
+
+              });
+
+              </script>
+                <ul class="exo-menu" style="font-family: 'Whitney SSm A', 'Whitney SSm B', Arial, sans-serif,Lato,sans-serif">
+                  <li><a class="active" style="font-family: 'Whitney SSm A', 'Whitney SSm B', Arial, sans-serif,Lato,sans-serif; font-weight:bold" href="#"><i class="fa fa-home"></i> Home</a></li>
+                  <li class="drop-down"><a href="#" style="font-family: 'Whitney SSm A', 'Whitney SSm B', Arial, sans-serif,Lato,sans-serif; font-weight:bold"><i class="fa fa-cogs"></i> Application</a>
+                    <!--Drop Down-->
+                    <ul class="drop-down-ul animated fadeIn" style="font-family: 'Whitney SSm A', 'Whitney SSm B', Arial, sans-serif,Lato,sans-serif; ">
+                    <li class="flyout-right"><a href="#" style="font-family: 'Whitney SSm A', 'Whitney SSm B', Arial, sans-serif,Lato,sans-serif">e-Pahchaan</a><!--Flyout Right-->
+                      <!-- <ul class="animated fadeIn">
+                        <li><a href="#">Mobile</a></li>
+                        <li><a href="#">Computer</a></li>
+                        <li><a href="#">Watch</a></li>
+                      </ul> -->
+                    </li>
+
+                    <li class="flyout-left"><a href="#" style="font-family: 'Whitney SSm A', 'Whitney SSm B', Arial, sans-serif,Lato,sans-serif">NCMIS</a><!--Flyout Left-->
+                      <!-- <ul class="animated fadeIn">
+                        <li><a href="#">Mobile</a></li>
+                        <li><a href="#">Computer</a></li>
+                        <li><a href="#">Watch</a></li>
+                      </ul> -->
+                    </li>
+
+                    <li><a href="#" style="font-family: 'Whitney SSm A', 'Whitney SSm B', Arial, sans-serif,Lato,sans-serif; ">INBA</a></li>
+
+                    </ul>
+                    <!--//End drop down-->
+
+                  </li>
+                  <li class="blog-drop-down" ><a href="#" style="font-family: 'Whitney SSm A', 'Whitney SSm B', Arial, sans-serif,Lato,sans-serif; font-weight:bold"><i class="fa fa-bullhorn"></i> Knowledge</a>
+                    <div class="Blog animated fadeIn">
+                      <div class="container">
+                        <div class="row">
+                          <div class="col-md-3">
+                            
+                            <div class="card border bg-white">
+                              <div class="card-body">
+                                <img class="w-100" src="{% static 'images/main-slider-img1.jpg' %}"/>
+                                <h4 class="blog-title p-2">Organisation generated</h4>
+                                <h6 class="text-white justify-content">This is the space of content  This is the space of content  This is the space of content  This is the space of contentThis is the space of content This is the space of content This is the space of content This is the space of content</p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-3">
+                            <h4 class="mega-title">Policy Letters</h4>
+                          </div>
+                          <div class="col-md-3"><h4 class="blog-title">Organisation generated</h4></div>
+                          <div class="col-md-3"><h4 class="blog-title">Organisation generated</h4></div>
+                        </div>
+                      </div>
+                      <!-- <div class="col-md-12">
+                        <div class="blog-des">
+                          <h4 class="blog-title">Organisation generated</h4>
+                          <div class="col-md-3">
+                            <h4 class="row mega-title">Policy Letters</h4>
+                          </div>
+                          <div class="col-md-3">
+                            <h4 class="row mega-title">Publication</h4>
+                          </div>
+                          <div class="col-md-3">
+                            <h4 class="row mega-title">Navy Orders</h4>
+                          </div>
+                          <div class="col-md-3">
+                            <h4 class="row mega-title">navy Instructions</h4>
+                          </div>
+                          <div class="col-md-3">
+                            <h4 class="row mega-title">Guidelines</h4>
+                          </div>
+                          <div class="col-md-3">
+                            <h4 class="row mega-title">Standards</h4>
+                          </div>
+                          <div class="col-md-3">
+                            <h4 class="row mega-title">Brs</h4>
+                          </div>
+                          <div class="col-md-3">
+                            <h4 class="row mega-title">Wesee</h4>
+                          </div>
+
+
+
+
+                        </div>
+                      </div> -->
+                    </div>
+                  </li>
+                  <li><a href="#" style="font-family: 'Whitney SSm A', 'Whitney SSm B', Arial, sans-serif,Lato,sans-serif; font-weight:bold"><i class="fa fa-cogs"></i>Services </a></li>
+
+
+                  <li class="blog-drop-down" ><a href="#" style="font-family: 'Whitney SSm A', 'Whitney SSm B', Arial, sans-serif,Lato,sans-serif; font-weight:bold"><i class="fa fa-bullhorn"></i> Other Sites</a>
+                    <div class="Blog animated fadeIn">
+                      <div class="col-md-12">
+                        <div class="blog-des">
+                          <h4 class="blog-title">Naval headquarters</h4>
+                          <div class="col-md-4">
+                            <h4 class="row mega-title">DGMS Navy</h4>
+                          </div>
+                          <div class="col-md-4">
+                            <h4 class="row mega-title">DNT</h4>
+                          </div>
+                          <div class="col-md-4">
+                            <h4 class="row mega-title">Dte Of Standardisation</h4>
+                          </div>
+                          <div class="col-md-4">
+                            <h4 class="row mega-title">DOP</h4>
+                          </div>
+                          <div class="col-md-4">
+                            <h4 class="row mega-title">DPS</h4>
+                          </div>
+                          <div class="col-md-4">
+                            <h4 class="row mega-title">DQA Navy</h4>
+                          </div>
+                          <div class="col-md-4">
+                            <h4 class="row mega-title">IR&FC</h4>
+                          </div>
+                          <div class="col-md-4">
+                            <h4 class="row mega-title">Wesee</h4>
+                          </div>
+                          <div class="col-md-4">
+                            <h4 class="row mega-title">Ship Building</h4>
+                          </div>
+
+
+
+                        </div>
+                      </div>
+                      <div class="col-md-12">
+
+                        <div class="blog-des">
+                          <h4 class="blog-title">WNC</h4>
+                          <div class="col-md-4">
+                            <h4 class="row mega-title">HQWNC</h4>
+                          </div>
+                          <div class="col-md-4">
+                            <h4 class="row mega-title">NavPay</h4>
+                          </div>
+                          <div class="col-md-4">
+                            <h4 class="row mega-title">CABS</h4>
+                          </div>
+                          <div class="col-md-4">
+                            <h4 class="row mega-title">Asvini</h4>
+                          </div>
+                          <div class="col-md-4">
+                            <h4 class="row mega-title">DPS</h4>
+                          </div>
+                          <div class="col-md-4">
+                            <h4 class="row mega-title">DQA Navy</h4>
+                          </div>
+                          <div class="col-md-4">
+                            <h4 class="row mega-title">IR&FC</h4>
+                          </div>
+                          <div class="col-md-4">
+                            <h4 class="row mega-title">Wesee</h4>
+                          </div>
+                          <div class="col-md-4">
+                            <h4 class="row mega-title">Ship Building</h4>
+                          </div>
+
+
+
+                        </div>
+                      </div>
+
+                      <div class="col-md-12">
+
+                        <div class="blog-des">
+                          <h4 class="blog-title">ENC</h4>
+                          <div class="col-md-4">
+                            <h4 class="row mega-title">HQENC</h4>
+                          </div>
+                          <div class="col-md-4">
+                            <h4 class="row mega-title">Nd Vizag</h4>
+                          </div>
+                          <div class="col-md-4">
+                            <h4 class="row mega-title">Kalyani</h4>
+                          </div>
+                          <div class="col-md-4">
+                            <h4 class="row mega-title">Circars</h4>
+                          </div>
+
+
+
+
+
+                        </div>
+                      </div>
+
+                      <div class="col-md-12">
+
+                        <div class="blog-des">
+                          <h4 class="blog-title">SNC</h4>
+                          <div class="col-md-4">
+                            <h4 class="row mega-title">HQSNC</h4>
+                          </div>
+                          <div class="col-md-4">
+                            <h4 class="row mega-title">FOSt</h4>
+                          </div>
+                          <div class="col-md-4">
+                            <h4 class="row mega-title">INST</h4>
+                          </div>
+                          <div class="col-md-4">
+                            <h4 class="row mega-title">Circars</h4>
+                          </div>
+
+
+
+
+
+                        </div>
+                      </div>
+
+
+
+                    </div>
+                  </li>
+
+
+                  <a href="#" class="toggle-menu visible-xs-block">|||</a>
+                </ul>
+                </div>
+
+            </div>
+            </div>
+
+          </section>
+
+      <section  style="background-image: url({% static 'images/slider/Static-banner.jpg' %});center center repeat; background-size: cover;z-index:-999" class="bar background-white relative-positioned" >
+        <div class="container" >
+          <!-- Carousel Start-->
+          <div class="home-carousel">
+            <div class="dark-mask mask-primary"></div>
+            <div class="container">
+              <div class="homepage owl-carousel mt-0 pt-0 mb-0 pt-0">
+
+                <div class="item">
+
+                  <div class="row p-2 m-2" >
+
+                    <div class="col-md-8 text-right p-3">
+                      <p></p>
+                      <h1 style="color:#fff">Har Kaam Desh Ke Naam</h1>
+                      <p class="h5 text-left text-orange"><a style="color:#efc32b;" class="text-shadow-sliderLink" href="https://soc.indiannavy.mil/video/CNSMSG3.aspx">CNS address at MP-IDSA via Webinar (11 Jun 20)</a></p>
+                      <p class="h5 text-left text-orange"><a style="color:#efc32b;" class="text-shadow-sliderLink" href="https://soc.indiannavy.mil/video/CNSMSG3.aspx">CNS Message to IN Personnel on Future Actions/ Readiness for COVID-19 (05 Jun 20) </a></p>
+                      <p class="h5 text-left text-orange"><a style="color:#efc32b ;" class="text-shadow-sliderLink" href="https://soc.indiannavy.mil/video/CNSmsg.aspx">CNS Message to IN Personnel on Preparations/ Readiness for COVID-19 (07 Apr 20) </a></p>
+                      <p class="h5 text-left text-orange"><a style="color:#efc32b ;" class="text-shadow-sliderLink" href="https://soc.indiannavy.mil/video/CNSmsg.aspx">CNS Guidance - Course to Steer 2019</a></p>
+                        <p class="h5 text-left text-orange"><a style="color:#efc32b;" class="text-shadow-sliderLink" href="http://videos.indiannavy.mil/YouPHPTube/videoEmbed/inspirational-speech-on-leadership-by-admiral-ronnie-l-pereira">Admiral RL Pereira Inspirational Speech - Naval Leadership</a </p>
+
+
+                    </div>
+                    <div class="col-md-4 col-md-4  pt-4" >
+                        <center><img  style=""class="img-rounded w-75 mt-5 shadow" src="{% static 'images/banner/CNS.png'%}" > </center>
+                    </div>
+                  </div>
+                </div>
+                <!-- <div class="item">
+
+                  <div class="row p-2 m-2" >
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6 text-right p-5">
+                      <p></p>
+                      <h1 style="color:#fff">Har Kaam Desh Ke Naam</h1>
+                      <p style="color:#fff" class="h4">Try to be a Part of Indian Navy and be Proud to be an  Indian.</p>
+
+                      <p> <a style="color:#fff" href="#"><span><img src="{% static 'images/completed/satyamev-jayate.png'%}"></span><h1 class="pt-0">ENC</h1></a></p>
+                    </div>
+                    <div class="col-md-3"></div>
+                  </div>
+                </div>
+                <div class="item">
+
+                  <div class="row p-2 m-2" >
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6 text-right p-5">
+                      <p></p>
+                      <h1 style="color:#fff">Har Kaam Desh Ke Naam</h1>
+                      <p style="color:#fff" class="h4">Try to be a Part of Indian Navy and be Proud to be an  Indian.</p>
+
+                      <p> <a style="color:#fff" href="#"><span><img src="{% static 'images/completed/satyamev-jayate.png'%}"></span><h1 class="pt-0">SNC</h1></a></p>
+                    </div>
+                    <div class="col-md-3"></div>
+                  </div>
+                </div>
+                <div class="item">
+
+                  <div class="row p-2 m-2" >
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6 text-right p-5">
+                      <p></p>
+                      <h1 style="color:#fff">Har Kaam Desh Ke Naam</h1>
+                      <p style="color:#fff" class="h4">Try to be a Part of Indian Navy and be Proud to be an  Indian.</p>
+
+                      <p> <a style="color:#fff" href="#"><span><img src="{% static 'images/completed/satyamev-jayate.png'%}"></span><h1 class="pt-0">ANC</h1></a></p>
+                    </div>
+                    <div class="col-md-3"></div>
+                  </div>
+                </div> -->
+
+            </div>
+
+          </div>
+          <!-- Carousel End-->
+          </div>
+
+
+       </section>
+
+
+
+
+
+       <!-------------------------------------------------------->
+
+ <style>
+                    .urlImg
+                    {
+                      /*border-bottom:1px dotted grey; */
+                      /*background-color: #009BD4;*/
+                       color:#000; font-weight:bold;
+                       /*border:1px solid dotted grey;*/
+
+
+                    }
+                    .urlImg:hover {
+                        background-color: #fff;
+                        -webkit-transform: scale(1.1);
+                        color:#000;
+                  -ms-transform: scale(1.1);
+                  transform: scale(1.1);
+                  transition: 1s ease;
+                 /* border:1px solid dotted grey;*/
+                   top: 0;
+                  /* visibility: visible;*/
+    /*position: absolute;*/
+
+                      }
+                    </style>
+                    <script>
+                      function myfunti(ddd)
+                      {
+                       var idd = ddd.split("_")
+                       var id  = idd[1]
+                       var savinimg = "ddd_"+id
+                       var imgshow = document.getElementById(savinimg)
+                       imgshow.style.display='block'
+                       var savinghide = "dd_"+id
+                       var imghide = document.getElementById(savinghide)
+                       imghide.style.display='none'
+
+
+
+                      }
+
+                            function normalImg(ddd)
+                      {
+                       var idd = ddd.split("_")
+                       var id  = idd[1]
+                       var savinghide = "dd_"+id
+
+                       var imgshow = document.getElementById(savinghide)
+                       imgshow.style.display='block'
+                       var savinimg = "ddd_"+id
+                       var imghide = document.getElementById(savinimg)
+                       imghide.style.display='none'
+
+
+
+                      }
+                    </script>
+
+      <script>
+      var myvar;
+         jQuery(document).ready(function($) {
+            $('.counter-count').counterUp({
+               delay: 10,
+               time: 1000,
+            });
+         });
+
+         $(function() {
+            $.scrollify({
+               section : ".full-height",
+            });
+         });
+
+         $(document).ready(function() {
+            $('.carousel').carousel({
+              interval: 4000,
+              pauseOnHover     : true
+            })
+         });
+         AOS.init({
+            duration: 1200,
+         })
+
+   </script>
+
+   <section  id="contant" class="contant" style="background-image: url({% static 'images/banner/13.png' %}); font-family: 'Whitney SSm A', 'Whitney SSm B', Arial, sans-serif !important; position:relative;z-index:-999 " >
+
+        <div  class="overlay2">
+        </div>
+        <div class="container"  >
+
+
+            <br/>
+        </div>
+
+        </<section>
+
+                  <!------------------------------------------------------------------------>
+
+                  <section id="contant" class="contant"  style="background-image: url({% static 'images/banner/142.png' %});!important; Z-index:-999"  >
+                           <div class="container">
+                              <div class="row">
+                                 <div class="col-lg-4 col-sm-12 col-xs-12">
+                                    <aside id="sidebar" class="left-bar" style="background-image: url({% static 'images/prod_bg2.jpg' %});border-top-left-radius: 30px;box-shadow: 10px 10px 5px grey;">
+                                       <div class="banner-sidebar" >
+                                        <div class="main-heading-holder" style="">
+                                         <div class="main-heading sytle-2"  style="border-bottom: 1px solid #fff; ">
+
+                                            <h2 style="color:#fff;text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;  text-shadow: 2px 2px grey;" >Quick Links</h2>
+
+
+                                         </div>
+                                         <div class="col-lg-12 col-sm-12 col-xs-12">
+                                              <table class="table  journeyTable" style="background-color: #9AD7F987">
+                                                <tr><td>
+
+
+                                        <div class="col-lg-4 col-sm-6 col-xs-12"
+                                           style="">
+                                          <aside id="sidebar" class="left-bar"  style="border-radius: 25px;box-shadow:2px  2px;background-color: #AFDEF9 ">
+                                           <div class="feature-matchs urlImg"  style="padding-bottom:8px;  border-radius: 25px;box-shadow:2px  2px;background-color: #AFDEF9">
+                                              <center style="padding-top:1%" onmouseover="myfunti('ddd_1')" onmouseout="normalImg('ddd_1')"> <img class="dd" id="dd_1" src="{% static 'images/completed/e-library5.png' %}" width="50%" height
+                                                ="50%"> <img class="ddd" id="ddd_1"  style="display:none " src="{% static 'images/completed/e-library5.png' %}" width="50%" height
+                                                ="50%" >
+                                              </center>
+                                              <center>
+                                                <span class="h5" style=" font-weight: bold">WNC</span>
+                                              </center>
+
+                                            </div>
+                                          </aside>
+                                        </div>
+                                        <div class="col-lg-4 col-sm-6 col-xs-12" >
+                                          <aside id="sidebar" class="left-bar"  style="border-radius: 25px;box-shadow:2px  2px;background-color: #AFDEF9">
+                                           <div class="feature-matchs urlImg"  style="padding-bottom:8px;  border-radius: 25px;box-shadow:2px  2px;background-color: #AFDEF9">
+                                            <center style="padding-top:1%" onmouseover="myfunti('ddd_2')" onmouseout="normalImg('ddd_2')"> <img class="dd" id="dd_2" src="{% static 'images/completed/guidline5.png' %}" width="50%" height
+                                            ="50%" > <img class="ddd" id="ddd_2"  style="display:none " src="{% static 'images/completed/guidline5.png' %}" width="50%" height
+                                            ="50%" > </center>
+                                            <center>
+                                            <span class="h5" style=" font-weight: bold">ENC</span>
+                                            </center>
+
+                                            </div>
+                                          </aside>
+                                        </div>
+                                        <div class="col-lg-4 col-sm-6 col-xs-12"  >
+                                            <aside id="sidebar" class="left-bar" style="border-radius: 25px;box-shadow:2px  2px;background-color: #AFDEF9">
+                                             <div class="feature-matchs urlImg" align="center" style="padding-bottom:8px;  border-radius: 25px;box-shadow:2px  2px;background-color: #AFDEF9">
+                                              <center style="padding-top:1%" onmouseover="myfunti('ddd_3')" onmouseout="normalImg('ddd_3')"> <img class="dd" id="dd_3" src="{% static 'images/completed/navy instruction5.png' %}" width="50%" height
+                                              ="50%" > <img class="ddd" id="ddd_3"  style="display:none " src="{% static 'images/completed/navy instruction5.png' %}" width="50%" height
+                                              ="50%" > </center>
+                                              <center>
+                                              <span class="h5" style="font-weight: bold">SNC</span>
+                                              </center>
+
+
+                                              </div>
+                                            </aside>
+                                        </div>
+
+                                      <div class="col-lg-4 col-sm-6 col-xs-12" >
+                                          <aside id="sidebar" class="left-bar" style="border-radius: 25px;box-shadow:2px  2px;background-color: #AFDEF9">
+                                           <div class="feature-matchs urlImg" style="border-radius: 25px;box-shadow:2px  2px;padding-bottom:8px;  background-color: #AFDEF9">
+                                                  <center style="padding-top:1%" onmouseover="myfunti('ddd_4')" onmouseout="normalImg('ddd_4')"> <img class="dd" id="dd_4" src="{% static 'images/completed/order5.png' %}" width="50%" height
+                                                ="50%"> <img class="ddd" id="ddd_4"  style="display:none " src="{% static 'images/completed/order5.png' %}" width="50%" height
+                                                ="50%" > </center>
+                                              <center>
+                                          <span class="h5" style=" font-weight: bold">ANC</span>
+                                          </center>
+                                            </div>
+                                          </aside>
+                                      </div>
+
+
+                                      <div class="col-lg-4 col-sm-6 col-xs-12"
+                                           >
+                                          <aside id="sidebar" class="left-bar" style="border-radius: 25px;box-shadow:2px  2px;background-color: #AFDEF9">
+                                           <div class="feature-matchs urlImg" style="border-radius: 25px;box-shadow:2px  2px;padding-bottom:8px; background-color: #AFDEF9">
+                                              <center style="padding-top:1%" onmouseover="myfunti('ddd_7')" onmouseout="normalImg('ddd_7')"> <img class="dd" id="dd_7" src="{% static 'images/completed/policy letter5.png' %}" width="50%" height
+                                                ="50%"> <img class="ddd" id="ddd_7"  style="display:none " src="{% static 'images/completed/policy letter5.png' %}" width="50%" height
+                                                ="50%" >
+                                              </center>
+                                              <center>
+                                                <span class="h5" style=" font-weight: bold">NIC App</span>
+                                              </center>
+
+                                            </div>
+                                          </aside>
+                                        </div>
+                                        <div class="col-lg-4 col-sm-6 col-xs-12"
+                                          >
+                                          <aside id="sidebar" class="left-bar" style="border-radius: 25px;box-shadow:2px  2px;background-color: #AFDEF9">
+                                           <div class="feature-matchs urlImg" style="border-radius: 25px;box-shadow:2px  2px;padding-bottom:8px;  background-color: #AFDEF9">
+                                              <center style="padding-top:1%" onmouseover="myfunti('ddd_8')" onmouseout="normalImg('ddd_8')"> <img class="dd" id="dd_8" src="{% static 'images/completed/publication5.png' %}" width="50%" height
+                                                ="50%"> <img class="ddd" id="ddd_8"  style="display:none " src="{% static 'images/completed/publication5.png' %}" width="50%" height
+                                                ="50%" >
+                                              </center>
+                                              <center>
+                                                <span class="h5" style=" font-weight: bold">e-Pechaan</span>
+                                              </center>
+
+                                            </div>
+                                          </aside>
+                                        </div>
+                                        <div class="col-lg-4 col-sm-6 col-xs-12">
+                                          <aside id="sidebar" class="left-bar" style="border-radius: 25px;box-shadow:2px  2px;background-color: #AFDEF9">
+                                           <div class="feature-matchs urlImg" style="border-radius: 25px;box-shadow:2px  2px;padding-bottom:8px;  background-color: #AFDEF9">
+                                                  <center style="padding-top:1%" onmouseover="myfunti('ddd_6')"
+                                                  onmouseout="normalImg('ddd_6')">
+                                                  <img class="dd" id="dd_6" src="{% static 'images/completed/standared5.png' %}" width="50%" height
+                                                ="50%">
+                                                <img class="ddd" id="ddd_6"
+                                                 style="display:none " src="{% static 'images/completed/standared5.png' %}" width="50%" height
+                                                ="50%" > </center>
+                                              <center>
+                                          <span class="h5" style=" font-weight: bold">E-Office</span>
+                                          </center>
+                                            </div>
+                                          </aside>
+                                      </div>
+
+                                      <div class="col-lg-4 col-sm-6 col-xs-12">
+                                          <aside id="sidebar" class="left-bar" style="border-radius: 25px;box-shadow:2px  2px;background-color: #AFDEF9">
+                                           <div class="feature-matchs urlImg" style="border-radius: 25px;box-shadow:2px  2px;padding-bottom:8px; background-color: #AFDEF9">
+                                                  <center style="padding-top:1%" onmouseover="myfunti('ddd_5')" onmouseout="normalImg('ddd_5')"> <img class="dd" id="dd_5" src="{% static 'images/completed/e-library5.png' %}" width="50%" height
+                                                ="50%"> <img class="ddd" id="ddd_5"  style="display:none " src="{% static 'images/completed/e-library5.png' %}" width="50%" height
+                                                ="50%" > </center>
+                                              <center>
+                                          <span class="h5" style=" font-weight: bold">NPO</span>
+                                          </center>
+                                            </div>
+                                          </aside>
+                                      </div>
+                                        <div class="col-lg-4 col-sm-6 col-xs-12"
+                                           >
+                                          <aside id="sidebar" class="left-bar" style="border-radius: 25px;box-shadow:2px  2px;background-color: #AFDEF9">
+                                           <div class="feature-matchs urlImg" style="border-radius: 25px;box-shadow:2px  2px; padding-bottom:8px; background-color: #AFDEF9">
+                                              <center style="padding-top:1%" onmouseover="myfunti('ddd_9')" onmouseout="normalImg('ddd_9')"> <img class="dd" id="dd_9" src="{% static 'images/completed/guidline5.png' %}" width="50%" height
+                                                ="50%"> <img class="ddd" id="ddd_9"  style="display:none " src="{% static 'images/completed/guidline5.png' %}" width="50%" height
+                                                ="50%" >
+                                              </center>
+                                              <center>
+                                                <span class="h5" style=" font-weight: bold">e-Seva</span>
+                                              </center>
+
+                                            </div>
+                                          </aside>
+                                        </div>
+
+
+                                    </td></tr></table>
+                                   <!--  <br/>
+                                    <br/> -->
+                                            </div>
+                                        </div>
+
+
+
+                                       </div>
+                                    </aside>
+
+                                 </div>
+                                 <div class="col-lg-4 col-sm-12 col-xs-12" >
+                                    <aside id="sidebar" class="left-bar" style="background: #074088eb;box-shadow: 10px 10px 5px grey;">
+                                       <div class="banner-sidebar" >
+                                        <div class="main-heading-holder" style="">
+                                          <div class="main-heading sytle-2"  style="border-bottom: 1px solid #fff">
+                                          <style>
+
+                                          </style>
+                                            <h2 style="color:#fff;text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;  text-shadow: 2px 2px grey;" > E-General Message</h2>
+
+
+                                         </div>
+
+                                        <div class="col-lg-12 col-sm-12 col-xs-12">
+
+
+                                              <div class="news-post-widget table table-bordered journeyTable" id="post_widget_data " style="box-shadow: 0px 3px 14px #a39c9c;
+                                            border-top-left-radius: 30px; border-top-right-radius: 30px;background:rgba(255, 255, 255, 0.78) none repeat scroll 0% 0%  ">
+                                            <button class="tablink tabs__item "   style="box-shadow: 0px 3px 14px #a39c9c;
+                                            border-top-left-radius: 30px; border-top-left-radius: 30px;  " onclick="openPage('NHQ', this,  '#0087c9' )" id="defaultOpen">NHQ</button>
+                                            <button class="tablink tabs__link " style="box-shadow: 0px 3px 14px #a39c9c;
+                                            border-top-left-radius: 30px; border-top-left-radius: 30px;  "  onclick="openPage('ENC', this, '#0087c9')" >ENC</button>
+                                            <button class="tablink tabs__link "   style="box-shadow: 0px 3px 14px #a39c9c;
+                                            border-top-left-radius: 30px; border-top-left-radius: 30px;  "onclick="openPage('SNC', this, '#0087c9')">SNC</button>
+
+                                            <button class="tablink tabs__link "  style="box-shadow: 0px 3px 14px #a39c9c;
+                                            border-top-left-radius: 30px; border-top-left-radius: 30px;  " onclick="openPage('WNC', this, '#0087c9')">WNC</button>
+                                            <button class="tablink tabs__link "   onclick="openPage('ANC', this, '#0087c9')" style="box-shadow: 0px 3px 14px #a39c9c;
+                                            border-top-right-radius: 30px; border-top-right-radius: 30px; border-top-left-radius: 30px;  ">ANC</button>
+
+
+
+
+
+                                            <div id="NHQ" class="tabcontent " style=" border-top-left-radius: 30px; border-top-right-radius: 30px; ">
+                                                  <!-- <div class="col-lg-12 col-sm-12 col-xs-12"> <h3>NHQ e-General Message</h3></div> -->
+                                                  <br/><br>
+                                                  <ul class="nav nav-tabs " style="">
+                                                  <!-- <li class="active"><a data-toggle="tab" href="#home">Home</a></li> -->
+                                                  <li class="active "><a  data-toggle="tab" class="cns" href="#home" >CNS</a></li>
+                                                  <li><a data-toggle="tab" href="#menu2" class="cns" style="">IG</a></li>
+                                                  <li><a data-toggle="tab" href="#menu3" class="cns" style="" >DNG</a></li>
+                                                  </ul>
+                                                  <div class="tab-content"  style="" >
+                                                    <div id="home" class="tab-pane fade in active" style="">
+                                                      <table id="nhqemsg" style="">
+                                                        <tr><td colspan="3"></td></tr>
+                                                      </table>
+
+
+                                                    </div>
+                                                    <div id="menu2" class="tab-pane fade" >
+
+                                                      <table style="background-color: #f0f0f0" id="menu2nhws">
+
+
+
+                                                      </table>
+                                                    </div>
+                                                    <div id="menu3" class="tab-pane fade" >
+
+                                                      f
+
+                                                    </div>
+                                                  </div>
+
+                                            </div>
+                                            <div id="WNC" class="tabcontent">
+                                                   <h3>WNC  e-General Message </h3>
+                                                   <style>
+                                                    .bs-example{
+                                                        margin: 20px;
+                                                      }
+                                                    </style>
+
+
+                                                   <p>Some news this fine day!</p>
+                                            </div>
+                                            <div id="ENC" class="tabcontent">
+                                              <!-- <div class="col-lg-12 col-sm-12 col-xs-12"> <h3>ENC e-General Message</h3></div> -->
+                                              <ul class="nav nav-tabs">
+                                                        <!-- <li class="active"><a data-toggle="tab" href="#home">Home</a></li> -->
+                                                        <li class="active"><a data-toggle="tab" href="#homeeg" style="border-radius: 50px">EG</a></li>
+                                                        <li><a data-toggle="tab" href="#menu2vng" style="border-radius: 50px">VNG</a></li>
+                                                        <li><a data-toggle="tab" href="#menu3fotna" >FOTNA</a></li>
+                                              </ul>
+                                              <div class="tab-content">
+                                                <div id="homeeg" class="tab-pane fade in ">
+                                                          <!-- <h3>CNS</h3> -->
+                                                         <table style="background-color: #800000" id="menu2eg">
+
+
+
+                                                          </table>
+                                                        </div>
+
+                                                        <div id="menu2vng" class="tab-pane fade">
+
+                                                          <table style="background-color: #f0f0f0" id="menu2nhwvng">
+
+
+
+                                                          </table>
+                                                        </div>
+
+
+                                                        <div id="menu3fotna" class="tab-pane fade">
+
+                                                          <table style="background-color: #f0f0f0" id="menu2nhwfotna">
+
+
+
+                                                          </table>
+
+                                                        </div>
+
+                                              </div>
+                                            </div>
+                                            <div id="SNC" class="tabcontent">
+                                                 <h3>SNC e-General Message</h3>
+                                                 <p>Get in touch, or swing by for a cup of coffee.</p>
+                                                </div>
+
+                                                <div id="ANC" class="tabcontent">
+                                                 <h3>ANC e-General Message</h3>
+                                                 <p>Who we are and what we do.</p>
+                                                </div>
+
+                                        </div>
+
+                                            </div>
+                                        </div>
+
+
+
+                                       </div>
+                                    </aside>
+
+                                 </div>
+
+                                 <div class="col-lg-4 col-sm-12 col-xs-12" >
+                                    <aside id="sidebar" class="left-bar" style="background: #881407eb;border-top-right-radius: 30px;box-shadow: 10px 10px 5px grey;">
+                                       <div class="banner-sidebar" >
+                                        <div class="main-heading-holder" style="">
+                                          <div class="main-heading sytle-2"  style="border-bottom: 1px solid #fff">
+                                          <style>
+
+                                          </style>
+                                            <h2 style="color:#fff;text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;  text-shadow: 2px 2px grey;" > E-News</h2>
+
+
+                                         </div>
+
+                                        <div class="col-lg-12 col-sm-12 col-xs-12">
+
+
+                                              <div class="news-post-widget table table-bordered " id="post_widget_datas " style="box-shadow: 0px 3px 14px #a39c9c;
+                                            border-top-left-radius: 30px; border-top-right-radius: 30px;background:rgba(255, 255, 255, 0.78) none repeat scroll 0% 0%  ">
+                                            <marquee scrolldelay="150px" class="mar"  direction="up" onmouseover="this.stop();" onmouseout="this.start();" >
+
+                                              <table  id = "enews">
+
+
+
+
+
+                                              </table>
+                                            </marquee>
+
+
+
+
+
+                                        </div>
+
+                                            </div>
+                                        </div>
+
+
+
+                                       </div>
+                                    </aside>
+
+                                 </div>
+
+
+
+
+
+                              </div>
+                           </div>
+                        </section>
+
+
+
+                        <style>
+                        @import url(//fonts.googleapis.com/css?family=Lato:300:400);
+
+
+
+
+
+                        .headerpolicy {
+                          position:relative;
+                          text-align:center;
+                          background: #008dd2;
+                          color:white;
+                        }
+                        .headerinformation {
+                          position:relative;
+                          text-align:center;
+                          background: #881407eb;
+                          color:white;
+                        }
+                        .headerpublication {
+                          position:relative;
+                          text-align:center;
+                          background: #0e4b8a;
+                          color:white;
+                        }
+                        .logopolicy {
+                          width:50px;
+                          fill:white;
+                          padding-right:15px;
+                          display:inline-block;
+                          vertical-align: middle;
+                        }
+
+                        .inner-header {
+                          height:65vh;
+                          width:100%;
+                          margin: 0;
+                          padding: 0;
+                        }
+
+                        .flex { /*Flexbox for containers*/
+                          display: flex;
+                          justify-content: center;
+                          align-items: center;
+                          text-align: center;
+                        }
+
+                        .wavespolicy {
+                          position:relative;
+                          width: 100%;
+                          height:5vh;
+                          margin-bottom:-7px; /*Fix for safari gap*/
+
+                        }
+
+                        .contentpolicy {
+                          position:relative;
+                          height:20vh;
+                          text-align:center;
+                          background-color: white;
+                        }
+
+                        /* Animation */
+
+                        .parallax > use {
+                          animation: move-forever 25s cubic-bezier(.55,.5,.45,.5)     infinite;
+                        }
+                        .parallax > use:nth-child(1) {
+                          animation-delay: -2s;
+                          animation-duration: 7s;
+                        }
+                        .parallax > use:nth-child(2) {
+                          animation-delay: -3s;
+                          animation-duration: 10s;
+                        }
+                        .parallax > use:nth-child(3) {
+                          animation-delay: -4s;
+                          animation-duration: 13s;
+                        }
+                        .parallax > use:nth-child(4) {
+                          animation-delay: -5s;
+                          animation-duration: 20s;
+                        }
+                        @keyframes move-forever {
+                          0% {
+                           transform: translate3d(-90px,0,0);
+                          }
+                          100% {
+                            transform: translate3d(85px,0,0);
+                          }
+                        }
+                        /*Shrinking for mobile*/
+                        @media (max-width: 768px) {
+                          .wavespolicy {
+
+                            min-height:40px;
+                          }
+                          .contentpolicy {
+                            height:30vh;
+                          }
+
+                        }
+                        </style>
+                        <section id="contant" class="contant" style="padding:5px 25px; background:transparent !important;" >
+                           <div class="container">
+                              <div class="row" style="">
+
+                                  <div class="col-lg-4 col-sm-12 col-xs-12" >
+                                    <aside id="sidebar" class="left-bar" style="background:#dde1d0;padding-top:0px;   border-top-left-radius: 30px; border-top-right-radius: 30px;">
+                                       <div class="banner-sidebar urlImg" style=" border-top-left-radius: 30px; border-top-right-radius: 30px;" >
+                                         <span id="ack_menspoliciy" class="pricing-divider"><div class="headerpolicy">
+
+                                         <!--Content before waves-->
+                                         <div class="inner-headerpolicy flex">
+                                         <!--Just the logo.. Don't mind this-->
+
+                                         <h4 style="font-weight:bold;color:#fff; font-weight:bold; height:40px; padding-top: 11px;">Recent Policy</h4>
+                                         </div>
+
+                                         <!--Waves Container-->
+                                         <div>
+                                         <svg class="wavespolicy" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                         viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+                                         <defs>
+                                         <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+                                         </defs>
+                                         <g class="parallax">
+                                         <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
+                                         <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
+                                         <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
+                                         <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
+                                         </g>
+                                         </svg>
+                                         </div>
+                                         <!--Waves end-->
+
+                                         </div></span>
+
+                                          <table ><tbody id="public_obj"><tr><td></td></tr></tbody>
+                                                <tr ><td><button onclick="myFunction()" class="thbg-color" style="background: #9f4545; background-color: #9f4545;
+                                                  border: none;
+                                                  color: white;
+                                                  padding: 0px 8px;margin: 5px;
+                                                  text-align: center;
+                                                  text-decoration: none;
+                                                  display: inline-block;
+                                                  font-size: 16px;
+
+                                                  border-radius:10px;
+                                                  cursor: pointer;" id="myBtn">Read more</button></td></tr></table>
+
+
+                                       </div>
+                                    </aside>
+
+                                 </div>
+
+
+                                 <div class="col-lg-4 col-sm-12 col-xs-12">
+                                    <aside id="sidebar" class="left-bar" style="background:#dde1d0; padding-top:0px;">
+                                       <div class="banner-sidebar urlImg" style=" border-top-left-radius: 30px; border-top-right-radius: 30px;">
+                                        <span id="publicitiesdocument"><div class="headerpublication">
+
+                                        <!--Content before waves-->
+                                        <div class="inner-headerpolicy flex">
+                                        <!--Just the logo.. Don't mind this-->
+
+                                        <h4 style="font-weight:bold;color:#fff; font-weight:bold; height:40px; padding-top: 11px;">Recent Publication</h4>
+                                        </div>
+
+                                        <!--Waves Container-->
+                                        <div>
+                                        <svg class="wavespolicy" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                        viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+                                        <defs>
+                                        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+                                        </defs>
+                                        <g class="parallax">
+                                        <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
+                                        <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
+                                        <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
+                                        <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
+                                        </g>
+                                        </svg>
+                                        </div>
+                                        <!--Waves end-->
+
+                                        </div></span>
+                                          <table><tbody id="public_obj"><tr><td></td></tr></tbody>
+                                                <tr><td><button onclick="myFunction()" class="thbg-color" style="background: #9f4545; background-color: #9f4545;
+                                                  border: none;
+                                                  color: white;
+                                                  padding: 0px 8px;margin: 5px;
+                                                  text-align: center;
+                                                  text-decoration: none;
+                                                  display: inline-block;
+                                                  font-size: 16px;
+
+                                                  border-radius:10px;
+                                                  cursor: pointer;" id="myBtn">Read more</button></td></tr></table>
+
+
+
+                                            <!-- <span id="latest_new"><marquee scrolldelay="100" direction="up" onmouseout="this.setAttribute('scrollamount', 2, 0);" onmouseover="this.setAttribute('scrollamount', 0, 0); "><table ><tbody id="lastest_obj"></tbody></tbody></table></marquee></span>   <hr>
+                                            <br/> -->
+                                       </div>
+                                    </aside>
+
+                                 </div>
+
+                                 <div class="col-lg-4 col-sm-12 col-xs-12">
+                                    <aside id="sidebar" class="left-bar" style="background:#dde1d0; padding-top:0px;">
+                                       <div class="banner-sidebar urlImg" style="border-top-left-radius: 30px; border-top-right-radius: 30px;">
+                                         <span id="guide"><div class="headerinformation">
+
+                                         <!--Content before waves-->
+                                         <div class="inner-headerpolicy flex">
+                                         <!--Just the logo.. Don't mind this-->
+
+                                         <h4 style="font-weight:bold;color:#fff; font-weight:bold; height:40px; padding-top: 11px;">Recent Guidelines</h4>
+                                         </div>
+
+                                         <!--Waves Container-->
+                                         <div>
+                                         <svg class="wavespolicy" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                         viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+                                         <defs>
+                                         <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+                                         </defs>
+                                         <g class="parallax">
+                                         <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
+                                         <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
+                                         <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
+                                         <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
+                                         </g>
+                                         </svg>
+                                         </div>
+                                         <!--Waves end-->
+
+                                         </div></span>
+                                           <table><tbody id="public_obj"><tr><td></td></tr></tbody>
+                                                 <tr><td><button onclick="myFunction()" class="thbg-color" style="background: #9f4545; background-color: #9f4545;
+                                                   border: none;
+                                                   color: white;
+                                                   padding: 0px 8px;margin: 5px;
+                                                   text-align: center;
+                                                   text-decoration: none;
+                                                   display: inline-block;
+                                                   font-size: 16px;
+
+                                                   border-radius:10px;
+                                                   cursor: pointer;" id="myBtn">Read more</button></td></tr></table>
+
+
+
+
+                                        </div>
+
+
+
+
+                                    </aside>
+
+                                 </div>
+
+
+
+
+
+                              </div>
+                           </div>
+                        </section>
+                         <style>
+
+                      .img {
+                    border: 1px solid #ddd;
+                    border-radius: 4px;
+                     border-radius: 50%;
+                    background-color:#8080802e
+                    padding: 5px;
+
+                  }
+
+                  .img:hover {
+                    box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+                  }
+
+                  .galleryimg:hover {
+                    box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+                  }
+
+
+                      .grens
+                      {
+                         border-radius: 50%;
+                    background-color:#eaf2ec
+                      }
+                      .oranges
+                      {
+                        border-radius: 50%;
+                    background-color:#f7e5e58a
+
+                      }
+                  .dropbtn {
+
+                    color: white;
+                    padding: 16px;
+                    font-size: 16px;
+                    border: none;
+                    cursor: pointer;
+                  }
+
+                  .dropbtn:hover, .dropbtn:focus {
+
+                  }
+
+                  .dropdown {
+                    position: relative;
+                    display: inline-block;
+                  }
+
+                  .dropdown-content {
+                    display: none;
+                    position: absolute;
+                    background-color: #fff;
+                    min-width: 160px;
+                    overflow: auto;
+                    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                    z-index: 10;
+                  }
+
+                  .dropdown-content a {
+                    color: black;
+                    padding: 12px 16px;
+                    text-decoration: none;
+                    display: block;
+                  }
+
+                  .dropdown a:hover {color: #ddd;}
+
+                  .show {display: block;}
+
+
+
+                  /*------------------------------------------*/
+
+
+                  </style>
+                        <style>
+                          .btn_gallery {
+                            display: inline-block;
+                            /* border: 2px solid #ca8229; */
+                              padding: 12px 0px;
+                              color: #ca8229;
+                              font-size: 140%;
+                              font-family: 'OpenSansBold';
+                              text-align: center;
+                              position: absolute;
+                              width: 190px;
+                              left: 10%;
+                              bottom: 30px;
+                          }
+                          .galleryContent {
+                            position: absolute;
+                              width: 100%;
+                          }
+
+                        </style>
+
+
+                     <div class="matchs-info" style="background:transparent !important"  >
+                          <!-- <div class="col-md-12" > -->
+
+                            <div id="team-slider">
+
+                               <!-- <div class="container" id="defence_zone">
+                               </div> -->
+                              <div class="team-holder theme-padding" ">
+                                <div class="container"  style="" >
+
+                                 <div class="main-heading sytle-2" >
+                                    <h2 style="">Know Your Officer</h2>
+
+                                 </div>
+                                  <div id="myCarousel"   >
+                                     <!-- <div class="carousel-inner" > -->
+                                        <div class="active item" id="firstthumbnail" >
+
+                                        </div>
+                                        <div class=" item" id="secthmbnl" >
+
+                                        </div>
+
+                                     <!-- </div> -->
+                                  </div>
+
+                                  <div id="myCarousel"   >
+                                     <!-- <div class="carousel-inner" > -->
+                                        <div class="active item" id="firstthumbnails" >
+
+
+                                        </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+
+
+                          </div>
+
+                        <!-- </div> -->
+
+
+
+
+
+
+
+                       {% include 'application/footer.html' %}
+                        <!-- ALL JS FILES -->
+
+
+                  </html>
+                  {% endblock base_content %}
+
+                  {% block htmljs %}
+
+
+                  {% endblock htmljs %}

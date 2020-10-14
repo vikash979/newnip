@@ -1,0 +1,723 @@
+{% load static %}
+<!doctype html>
+<html>
+    <head>
+    {% block header %}
+    {% endblock header %}
+    {% block css %}
+    {% endblock %}
+    </head>
+    <script>
+
+
+    </script>
+
+
+
+  <!-- <body onload="myfunctio();myFunctionsss(); openPage('NHQ', this, 'orange')" style="background-image: url({% static 'images/banner/mainbg.jpg' %}); font-family: 'Whitney SSm A', 'Whitney SSm B', Arial, sans-ser,Lato' !import;"> -->
+<!-- <div class="overlay"></div> -->
+<script>
+
+function menuhover()
+{
+  var disp = document.getElementById('TabInformation')
+  disp.style.display='none'
+  var quick = document.getElementById('tabquickicon')
+  $('#tabquickicon').addClass('animated fadeInUp')
+  quick.style.display='none'
+  var other = document.getElementById('tabothericon')
+  other.style.display='none'
+  openCity(event, 'London')
+
+}
+function quickclick(id)
+{
+
+  var disp = document.getElementById('TabInformation')
+  disp.style.display='none'
+  var quick = document.getElementById('tabquickicon')
+  var other = document.getElementById('tabothericon')
+  other.style.display='none'
+  if (quick.style.display == 'none')
+  {
+      quick.style.display='block'
+  }
+  else{
+
+    quick.style.display='none'
+  }
+
+}
+
+function quickout(id)
+{
+
+  var disp = document.getElementById('TabInformation')
+  var other = document.getElementById('tabothericon')
+  other.style.display='none'
+  disp.style.display='none'
+  var quick = document.getElementById('tabquickicon')
+  if (quick.style.display == 'none')
+  {
+      quick.style.display='block'
+      $('#tabquickicon').addClass('animated fadeIn')
+
+  }
+  else{
+
+    //quick.style.display='none'
+    //$('#tabquickicon').removeClass('animated fadeInUp')
+  }
+
+}
+function othersites()
+{
+  var quick = document.getElementById('tabquickicon')
+
+  var disp = document.getElementById('TabInformation')
+  quick.style.display='none'
+  disp.style.display='none'
+
+  var other = document.getElementById('tabothericon')
+  //quick.style.display='none'
+  if (other.style.display == 'none')
+  {
+      other.style.display='block'
+      $('#tabothericon').addClass('animated fadeIn')
+      //openCity(event, 'London')
+  }
+}
+function signalout(id)
+{
+  var quick = document.getElementById('tabquickicon')
+  var other = document.getElementById('tabothericon')
+
+  var disp = document.getElementById('TabInformation')
+  quick.style.display='none'
+  other.style.display='none'
+  if (disp.style.display == 'none')
+  {
+      disp.style.display='block'
+      $('#TabInformation').addClass('animated fadeIn')
+      openCity(event, 'London')
+  }
+  else{
+
+    //$('#TabInformation').fadeOut(1000)
+    //$('#TabInformation').fadeOut(1500).css("display","block")
+    //disp.style.display='none'
+    //$('#TabInformation').hide(1000)
+    //$('#TabInformation').fadeOut(1500)
+  }
+}
+    $(document).ready(function () {
+        $('#SignalsID').click(function () {
+          //var tesst = $('#SignalsID').text()
+          var disp = document.getElementById('TabInformation')
+
+          if (disp.style.display == 'none')
+          {
+              disp.style.display='block'
+          }
+          else{
+
+            disp.style.display='none'
+            openCity(event, 'London')
+
+          }
+
+        })
+        $('.clseBtn').click(function () {
+            $('.slide-out-div1').removeClass('open');
+        })
+    })
+
+    function hidequick()
+    {
+
+    }
+</script>
+<body onload="myfunctio();myFunctionsss(); openPage('NHQ', this, 'orange')" style="background-image: url({% static 'images/banner/NIPbg3.jpg' %}); font-family:WhitneyHTF-Book ;  " >
+
+  
+
+  
+<!-----------------------------Other Sites---------------->
+<div class="other_icon-bar-3" id="tabothericon" style="display:none;width:12%">
+  <div>
+    <div class=" row p-0 mt-0 bg-skyblue mt-1 mb-1 ">
+      <div class="col-lg-12 col-sm-12 col-xs-12 p-0" >
+          <a class="  "  style="color:#fff; font-size:14px solid;  " href="#" target="_blank"  >
+            <div class=" mb-0  text-white bg-skyblue bg-skybluee" style="height:35px; padding-left:30px; font-size:14px; padding-top:5px">
+
+              WNC
+            </div>
+          </a>
+
+        </div>
+
+        <div class="col-lg-12 col-sm-12 col-xs-12 p-0" >
+          <a class="h5 "  style="color:#fff; font-size:14px solid;  top: 7px;" href="#" target="_blank"  >
+            <div class="h4 mb-0 mt-1 text-white bg-skyblue bg-skybluee" style="height:35px; padding-left:30px;font-size:14px; padding-top:6px">
+
+              ENC
+            </div>
+          </a>
+
+          </div>
+
+          <div class="col-lg-12 col-sm-12 col-xs-12 p-0" >
+            <a class="h5 "  style="color:#fff; font-size:14px solid;  top: 7px;" href="#" target="_blank"  >
+              <div class="h4 mb-0 mt-1 text-white bg-skyblue bg-skybluee" style="height:35px; padding-left:30px;font-size:14px; padding-top:6px">
+
+                SNC
+              </div>
+            </a>
+
+            </div>
+
+            <div class="col-lg-12 col-sm-12 col-xs-12 p-0" >
+              <a class="h5 "  style="color:#fff; font-size:14px solid;  top: 7px;" href="#" target="_blank"  >
+                <div class="h4 mb-0 mt-1 text-white bg-skyblue bg-skybluee" style="height:35px; padding-left:30px;font-size:14px; padding-top:6px">
+
+                  ANC
+                </div>
+              </a>
+
+              </div>
+
+      </div>
+
+    </div>
+</div>
+
+  <!---------------------------------------------------->
+  <div class="quick_icon-bar-3" id="tabquickicon" style="display:none;width:12%">
+
+
+    <div>
+      <div class=" row p-0 mt-0 bg-skyblue mt-1 mb-1 ">
+        <div class="col-lg-12 col-sm-12 col-xs-12 p-0" >
+            <a class="  "  style="color:#fff; font-size:14px solid;  " href="https://eseva.mil/FBTP/Web/Loginpage.aspx" target="_blank"  >
+              <div class=" mb-0  text-white bg-skyblue bg-skybluee" style="height:35px; padding-left:30px; font-size:14px; padding-top:5px">
+
+                ESEVA
+              </div>
+            </a>
+
+          </div>
+
+          <div class="col-lg-12 col-sm-12 col-xs-12 p-0" >
+            <a class="h5 "  style="color:#fff; font-size:14px solid;  top: 7px;" href="https://eoffice.indiannavy.mil/Paperless/signin.jsp" target="_blank"  >
+              <div class="h4 mb-0 mt-1 text-white bg-skyblue bg-skybluee" style="height:35px; padding-left:30px;font-size:14px; padding-top:6px">
+
+                EOFFICE
+              </div>
+            </a>
+
+            </div>
+
+
+            <div class="col-lg-12 col-sm-12 col-xs-12 p-0" >
+              <a class="h5 "  style="color:#fff; font-size:14px solid;  top: 7px;" href="https://dgmsportal.indiannavy.mil:505"  target="_blank" >
+              <div class="h4 mb-0 mt-1 text-white bg-skyblue bg-skybluee" style="height:35px; padding-left:30px;font-size:14px; padding-top:6px">
+
+                  COVID-19
+                </div></a>
+
+              </div>
+
+                  <div class="col-lg-12 col-sm-12 col-xs-12 p-0" >
+                      <a class="h5 "  style="color:#fff; font-size:14px solid;  top: 7px;" href="http://159.12.45.115/NavyCalendar" target="_blank"  >
+                        <div class="h4 mb-0 mt-1 text-white bg-skyblue bg-skybluee" style="height:35px; padding-left:30px;font-size:14px; padding-top:6px">
+
+                          NAVY CALENDAR
+                        </div>
+                    </a>
+
+                    </div>
+
+                    <div class="col-lg-12 col-sm-12 col-xs-12 p-0" >
+                      <a class="h5  "  style="color:#fff; font-size:14px ;  top: 7px;" href="https://itportal.mil/default.aspx" target="_blank" >
+                      <div class="h4 mb-0 mt-1 text-white bg-skyblue bg-skybluee" style="height:35px; padding-left:30px;font-size:14px; padding-top:6px">
+
+                          DOC REPOSITORY
+                        </div></a>
+
+                      </div>
+
+                      <div class="col-lg-12 col-sm-12 col-xs-12 p-0" >
+<a class="h5  "  style="color:#fff; font-size:14px solid;  top: 7px;" href="http://160.11.70.6/"  target="_blank" >
+                        <div class="h4 mb-0 mt-1 text-white bg-skyblue bg-skybluee" style="height:35px; padding-left:30px;font-size:14px; padding-top:6px">
+
+                            NAVAL PAY
+                          </div></a>
+
+                        </div>
+
+      </div>
+
+    </div>
+  </div>
+  <div class="indian_icon-bar-3 " id="TabInformation" style="display:none; width:12%" onmouseover="hidequick()" >
+
+    <div>
+      <div class=" row p-0 mt-0 bg-skyblue mt-1 mb-1 ">
+        <div class="col-lg-12 col-sm-12 col-xs-12 p-0" >
+            <a class="  "  style="color:#fff; font-size:14px solid;  " href="#" target="_blank"  >
+              <div class=" mb-0  text-white bg-skyblue bg-skybluee" style="height:35px; padding-left:30px; font-size:14px; padding-top:5px">
+
+                CNS
+              </div>
+            </a>
+
+          </div>
+
+          <div class="col-lg-12 col-sm-12 col-xs-12 p-0" >
+            <a class="h5 "  style="color:#fff; font-size:14px solid;  top: 7px;" href="#" target="_blank"  >
+              <div class="h4 mb-0 mt-1 text-white bg-skyblue bg-skybluee" style="height:35px; padding-left:30px;font-size:14px; padding-top:6px">
+
+                IG
+              </div>
+            </a>
+
+            </div>
+
+            <div class="col-lg-12 col-sm-12 col-xs-12 p-0" >
+              <a class="h5 "  style="color:#fff; font-size:14px solid;  top: 7px;" href="#" target="_blank"  >
+                <div class="h4 mb-0 mt-1 text-white bg-skyblue bg-skybluee" style="height:35px; padding-left:30px;font-size:14px; padding-top:6px">
+
+                  DNG
+                </div>
+              </a>
+
+              </div>
+
+        </div>
+
+      </div>
+
+
+
+    <div>
+      <!-- <div class="tabvertical mt-0 mb-1  "> -->
+        <!-- <button class="tablinks p-0 m-0"  style="" onclick="openCity(event, 'London')" id="defaultOpen"><img id="img_cns" src="{% static 'signal/CNS-MSG.png' %}" class="w-100"><img src="{% static 'signal/CNS-WTO.png' %}" id="cns" class="w-100" ></button>
+        <button class="tablinks p-0 m-0" onclick="openCity(event, 'Paris')"><img src="{% static 'signal/IG-MSG.png' %}" id="img_ig" class="w-100" style="display:none;"> <img src="{% static 'signal/IG-WTO.png' %}" id="ig" class="w-100" > </button>
+        <button class="tablinks p-0 m-0" onclick="openCity(event, 'Tokyo')"><img src="{% static 'signal/DNG-MSG.png' %}" id="img_dng" class="w-100" style="display:none"><img src="{% static 'signal/DNG-WTO.png' %}" id="DNG" class="w-100" > </button> -->
+
+
+      <!-- </div> -->
+
+      <div class="mt-1">
+      <div id="Londons" class="tabcontent mt-0 bg-skyblue"  style="backgournd:#fff3 !important" >
+        <!-- <marquee height="150px" scrolldelay="150px"   direction="up" onmouseover="this.stop();" onmouseout="this.start();" > -->
+        <div>
+          <div class="h4 mb-0 mt-1 text-white bg-skyblue bg-skybluee"  >
+              <div class="row">
+                <a class="h5 "  style="color:#fff; font-size:14px solid;  " href="http://intranet.indiannavy.mil/Portals/0/Documents/GeneralMessages/CNS%20011.pdf" target="_blank"  >
+
+                <div class="col-md-2 h5 text-center">CNS 011</div>
+                <div class="col-md-8 h5 pl-0" > AS THE NATION CELEBRATES ITS SEVENTY FOURTH ....</div>
+                <div class="col-md-2 h5 text-left pr-2 pl-0">15/08/2020</div>
+              </a>
+              </div>
+            </div>
+
+            <div class="h4 mb-0 mt-1 text-white bg-skyblue bg-skybluee">
+                <div class="row">
+                  <a class="h5  "  style="color:#fff; font-size:14px solid;  " href="http://intranet.indiannavy.mil/Portals/0/Documents/GeneralMessages/CNS%20010.pdf" target="_blank"  >
+                  <div class="col-md-2 h5 text-center">CNS 010</div>
+                  <div class="col-md-8 h5 pl-0"> MPECCABLE CONDUCT OF OP SAMUDRA SETU AND  ....</div>
+                  <div class="col-md-2 h5 text-left pr-2 pl-0">15/08/2020</div>
+                </a>
+                </div>
+              </div>
+
+
+            <div class="h4 mb-0 mt-1 text-white bg-skyblue bg-skybluee">
+              <div class="row">
+                <a class="h5  "  style="color:#fff; font-size:14px solid;  " href="#" target="_blank"  >
+                  <div class="col-md-2 h5 text-center">CNS 009</div>
+                  <div class="col-md-8 h5 pl-0"> CLASSIFIED.</div>
+                  <div class="col-md-2 h5 text-left pr-2 pl-0">15/08/2020</div>
+                </a>
+              </div>
+            </div>
+
+
+              <div class="h4 mb-0 mt-1 text-white bg-skyblue bg-skybluee">
+                  <div class="row">
+                    <a class="h5  "  style="color:#fff; font-size:14px solid;  " href="#" target="_blank"  >
+
+                  <div class="col-md-2 h5 text-center">CNS 008</div>
+                  <div class="col-md-8 h5 pl-0">  CLASSIFIED....</div>
+                  <div class="col-md-2 h5 text-left pr-2 pl-0">15/08/2020</div>
+                </a>
+                  </div>
+                </div>
+
+
+                <div class="h4 mb-0 mt-1 text-white bg-skyblue bg-skybluee">
+                    <div class="row">
+                      <a class="h5  "  style="color:#fff; font-size:14px solid;  " href="http://intranet.indiannavy.mil/Portals/0/Documents/GeneralMessages/CNS%20007.pdf" target="_blank"  >
+
+                        <div class="col-md-2 h5 text-center">CNS 007</div>
+                        <div class="col-md-8 h5 pl-0"> ON OCCASION OF NAWWA DIWAS 2020,I CONVEY WARM ....</div>
+                        <div class="col-md-2 h5 text-left pr-2 pl-0">15/08/2020</div>
+                      </a>
+                    </div>
+                  </div>
+                  </div>
+
+      </div>
+
+      <div id="Pariss" class="tabcontent mt-0 bg-skyblue" style="backgournd:#fff3 !important">
+
+
+                <div>
+                  <div class="h4 mb-0 mt-1 text-white bg-skyblue bg-skybluee">
+                    <div class="row">
+                      <a class="h5  "  style="color:#fff; font-size:14px ;  " href="http://intranet.indiannavy.mil/Portals/0/Documents/GeneralMessages/259%20%20IG.pdf" target="_blank"  >
+
+                        <div class="col-md-2 h5 text-center" >259 IG</div>
+                        <div class="col-md-8 h5 pl-0" > GUNNERY SYMPOSIUM ON POTENT AND PRECISE ORDNA...</div>
+                        <div class="col-md-2 h5 text-left pr-2 pl-0" >15/08/2020</div>
+                      </a>
+                    </div>
+                  </div>
+                    <div class="h4 mb-0 mt-1 text-white bg-skyblue bg-skybluee">
+
+
+                        <div class="row">
+                          <a class="h5  "  style="color:#fff; font-size:14px ;  " href="http://intranet.indiannavy.mil/Portals/0/Documents/GeneralMessages/258%20IG.pdf" target="_blank"  >
+                            <div class="col-md-2 h5 text-center" >258 IG</div>
+                            <div class="col-md-8 h5 pl-0" > CAPTAINS FIRST SEA COMMAND BOARD</div>
+                            <div class="col-md-2 h5 text-left pr-2 pl-0" >17/08/2020</div>
+                          </a>
+                        </div>
+                      </div>
+                        <div class="h4 mb-0 mt-1 text-white bg-skyblue bg-skybluee">
+
+                    <div class="row">
+                      <a class="h5  "  style="color:#fff; font-size:14px;  " href="http://intranet.indiannavy.mil/Portals/0/Documents/GeneralMessages/257%20IG.pdf" target="_blank"  >
+
+                        <div class="col-md-2 h5 text-center" >257 IG</div>
+                        <div class="col-md-8 h5 pl-0" >SWARNIM VIJAY VARSH EDITION OF NAVY FOUNDATION ....</div>
+                        <div class="col-md-2 h5 text-left pr-2 pl-0" >16/08/2020</div>
+                      </a>
+                    </div>
+                  </div>
+
+                    <div class="h4 mb-0 mt-1 text-white bg-skyblue bg-skybluee">
+                      <div class="row">
+                        <a class="h5  "  style="color:#fff; font-size:14px ; " href="http://intranet.indiannavy.mil/Portals/0/Documents/GeneralMessages/256%20IG.pdf" target="_blank"  >
+                          <div class="col-md-2 h5 text-center" >256 IG</div>
+                          <div class="col-md-8 h5 pl-0" > MOU BETWEEN VISHWAKARMA AND ANDHRA ....</div>
+                          <div class="col-md-2 h5 text-left pr-2 pl-0" >15/08/2020</div>
+                        </a>
+                      </div>
+                    </div>
+
+                    <div class="h4 mb-0 mt-1 text-white bg-skyblue bg-skybluee">
+                      <div class="row">
+                        <a class="h5  "  style="color:#fff; font-size:14px;  " href="http://intranet.indiannavy.mil/Portals/0/Documents/GeneralMessages/255%20IG.pdf" target="_blank"  >
+
+                        <div class="col-md-2 h5 text-center" >255 IG</div>
+                        <div class="col-md-8 h5 pl-0" > CHIEF OF NAVAL STAFF IS PLEASED TO AWARD ON THE  ...</div>
+                        <div class="col-md-2 h5 text-left pr-2 pl-0" >15/08/2020</div>
+                        </a>
+                      </div>
+                    </div>
+                    </div>
+                  </div>
+      </div>
+
+      <div id="Tokyos" class="tabcontent mt-0 bg-skyblue" style="backgournd:#fff3 !important">
+        <div>
+          <div class="h4 mb-0 mt-1 text-white bg-skyblue bg-skybluee">
+            <div class="row">
+              <a class="h5  "  style="color:#fff; font-size:14px solid;  " href="http://intranet.indiannavy.mil/Portals/0/Documents/GeneralMessages/035%20DNG.pdf" target="_blank"  >
+                <div class="col-md-2 h5 text-center">035 DNG</div>
+                <div class="col-md-8 h5 pl-0"> GUNNERY SYMPOSIUM ON POTENT AND PRECISE ...</div>
+                <div class="col-md-2 h5 text-left pr-2 pl-0">15/08/2020</div>
+              </a>
+            </div>
+          </div>
+            <div class="h4 mb-0 mt-1 text-white bg-skyblue bg-skybluee">
+
+
+                <div class="row">
+                  <a class="h5  "  style="color:#fff; font-size:14px solid;  " href="#" target="_blank"  >
+                    <div class="col-md-2 h5 text-center">034 DNG  </div>
+                    <div class="col-md-8 h5 pl-0"> CLASSIFIED</div>
+                    <div class="col-md-2 h5 text-left pr-2 pl-0">17/08/2020</div>
+                  </a>
+                </div>
+              </div>
+                <div class="h4 mb-0 mt-1 text-white bg-skyblue bg-skybluee">
+
+            <div class="row">
+              <a class="h5  "  style="color:#fff; font-size:14px solid;  " href="http://intranet.indiannavy.mil/Portals/0/Documents/GeneralMessages/033%20DNG.pdf" target="_blank"  >
+                <div class="col-md-2 h5 text-center">033 DNG</div>
+                <div class="col-md-8 h5 pl-0">COM I EXAM BOARD</div>
+                <div class="col-md-2 h5 text-left pr-2 pl-0">16/08/2020</div>
+              </a>
+            </div>
+          </div>
+
+            <div class="h4 mb-0 mt-1 text-white bg-skyblue bg-skybluee ">
+
+              <div class="row ">
+                <a class="h5  "  style="color:#fff; font-size:14px solid;  " href="http://intranet.indiannavy.mil/Portals/0/Documents/GeneralMessages/032%20DNG.pdf" target="_blank"  >
+                  <div class="col-md-2 h5 text-center">032 DNG</div>
+                  <div class="col-md-8 h5 pl-0"> VCNS IS PLEASED TO COMMEND FOLLOWING ON OCC ...</div>
+                  <div class="col-md-2 h5 text-left pr-2 pl-0">15/08/2020</div>
+                </a>
+              </div>
+            </div>
+
+            <div class="h4 mb-0 mt-1 text-white bg-skyblue bg-skybluee">
+            <div class="row">
+              <a class="h5  "  style="color:#fff; font-size:14px ;  " href="http://intranet.indiannavy.mil/Portals/0/Documents/GeneralMessages/031%20DNG.pdf" target="_blank"  >
+
+                <div class="col-md-2 h5 text-center">031 DNG</div>
+                <div class="col-md-8 h5 pl-0"> DRESS FOR INVITEES FOR VARIOUS EVENTS CONNECTED ....</div>
+                <div class="col-md-2 h5 text-left pr-2 pl-0">15/08/2020</div>
+              </a>
+            </div>
+          </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+    </div>
+    </a>
+
+  </div>
+
+
+
+
+
+
+
+  <div class="icon-bar-2">
+    <a href="https://cnsforum.indiannavy.mil:43899/Pages/Home.aspx" target="_blank" class="" id="cns_id" onmouseover="facebook(this.id)" onmouseout="facebookout(this.id)"><img id="cns_order_id" class="facebook" src="{% static 'images/icon/CNSForum.png' %}">
+      <img id="cns_order_orange_id" style="display:none" class="facebook" src="{% static 'images/icon/CNSForum-Orders-org.png' %}">
+    </a>
+    <a href="http://159.12.45.120/nhqnotice/" class="" target="_blank" id="sig_id" onmouseover="facebook(this.id)" onmouseout="facebookout(this.id)"><img id="signal_id" class="facebook" src="{% static 'images/icon/NHQ-Notice.png' %}">
+      <img id="static_orange_id" style="display:none" class="facebook" src="{% static 'images/icon/NHQ-Notice-org.png' %}">
+    </a>
+    <a href="http://159.12.45.120/insdailyorder/" target="_blank" class="" id="daily_id" onmouseover="facebook(this.id)" onmouseout="facebookout(this.id)"><img id="dailyorder_id" class="facebook" src="{% static 'images/icon/Daily-Orders.png' %}">
+      <img id="daily_orange_id" style="display:none" class="facebook" src="{% static 'images/icon/Daily-Orders-org.png' %}">
+    </a>
+    <!-- <a href="#" class="facebook"><p style="padding-top:25px !important;"></p>Services</a> -->
+
+
+  </div>
+    <style>
+* {box-sizing: border-box}
+
+/* Style tab links */
+.tablink {
+  background-color: rgba(13,48,84);
+  color: white;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 4px 16px;
+  font-size: 17px;
+  width: 20%;
+}
+
+.tablinktree {
+  background-color: rgba(13,48,84);
+  color: white;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 4px 16px;
+  font-size: 17px;
+  
+}
+
+.tablink:hover {
+  background-color: #0087c9;
+}
+
+
+.tablinks {
+  background-color: #9AD7F987;
+  color: white;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 17px;
+  width: 20%;
+}
+
+.tablinks:hover {
+  background-color: #ffcb05;
+}
+
+/* Style the tab content (and add height:100% for full page content) */
+.tabcontente {
+  color: white;
+  display: none;
+  padding: -40px 0px;
+  height: 100%;
+}
+.tabcontents {
+  color: white;
+  display: none;
+  padding: -40px 20px;
+  height: 100%;
+}
+
+
+#Home {background-color: white;}
+#News {background-color: white;}
+#Contact {background-color: white;}
+#About {background-color: white;}
+.odd{
+  borderWidth :1px;
+  borderStyle:solid
+font-weight:bold;}
+
+  .even{font-weight:bold;
+  borderWidth :1px;
+borderStyle:solid}
+
+</style>
+<script>
+function facebook(id)
+{
+
+  if (id =='cns_id')
+  {
+    $('#cns_order_id').hide()
+    $('#cns_order_orange_id').show()
+  }
+  if (id=='sig_id')
+  {
+    $('#signal_id').hide()
+    $('#static_orange_id').show()
+  }
+  if (id == 'daily_id')
+  {
+    $('#dailyorder_id').hide()
+    $('#daily_orange_id').show()
+  }
+
+  if (id =='wns_id')
+  {
+    $('#wns_obj').hide()
+    $('#wns_objects').show()
+  }
+
+  //////////ens////
+  if (id =='ens_id')
+  {
+    $('#ens_obj').hide()
+    $('#ens_objects').show()
+  }
+  //////////sns////
+  if (id =='sns_id')
+  {
+    $('#sns_obj').hide()
+    $('#sns_objects').show()
+  }
+  //////////ans////
+  if (id =='ans_id')
+  {
+    $('#ans_obj').hide()
+    $('#ans_objects').show()
+  }
+
+}
+
+//////////////////////Mouse Out///////////////
+function facebookout(id)
+{
+  if (id =='cns_id')
+  {
+    $('#cns_order_id').show()
+    $('#cns_order_orange_id').hide()
+  }
+  if (id=='sig_id')
+  {
+    $('#signal_id').show()
+    $('#static_orange_id').hide()
+  }
+
+  if (id == 'daily_id')
+  {
+    $('#dailyorder_id').show()
+    $('#daily_orange_id').hide()
+  }
+////wns////////////////////
+  if (id =='wns_id')
+  {
+    $('#wns_obj').show()
+    $('#wns_objects').hide()
+  }
+
+  //////////ens////
+  if (id =='ens_id')
+  {
+    $('#ens_obj').show()
+    $('#ens_objects').hide()
+  }
+
+
+  //////////sns////
+  if (id =='sns_id')
+  {
+    $('#sns_obj').show()
+    $('#sns_objects').hide()
+  }
+  //////////ans////
+  if (id =='ans_id')
+  {
+    $('#ans_obj').show()
+    $('#ans_objects').hide()
+  }
+}
+
+function openPage(pageName,elmnt,color) {
+
+
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontente");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].style.backgroundColor = "";
+  }
+  document.getElementById(pageName).style.display = "block";
+  elmnt.style.backgroundColor = color;
+  elmnt.style.color='black'
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script>
+
+        {% block base_content %}
+
+        {% endblock base_content %}
+
+        {% include 'application/js.html' %}
+        {% block htmljs %}
+        {% endblock htmljs %}
+    </body>
+</html>

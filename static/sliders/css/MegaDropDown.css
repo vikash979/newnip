@@ -1,0 +1,211 @@
+/* Clear Floats cross-browser valid without additional markup */
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.clearfix {display: inline-block;}
+
+/* Hides from IE-mac \*/
+* html .clearfix {height: 1%;}
+.clearfix {display: block;}
+/* End hide from IE-mac */
+ /******************************************************/
+
+
+/* ROOT LEVEL */
+.lvl0{
+    margin:0 0 10px 0;
+    height:35px;
+    line-height:35px;
+    position:relative;
+    padding:0 0 0 16px;
+}
+.lvl0 li {
+    margin:0 5px 0 0;
+    display:inline-block;
+    float:left;
+    position:relative;
+    font-size:12px;
+    line-height:35px;
+   
+   
+}
+.lvl0 li a, .lvl0 li span {
+    color:#0088cc;
+    text-decoration:none;
+    font-weight:normal;
+     padding:8px 12px;
+     border-radius:5px;
+    text-transform:uppercase;
+    font-size:12px;
+    font-weight:bold;
+}
+.lvl0 li a:hover, .lvl0 li span:hover {
+    color:#fff;
+    font-weight:bold;
+    text-decoration:none;
+    background-color:#0088cc;
+}
+.lvl0 li.selected a, .lvl0 li.selected span {
+    font-weight:bold;
+     background-color:#0088cc;
+     color:#fff;
+}
+/* MAGIC SUB DROPDOWN */
+ul.lvl0 li .sub {
+	position: absolute;
+	top: 37px; left: 0;
+	z-index: 9997;
+    border:1px solid #DF9C1E;
+    border-top:none;
+   background-color:#0088cc;
+	display: none;
+	border-radius:5px;
+	padding-right:5px;
+}
+/* SECOND LEVEL */
+ul.lvl1 {
+
+}
+ul.lvl1 li {
+    margin:0;
+    position:static;
+    float:none;
+    display:block;
+    line-height:14px;
+   
+    
+}
+ul.lvl1 li a, ul.lvl1 li span {
+     color:#fff;
+     font-size:12px;
+     font-weight:bold;
+     margin:3px 2px 0 0;
+     padding:6px 0px;
+     font-size:12px;
+     display:inline-block;
+     width:130px;
+     border-top:none;    
+     text-transform:none;
+      border-left:2px solid #0088cc;
+	   border-bottom:1px solid #0099e6; 
+         border-radius:0px ;
+
+    
+}
+ul.lvl1 li a:hover {
+    border-top:none; 
+    color:#fff;
+    background-color:#0099e6;
+     border-radius:0px ;
+      border-left:2px solid #ffa201;
+
+}
+ul.lvl1 li span:hover {
+    border-top:none; 
+    color:#fff;
+    background-color:#0099e6;
+     border-left:2px solid #ffa201;
+     border-radius:0px;
+   
+  
+  
+
+}
+.lvl1 li.selected a, .lvl1 li.selected span {
+     font-weight:bold;
+
+}
+/* THIRD LEVEL */
+ul.lvl2 {
+    width:500px;
+    border-bottom:1px #7dafd8 outset;
+    padding:5px; 
+    margin:0 0 5px 0;
+  }
+ul.lvl2 li{
+    float:left;
+    /*display:inline-block; */
+    width:135px;
+    padding:0;
+    display:block;
+    position:relative;
+    line-height:16px;
+    margin-right:30px;
+}
+ul.lvl2 li a, ul.lvl2 li span{
+    color:#fcde39;
+    font-weight:normal;
+    font-size:12px;
+    margin-left:10px;
+    padding:5px 10px;
+    font-weight:bold;
+    text-transform:none;
+    
+}
+ul.lvl2 li a:hover, ul.lvl2 li span:hover{
+    font-weight:bold;
+     background-color:#0099e6;
+     border-left:2px solid #ffa201;
+     width:135px;
+}
+.lvl2 li.selected a, .lvl2 li.selected span {
+    font-weight:normal;
+    border:0;
+   }
+.lvl2 li.subind a, .lvl2 li.subind span
+{
+    padding:5px 10px 5px 10px;
+     background:url(img/bt_black_small_down.gif) no-repeat left center;
+	
+}
+.lvl2 li.subind a:hover, .lvl2 li.subind span:hover 
+{
+	 background-color:#0099e6;
+     border-left:2px solid #ffa201;
+	
+	
+}
+/* FOURTH LEVEL */
+ul.lvl3 {
+    display:none;
+    position:absolute;
+    left:10px;
+    top:16px;
+    width:160px;
+    background:#fff !important ;
+	padding:10px;
+    z-index:9998;
+    border-top:none;
+	margin-right:5px;
+   
+  }
+ul.lvl3 li{
+    line-height:14px;
+    width:180px;
+	
+
+}
+ul.lvl3 li a, ul.lvl3 li span{
+    color:#333;
+    font-weight:normal;
+    font-size:11px;
+    margin:1px 0;
+    padding:5px 10px 5px 10px;
+    font-weight:normal;
+    text-transform:none;
+    width:135px;
+	 border-left:2px solid #fff;
+	  background:#fff !important ;
+
+}
+ul.lvl3 li a:hover, ul.lvl3 li span:hover{
+    color:#fff;
+    font-weight:normal bold;
+	 background-color:#0099e6  !important;
+     border-left:2px solid #ffa201;
+	}

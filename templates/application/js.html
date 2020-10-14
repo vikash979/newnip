@@ -1,0 +1,51 @@
+{% load static %}
+
+
+
+<!-- <script src="{% static 'js/nav.js' %}"></script> -->
+<script src="{% static 'js_css/jquery.min.js' %}"></script>
+<script src="{% static 'js/ack_dashboard.js' %}"></script>
+<script src="{% static 'js/3dslider.js' %}"></script>
+<script src="{% static 'js/all.js' %}"></script>
+<script src="{% static 'js/custom.js' %}"></script>
+<script src="{% static 'js/dist/Chart.min.js' %}"></script>
+
+    <script src="{% static 'js/highcharts.src.js' %}"></script>
+    <script src="{% static 'js/highcharts-3d.js' %}"></script>
+
+
+    <!---------------Narayan------------->
+
+    <script src="{% static 'js/plugins/plugins.js' %}"></script>
+    <!-- Active js -->
+    <script src="{% static 'js/active.js' %}"></script>
+
+
+    <!----------------------->
+<script>
+var myvar;
+   jQuery(document).ready(function($) {
+      $('.counter-count').counterUp({
+         delay: 10,
+         time: 1000,
+      });
+   });
+
+   $(function() {
+      $.scrollify({
+         section : ".full-height",
+      });
+   });
+
+   $(document).ready(function() {
+      $('.carousel').carousel({
+        interval: 4000,
+        pauseOnHover     : true
+      })
+   });
+   AOS.init({
+      duration: 1200,
+   })
+
+</script>
+<!-- all plugins -->

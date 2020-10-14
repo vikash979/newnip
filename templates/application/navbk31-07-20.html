@@ -1,0 +1,60 @@
+{% load static %}
+<div class="row">
+	 <div class="col-md-12">
+
+			<div class="full">
+				 <div class="main-menu-section">
+						<div class="menu">
+							 <nav class="navbar navbar-inverse">
+									<div class="navbar-header">
+										 <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".js-navbar-collapse">
+										 <span class="sr-only">Toggle navigation</span>
+										 <span class="icon-bar"></span>
+										 <span class="icon-bar"></span>
+										 <span class="icon-bar"></span>
+										 </button>
+										 <a class="navbar-brand" href="#">Menu</a>
+									</div>
+									<div class="collapse navbar-collapse js-navbar-collapse" style="">
+										 <ul class="nav navbar-nav">
+											 
+
+												<li class="{% if request.resolver_match.url_name == 'applicationheasing' %}active{% endif %}" ><a href="/applicationheasing/"  ><img src="{% static 'images/icon/home.png' %}" alt=""></br>&nbsp;&nbsp;&nbsp;&nbsp;Home</a>
+
+
+												</li>
+
+												<li class="dropdown mega-dropdown">
+													 <a href="match" class="dropdown-toggle" data-toggle="dropdown"><img src="{% static 'images/icon/Social Site2.png' %}" alt=""></br>Application<span class="caret"></span></a>
+													 <!-- <ul class="dropdown-menu mega-dropdown-menu" id="menu_bar">
+													 </ul> -->
+												</li>
+
+												<li class="dropdown mega-dropdown {% if request.resolver_match.url_name == 'ackpolicy_detail' or request.resolver_match.url_name == 'ackpolicy' %}active{% endif %}"><a href="/ackpolicy_detail/" class="dropdown-toggle" ><img src="{% static 'images/icon/services.png' %}" alt=""></br>Knowledge<span class="caret"></span></a>
+													<ul class="dropdown-menu mega-dropdown-menu" id="ack_bar">
+													</ul>
+
+
+												</li>
+												<li class="dropdown mega-dropdown"><a href="match" class="dropdown-toggle" data-toggle="dropdown">&nbsp;<img src="{% static 'images/icon/dashoboard.png' %}" alt=""></br>Social Sites<span class="caret"></span></a>
+													<!-- <ul class="dropdown-menu mega-dropdown-menu" id="socialmenu_bar">
+													</ul> -->
+												</li>
+												<li class="dropdown mega-dropdown"><a href="match" class="dropdown-toggle" data-toggle="dropdown">&nbsp;<img src="{% static 'images/icon/social.png' %}" alt=""><br/>Other Sites<span class="caret"></span></a>
+													<!-- <ul class="dropdown-menu mega-dropdown-menu" id="othersiters_bar">
+													 </ul> -->
+												</li>
+												<li><a href="#"><img src="{% static 'images/icon/other_sites.png' %}" alt=""><br/>Services</a></li>
+
+												<li><a href="#"><img src="{% static 'images/information21.png' %}" alt=""></br>Information</a></li>
+												<li><a href="#"><img src="{% static 'images/icon/help.png' %}" alt=""></br>&nbsp;&nbsp;&nbsp;&nbsp;Help</a></li>
+										 </ul>
+									</div>
+									<!-- /.nav-collapse -->
+							 </nav>
+
+						</div>
+				 </div>
+			</div>
+	 </div>
+</div>

@@ -1,0 +1,827 @@
+{% extends "application/base3.html" %}
+
+
+{% load static %}
+{% block header %}
+{% include 'application/header_2.html' %}
+
+
+
+  <link rel="stylesheet" href="{% static 'vassets/css/reset.css' %}"> <!-- CSS reset -->
+  <link rel="stylesheet" href="{% static 'vassets/css/style.css' %}"> <!-- Resource style -->
+  <script src="{% static 'vassets/js/modernizr.js' %}"></script> <!-- Modernizr -->
+
+  <!---------------------Old navy Slider---------------------->
+
+
+  <link href="{% static 'sliders/css/DesktopModules_CrossImageFlow_js_imageflow.packed.css' %}" media="all" type="text/css" rel="stylesheet"/>
+
+
+  <script type="text/javascript" src="{% static 'sliders/js/ImageFlow.Packed.js' %}"></script>
+
+  <!----------------------------End of Old Navy Slider--------->
+
+   {% endblock header %}
+   {% block css %}
+
+
+   {% endblock %}
+   {% block base_content %}
+   <style>
+     .header2 {
+
+         float: left;
+         width: 84%;
+         position: absolute;
+         z-index: 1;
+         top: 0;
+         min-height: 20px;
+
+     }
+   </style>
+
+   <div id="preloader">
+       <img class="preloader" src="{% static 'images/loading-img.gif'%}" alt="">
+    </div>
+    <!-- END LOADER -->
+    <div class="logo_icon" style="position:absolute; z-index:20000; margin-top:1.0vh;  ">
+  		<img id="cnss_order_id" class="indian_facebook" src="{% static 'images/COMMAND-ICON/Indian-Navy_1.png' %}">
+  	</div>
+<div class="container" style="">
+    <section id="tops" class="header2 " onmouseover="headerchange()" onmouseout="headerimagehide()" style=" z-index:9911; ">
+      <!-- <div class="overlay3">
+        </div> -->
+
+          <div class="" >
+            <div class="col-md-12 p-0 m-0 ">
+              <img class="logoicons" style="" src="{% static '/images/logo/logo2.png'%}">
+            </div>
+             <div class="header-top">
+                <div class="">
+                   <div class="col-md-9" style="margin-top:-27px !important">
+                      <div class="right_top_section">
+                        <ul class="exo-menu " style="font-family:WhitneyHTF-Book ;">
+                          <li><a class="" style="font-family:WhitneyHTF-Book ; font-weight:bold" href="/homesmain/"> Home</a></li>
+                          <li class="drop-down"><a href="#" style="font-family:WhitneyHTF-Book ; font-weight:bold"> Applications</a>
+
+                            <ul class="drop-down-ul animated fadeIn" style="font-family:WhitneyHTF-Book ; ">
+                            <li class="flyout-right"><a href="https://cnsforum.indiannavy.mil:43899/Pages/Home.aspx" target="_blank" style="font-family:WhitneyHTF-Book ;">CNS Discussion Forum</a>
+
+                            </li>
+
+                            <li class="flyout-left"><a href="http://intranet.indiannavy.mil/e-MSG" target="_blank" style="font-family:WhitneyHTF-Book ;">e-General Messages</a><!--Flyout Left-->
+
+                            </li>
+
+                            <li class="flyout-left"><a href="http://159.12.45.120/nhqnotice/" style="font-family:WhitneyHTF-Book ; " target="_blank">NHQ Notices</a></li>
+                            <li class="flyout-left"><a href="http://intranet.indiannavy.mil/Information/INS-India-Daily-Orders" target="_blank" style="font-family:WhitneyHTF-Book ; ">INS India</a></li>
+                            <li class="flyout-left"><a href="https://eoffice.indiannavy.mil/Paperless/signin.jsp?" target="_blank" style="font-family:WhitneyHTF-Book ; ">eOffice</a></li>
+                            <li class="flyout-left"><a href="https://eseva.mil/FBTP/Web/Loginpage.aspx" target="_blank" style="font-family:WhitneyHTF-Book ; ">eSeva</a></li>
+                            <li class="flyout-left"><a href="https://dgmsportal.indiannavy.mil:505/" target="_blank" style="font-family:WhitneyHTF-Book ; ">Covid 19</a></li>
+                            <li class="flyout-left"><a href="http://159.12.45.115/NavyCalendar/" target="_blank" style="font-family:WhitneyHTF-Book ; ">Navy Calendar</a></li>
+         									 <li><a href="#" style="font-family:WhitneyHTF-Book ; ">Others</a></li>
+
+                            </ul>
+
+                          </li>
+
+                          <li class="drop-down"><a href="#" style="font-family:WhitneyHTF-Book ; font-weight:bold"> Knowledge</a>
+
+                            <ul class="drop-down-ul animated fadeIn" style="font-family:WhitneyHTF-Book ; ">
+                            <li class="flyout-right"><a href="http://intranet.indiannavy.mil/Services/Policy-Letters?folderId=29411&view=gridview&pageSize=10" target="_black
+         										 " style="font-family:WhitneyHTF-Book ;">Policy</a><!--Flyout Right-->
+
+                            </li>
+
+                            <li class="flyout-left"><a href="http://intranet.indiannavy.mil/Knowledge/Organisation-Generated/Publications" target="_blank" style="font-family:WhitneyHTF-Book ;">Publication</a><!--Flyout Left-->
+
+                            </li>
+                            <li><a href="http://intranet.indiannavy.mil/Knowledge/Organisation-Generated/Navy-Orders?folderId=6597&view=gridview&pageSize=10"  target="_blank" style="font-family:WhitneyHTF-Book ; ">Navy Orders</a></li>
+                            <li><a href="http://intranet.indiannavy.mil/Knowledge/Organisation-Generated/Navy-Instructions?folderId=6424&view=gridview&pageSize=10" target="_blank" style="font-family:WhitneyHTF-Book ; ">Navy Instructon</a></li>
+
+                            <li><a href="http://intranet.indiannavy.mil/Services/Guidelines?folderId=7008&view=gridview&pageSize=10" target="_blank" style="font-family:WhitneyHTF-Book ; ">Guidelines</a></li>
+                            <li><a href="#" style="font-family:WhitneyHTF-Book ; ">Others</a></li>
+
+                            </ul>
+
+                          </li>
+
+
+
+                          <li class="drop-down"><a href="#" style="font-family:WhitneyHTF-Book ; font-weight:bold"> Information</a>
+
+                            <ul class="drop-down-ul animated fadeIn" style="font-family:WhitneyHTF-Book ; ">
+                            <li class="flyout-right"><a href="#" target="_black
+         										 " style="font-family:WhitneyHTF-Book ;">CAO</a><!--Flyout Right-->
+
+                            </li>
+
+                            <li class="flyout-left"><a href="#" target="_blank" style="font-family:WhitneyHTF-Book ;">Teliphone Directory</a><!--Flyout Left-->
+
+                            </li>
+                            <li><a href="#"  target="_blank" style="font-family:WhitneyHTF-Book ; ">Others</a></li>
+                            <!-- <li><a href="#" target="_blank" style="font-family:WhitneyHTF-Book ; ">links</a></li>
+                            <li><a href="#"  target="_blank" style="font-family:WhitneyHTF-Book ; ">links</a></li>
+                            <li><a href="#" target="_blank" style="font-family:WhitneyHTF-Book ; ">links</a></li> -->
+
+
+                            </ul>
+
+                          </li>
+                          <!-- <li class="blog-drop-down"><a href="#" style="font-family:WhitneyHTF-Book ; font-weight:bold">Services </a></li> -->
+
+                          <li class="drop-down"><a href="#" style="font-family:WhitneyHTF-Book ; font-weight:bold"> Other Sites</a>
+
+                            <ul class="drop-down-ul animated fadeIn" style="font-family:WhitneyHTF-Book ; ">
+                              <li class="flyout-right"><a href="https://cnsforum.indiannavy.mil:43899/Pages/Home.aspx" target="_blank" style="font-family:WhitneyHTF-Book ;">WNC</a>
+
+                              </li>
+
+                              <li class="flyout-left"><a href="http://intranet.indiannavy.mil/e-MSG" target="_blank" style="font-family:WhitneyHTF-Book ;">ENC</a><!--Flyout Left-->
+
+                              </li>
+
+                              <li class="flyout-left"><a href="http://159.12.45.120/nhqnotice/" style="font-family:WhitneyHTF-Book ; " target="_blank">SNC</a></li>
+                              <li class="flyout-left"><a href="http://intranet.indiannavy.mil/Information/INS-India-Daily-Orders" target="_blank" style="font-family:WhitneyHTF-Book ; ">ANC</a></li>
+
+
+                            <li class="flyout-right"><a href="/other_sites/" style="font-family:WhitneyHTF-Book ;">Other Navy Sites</a><!--Flyout Right-->
+
+                            </li>
+
+
+                            </ul>
+
+                          </li>
+
+                          <a href="#" class="toggle-menu visible-xs-block">|||</a>
+                        </ul>
+                        <!-- <img src="{% static 'images/gif/logo.jpg'%}" > -->
+
+
+
+                      </div>
+                   </div>
+                </div>
+             </div>
+
+          </div>
+       </section>
+
+<section id="top" style="z-index:-9999; " >
+  <div class="full-slider " style="z-index:;margin-top:0px;border:none;">
+    <div class="hero-area" style="z-index:-999 ">
+      <div class="hero-slideshow owl-carousel" style="" >
+
+      <!-- Single Slide -->
+
+      <div class="single-slide bg-img" style="background-image: url({% static 'images/banner/NIPbg3.jpg' %}); z-index:999">
+          <!-- Background Image-->
+          <div class="slide-bg-img bg-img " style="background-image: url({% static 'images/banner/Slider-img/189.png' %});"></div>
+          <!-- Welcome Text -->
+          <div class="container h-100">
+            <div class="row h-100 align-items-center justify-content-center">
+                <div class="col-12 col-lg-12">
+                  <div class="welcome-text text-center mt-5 pt-5" style="margin-top:22vh !important;">
+                      <h2 class="mt-5 pt-1"  data-animation="fadeInDown" data-delay="300ms">har kaam<span> desh ke</span> naam</h2>
+
+
+                  </div>
+                </div>
+            </div>
+          </div>
+          <!-- Slide Duration Indicator -->
+          <div class="slide-du-indicator"></div>
+      </div>
+      <div class="single-slide bg-img" style="background-image: url({% static 'images/banner/NIPbg3.jpg' %})">
+          <!-- Background Image-->
+          <div class="slide-bg-img bg-img " style="background-image: url({% static 'images/banner/Slider-img/41-46.png' %});"></div>
+          <!-- Welcome Text -->
+          <div class="container h-100">
+            <div class="row h-100 align-items-center justify-content-center">
+                <div class="col-12 col-lg-12">
+                  <div class="welcome-text text-center mt-5 pt-5" style="margin-top:22vh !important;">
+                      <h2 class="mt-5 pt-1"  data-animation="fadeInDown" data-delay="300ms">har kaam<span> desh ke</span> naam</h2>
+
+
+                  </div>
+                </div>
+            </div>
+          </div>
+          <!-- Slide Duration Indicator -->
+          <div class="slide-du-indicator"></div>
+      </div>
+      <div class="single-slide bg-img" style="background-image: url({% static 'images/banner/NIPbg3.jpg' %})">
+          <!-- Background Image-->
+          <div class="slide-bg-img bg-img " style="background-image: url({% static 'images/banner/Slider-img/44.jpg' %});"></div>
+          <!-- Welcome Text -->
+          <div class="row h-100 align-items-center justify-content-center">
+            <div class="col-12 col-lg-12">
+              <div class="welcome-text text-center mt-5 pt-5" style="margin-top:22vh !important;">
+                  <h2 class="mt-5 pt-1"  data-animation="fadeInDown" data-delay="300ms">har kaam<span> desh ke</span> naam</h2>
+
+
+              </div>
+            </div>
+        </div>
+          <!-- Slide Duration Indicator -->
+          <div class="slide-du-indicator"></div>
+      </div>
+        <div class="single-slide bg-img" style="background-image: url({% static 'images/banner/NIPbg3.jpg' %})">
+          <!-- Background Image-->
+          <div class="slide-bg-img bg-img  " style="background-image: url({% static 'images/banner/Slider-img/4.jpg' %}); "></div>
+          <!-- Welcome Text -->
+          <div class="row h-100 align-items-center justify-content-center">
+            <div class="col-12 col-lg-12">
+                <div class="welcome-text text-center mt-5 pt-5" style="margin-top:22vh !important;">
+                    <h2 class="mt-5 pt-1"  data-animation="fadeInDown" data-delay="300ms">har kaam<span> desh ke</span> naam</h2>
+
+
+                </div>
+            </div>
+        </div>
+          <!-- Slide Duration Indicator -->
+          <div class="slide-du-indicator"></div>
+      </div>
+
+      <!-- Single Slide -->
+      <div class="single-slide bg-img" style="background-image: url({% static 'images/banner/NIPbg3.jpg' %})">
+          <!-- Background Image-->
+          <div class="slide-bg-img bg-img " style="background-image: url({% static 'images/banner/Slider-img/Dec14.png' %});"></div>
+          <!-- Welcome Text -->
+          <div class="container h-100">
+            <div class="row h-100 align-items-center justify-content-center">
+                <div class="col-12 col-lg-12">
+                  <div class="welcome-text text-center mt-5 pt-5" style="margin-top:22vh !important;">
+                      <h2 class="mt-5 pt-1"  data-animation="fadeInDown" data-delay="300ms">har kaam<span> desh ke</span> naam</h2>
+
+
+                  </div>
+                </div>
+            </div>
+          </div>
+          <!-- Slide Duration Indicator -->
+          <div class="slide-du-indicator"></div>
+      </div>
+
+
+      <div class="single-slide bg-img" style="background-image: url({% static 'images/banner/NIPbg3.jpg' %})">
+          <!-- Background Image-->
+          <div class="slide-bg-img bg-img " style="background-image: url({% static 'images/banner/Slider-img/215.jpg' %});"></div>
+          <!-- Welcome Text -->
+          <div class="container h-100">
+            <div class="row h-100 align-items-center justify-content-center">
+                <div class="col-12 col-lg-12">
+                  <div class="welcome-text text-center mt-5 pt-5" style="margin-top:22vh !important;">
+                      <h2 class="mt-5 pt-1"  data-animation="fadeInDown" data-delay="300ms">har kaam<span> desh ke</span> naam</h2>
+
+
+                  </div>
+                </div>
+            </div>
+          </div>
+          <!-- Slide Duration Indicator -->
+          <div class="slide-du-indicator"></div>
+      </div>
+
+
+
+      <!-- Single Slide -->
+
+
+      <!-- Single Slide -->
+      <div class="single-slide bg-img" style="background-image: url({% static 'images/banner/NIPbg3.jpg' %})">
+          <!-- Background Image-->
+          <div class="slide-bg-img bg-img " style="background-image: url({% static 'images/banner/Slider-img/16.png' %});"></div>
+          <!-- Welcome Text -->
+          <div class="row h-100 align-items-center justify-content-center">
+            <div class="col-12 col-lg-12">
+              <div class="welcome-text text-center mt-5 pt-5" style="margin-top:22vh !important;">
+                  <h2 class="mt-5 pt-1"  data-animation="fadeInDown" data-delay="300ms">har kaam<span> desh ke</span> naam</h2>
+
+
+              </div>
+            </div>
+        </div>
+          <!-- Slide Duration Indicator -->
+          <div class="slide-du-indicator"></div>
+      </div>
+
+      <!----------------------Sixth---------------------->
+
+      <div class="single-slide bg-img" style="background-image: url({% static 'images/banner/NIPbg3.jpg' %})">
+          <!-- Background Image-->
+          <div class="slide-bg-img bg-img " style="background-image: url({% static 'images/banner/Slider-img/24.png' %});"></div>
+          <!-- Welcome Text -->
+          <div class="container h-100">
+            <div class="row h-100 align-items-center justify-content-center">
+                <div class="col-12 col-lg-12">
+                  <div class="welcome-text text-center mt-5 pt-5" style="margin-top:22vh !important;">
+                      <h2 class="mt-5 pt-1"  data-animation="fadeInDown" data-delay="300ms">har kaam<span> desh ke</span> naam</h2>
+
+
+                  </div>
+                </div>
+            </div>
+          </div>
+          <!-- Slide Duration Indicator -->
+          <div class="slide-du-indicator"></div>
+      </div>
+
+      <!-------------------------Seventh---------------->
+
+
+
+      <!----------------------------Eight----------------->
+
+
+
+      </div>
+    </div>
+  </div>
+ <!-- </section> -->
+
+
+
+ <!-------------------------------------------------------->
+
+ <style>
+  .urlImg
+  {
+    /*border-bottom:1px dotted grey; */
+    /*background-color: #009BD4;*/
+     color:#000; font-weight:bold;
+     /*border:1px solid dotted grey;*/
+
+
+  }
+  .urlImg:hover {
+      background-color: #fff;
+      -webkit-transform: scale(1.1);
+      color:#000;
+-ms-transform: scale(1.1);
+transform: scale(1.1);
+transition: 1s ease;
+/* border:1px solid dotted grey;*/
+ top: 0;
+/* visibility: visible;*/
+/*position: absolute;*/
+
+    }
+  </style>
+  <script>
+    function myfunti(ddd)
+    {
+     var idd = ddd.split("_")
+     var id  = idd[1]
+     var savinimg = "ddd_"+id
+     var imgshow = document.getElementById(savinimg)
+     imgshow.style.display='block'
+     var savinghide = "dd_"+id
+     var imghide = document.getElementById(savinghide)
+     imghide.style.display='none'
+
+
+
+    }
+
+          function normalImg(ddd)
+    {
+     var idd = ddd.split("_")
+     var id  = idd[1]
+     var savinghide = "dd_"+id
+
+     var imgshow = document.getElementById(savinghide)
+     imgshow.style.display='block'
+     var savinimg = "ddd_"+id
+     var imghide = document.getElementById(savinimg)
+     imghide.style.display='none'
+
+
+
+    }
+  </script>
+
+<script>
+var myvar;
+jQuery(document).ready(function($) {
+$('.counter-count').counterUp({
+delay: 10,
+time: 1000,
+});
+});
+
+$(function() {
+$.scrollify({
+section : ".full-height",
+});
+});
+
+$(document).ready(function() {
+$('.carousel').carousel({
+interval: 4000,
+pauseOnHover     : true
+})
+});
+AOS.init({
+duration: 1200,
+})
+
+</script>
+
+<!-- <section  id="contant" class="contant pt-4 " style="background-image: url({% static 'images/banner/NIPbg3.jpg' %}) ; font-family:WhitneyHTF-Book ; !important; position:relative;z-index:-999 " > -->
+
+<!-- <div  class="overlay2">
+</div> -->
+<div class=" pt-1 mt-0 mb-1 img-rounded " >
+
+
+          <div class="row" style="background-image: url({% static 'images/prettyphoto/CNS-Message-BG.png' %}); background-repeat:no-repeat; background-size:cover !important; box-shadow: 3px 3px 5px #292929; width:100%; margin-left: 0px;z-index:9999">
+             <!-- <div class="col-lg-1 col-md-1 col-xl-1 "></div> -->
+              <div class="col-lg-9 col-md-9 col-xl-9 " id="cns_form"   >
+
+                  <div class="col-lg-12 col-sm-12 col-xs-12 mt-4 "  >
+                    <a class="text-white  pl-4" href="https://soc.indiannavy.mil/video/CNSMSG3.aspx" target="_blank" style="font-size: 18px; color:#002060;
+                     font-family:WhitneyHTF-Book ;">
+                      <i class="fa fa-dot-circle-o pr-5"></i> CNS address at MP-IDSA via Webinar (11 Jun 20)</a>
+                  </div>
+                    <div class="col-lg-12 col-sm-12 col-xs-12"  >
+                      <a class="text-white  pl-4" href="https://soc.indiannavy.mil/video/CNSMSG2.aspx" target="_blank" style="font-size: 18px; color:#002060;
+                       font-family:WhitneyHTF-Book ;">
+                        <i class="fa fa-dot-circle-o pr-5 "></i> CNS Message to IN Personnel on Future Actions/ Readiness for COVID-19 (05 Jun 20)
+                        </a>
+                    </div>
+                    <div class="col-lg-12 col-sm-12 col-xs-12" >
+                      <a class="text-white  pl-4" href="https://soc.indiannavy.mil/video/CNSmsg.aspx" target="_blank" style="font-size: 18px; color:#002060;
+                       font-family:WhitneyHTF-Book ;">
+                        <i class="fa fa-dot-circle-o pr-5"></i> CNS Message to IN Personnel on Preparations/ Readiness for COVID-19 (07 Apr 20)
+                        </a>
+                    </div>
+                    <div class="col-lg-12 col-sm-12 col-xs-12"  style="" >
+                      <a class="text-white  pl-4" style="font-size: 18px; color:#002060;
+                       font-family:WhitneyHTF-Book ;" href="http://intranet.indiannavy.mil/CNS-Guidance"  target="_blank">
+                        <i class="fa fa-dot-circle-o pr-5"></i> CNS Guidance - Course to Steer 2019
+                        </a>
+                    </div>
+
+                  <div class="col-lg-12 col-sm-12 col-xs-12"  style="font-size: 18px; color:#002060; font-family:WhitneyHTF-Book ;" >
+                    <a class="text-white  pl-4" style="font-size: 18px; color:#002060;
+                     font-family:WhitneyHTF-Book ;" href="http://videos.indiannavy.mil/YouPHPTube/videoEmbed/inspirational-speech-on-leadership-by-admiral-ronnie-l-pereira"target="_blank" >
+                       <i class="fa fa-dot-circle-o  pr-5"></i> Admiral RL Pereira Inspirational Speech - Naval Leadership
+                      </a>
+                    </div>
+              </div>
+
+              <div class="col-lg-3 col-md-3 col-xl-3 pl-0 ml-0" >
+
+                <img class="imgheight " style="" src="{% static 'images/prettyphoto/CNS.png'%}" />
+              <!-- <img class="imgheight " style="" src="{% static 'images/COMMAND-ICON/Indian-Navy.png'%}" /> -->
+
+              </div>
+          </div>
+        <!-- </div> -->
+
+    </div>
+    </div>
+
+
+    <div class="container" id="whatnews">
+      <div class="row">
+        <div class="col-md-1 col-lg-1 pl-0 pr-0 ml-0 mr-0  pt-0" style="margin-top:4.5px; background:#fff3"><img src="{% static 'signal/WhatsNew.png'%}" class="w-100"></div>
+        <div class="col-md-10 col-lg-10 pl-0 pr-0 ml-0  border  mt-2 pt-2 pb-2 pr-2 text-white   " style="background:#fff3; "><a href="" class="typewrite" data-period="1000" data-type='[ "Webinar on Artificial Intelligence from 07 - 09 Oct 20. Webinar details and registration link available at available here, .", "01 Sep 2020 : ENC EDN 17 of 2020 available for download", "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."]'>
+        <span class="wrap"></span>
+        </a></div>
+        <div class="col-md-1 col-lg-1 pl-0 ml-0 pt-0 mt-1  h4"><i class="fa fa-arrow-circle-left fa-2x"></i> <i class="fa fa-arrow-circle-right fa-2x"></i></div>
+      </div>
+    </div>
+
+
+
+
+
+      <script>
+      function openCity(evt, cityName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+          tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(cityName).style.display = "block";
+        evt.currentTarget.className += " active";
+      }
+
+      // Get the element with id="defaultOpen" and click on it
+      document.getElementById("defaultOpen").click();
+
+      /////////////////////////////////////////////////////
+
+      $(document).ready(function(){
+
+
+      	//----------Select the first tab and div by default
+
+      	$('#vertical_tab_nav > ul > li > a').eq(0).addClass( "selected" );
+      	$('#vertical_tab_nav > div > article').eq(0).css('display','block');
+
+
+      	//---------- This assigns an onclick event to each tab link("a" tag) and passes a parameter to the showHideTab() function
+
+      		$('#vertical_tab_nav > ul').click(function(e){
+
+            if($(e.target).is("a")){
+
+              /*Handle Tab Nav*/
+              $('#vertical_tab_nav > ul > li > a').removeClass( "selected");
+              $(e.target).addClass( "selected");
+
+              /*Handles Tab Content*/
+              var clicked_index = $("a",this).index(e.target);
+              $('#vertical_tab_nav > div > article').css('display','none');
+              $('#vertical_tab_nav > div > article').eq(clicked_index).fadeIn();
+
+            }
+
+              $(this).blur();
+              return false;
+
+      		});
+
+      });//end ready
+      </script>
+
+
+<!-- </section>
+
+
+    <section id="contant" class="contant pt-4"  style="background-image: url({% static 'images/13.jpg' %}) ; Z-index:-999"  > -->
+          <!-- <div  class="overlay">
+
+          <style>
+
+
+
+
+
+          .headerpolicy {
+            position:relative;
+            text-align:center;
+            background: #008dd2;
+            color:white;
+          }
+
+          .headernews {
+            position:relative;
+            text-align:center;
+            background: #008dd2;
+            color:white;
+          }
+
+          .headermessage {
+            position:relative;
+            text-align:center;
+            background: #074088eb;
+            color:white;
+          }
+          .headerinformation {
+            position:relative;
+            text-align:center;
+            background: #881407eb;
+            color:white;
+          }
+          .headerpublication {
+            position:relative;
+            text-align:center;
+            background: #0e4b8a;
+            color:white;
+          }
+          .logopolicy {
+            width:50px;
+            fill:white;
+            padding-right:15px;
+            display:inline-block;
+            vertical-align: middle;
+          }
+
+          .inner-header {
+            height:65vh;
+            width:100%;
+            margin: 0;
+            padding: 0;
+          }
+
+          .flex { /*Flexbox for containers*/
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+          }
+
+          .wavespolicy {
+            position:relative;
+            width: 100%;
+            height:5vh;
+            margin-bottom:-7px; /*Fix for safari gap*/
+
+          }
+
+          .contentpolicy {
+            position:relative;
+            height:20vh;
+            text-align:center;
+            background-color: white;
+          }
+
+          /* Animation */
+
+          .parallax > use {
+            animation: move-forever 25s cubic-bezier(.55,.5,.45,.5)     infinite;
+          }
+          .parallax > use:nth-child(1) {
+            animation-delay: -2s;
+            animation-duration: 7s;
+          }
+          .parallax > use:nth-child(2) {
+            animation-delay: -3s;
+            animation-duration: 10s;
+          }
+          .parallax > use:nth-child(3) {
+            animation-delay: -4s;
+            animation-duration: 13s;
+          }
+          .parallax > use:nth-child(4) {
+            animation-delay: -5s;
+            animation-duration: 20s;
+          }
+          @keyframes move-forever {
+            0% {
+             transform: translate3d(-90px,0,0);
+            }
+            100% {
+              transform: translate3d(85px,0,0);
+            }
+          }
+          /*Shrinking for mobile*/
+          @media (max-width: 768px) {
+            .wavespolicy {
+
+              min-height:40px;
+            }
+            .contentpolicy {
+              height:30vh;
+            }
+
+          }
+          </style>
+
+    </section>
+
+
+
+<section style="padding:5px 25px; background-size:cover !important; background-image: url({% static 'images/gif/NIPbg2.png' %}); background-size:cover !important; ">
+<div class="matchs-info" style="background:transparent !important"  >
+       <div id="team-slider">
+
+          <!-- <div class="container" id="defence_zone">
+          </div> -->
+         <div class="p-0 m-0" style="padding:5px 25px; background-size:cover !important; background-image: url({% static 'images/gif/NIPbg4.png' %}); background-size:cover !important; height:50%!important;  ">
+           <div class="container" style="" >
+
+
+
+            <div class="row">
+              <div class="container">
+                <div class="row">
+                  <div class="col-lg-2 col-md-2 "></div>
+                    <div class="col-lg-7 col-md-8 ">
+                      <div id="dnn_ctr2745_View_ctl00_divImageFlow" class="imageflow" >
+                        <img src="{% static 'images/officer/President.png'%}" longdesc="{% static 'images/officer/President.png'%}" alt="001" width="120" height="150" />
+                        <img src="{% static 'images/officer/CNS.png'%}" longdesc="{% static 'images/officer/CNS.png'%}" alt="002" width="120" height="150" />
+                        <img src="{% static 'images/officer/CNC-WEST.png'%}" longdesc="{% static 'images/officer/CNC-WEST.png'%}" alt="007" width="120" height="150" />
+                        <img src="{% static 'images/officer/CNC-SOUTH.png'%}" longdesc="{% static 'images/officer/CNC-SOUTH.png'%}" alt="008" width="120" height="150" />
+                        <img src="{% static 'images/officer/CNC-EAST.png'%}" longdesc="{% static 'images/officer/CNC-EAST.png'%}" alt="009" width="120" height="150" />
+                        <img src="{% static 'images/officer/VCNS.png'%}" longdesc="{% static 'images/officer/VCNS.png'%}" alt="010" width="120" height="150" />
+                        <img src="{% static 'images/officer/COP.png'%}" longdesc="{% static 'images/officer/COP.png'%}" alt="012" width="120" height="150" />
+                        <img src="{% static 'images/officer/DCNS.png'%}" longdesc="{% static 'images/officer/DCNS.png'%}" alt="013" width="120" height="150" />
+                        <img src="{% static 'images/officer/COM.png'%}" longdesc="{% static 'images/officer/COM.png'%}" alt="14" width="120" height="150" />
+
+
+                      </div>
+                      <div class="" >
+                        <h2 class="text-white text-center pt-3 officertext " >Know Your Officers</h2>
+
+                      </div>
+                    </div>
+                    <div class="col-lg-2 col-md-2 ">
+                      <!-- <div class="dropdown">
+                         <a onclick="myFunction()" class="dropbtn drop-down">COMMANDS</a>
+
+                      <div id="myDropdown" class="dropdown-content">
+                       <a href="#home" class="commander">WNC</a>
+                          <a href="#home" class="commander">ENC</a>
+                            <a href="#home" class="commander">SNC</a>
+                              <a href="#home" class="commander">ANC</a>
+                          </div>
+                      </div> -->
+
+
+
+                    </div>
+                </div>
+
+
+                    <script type="text/javascript">
+                    //<![CDATA[
+                    domReady(function(){
+                    var imageFlow2745 = new ImageFlow();
+                    imageFlow2745.init(
+                    {
+                    animationSpeed:50,
+                    aspectRatio:1.964,
+                    buttons:false,
+                    captions:false,
+                    circular:true,
+                    imageCursor:'pointer',
+                    ImageFlowID:'dnn_ctr2745_View_ctl00_divImageFlow',
+                    imageFocusM:1.0,
+                    imageFocusMax:4,
+                    imageScaling:true,
+                    imagesHeight:0.67,
+                    imagesM:1.0,
+                    percentLandscape:118,
+                    percentOther:100,
+                    preloadImages:true,
+                    reflections:false,
+                    reflectionP:0.5,
+                    reflectionPNG:false,
+                    reflectionGET:'',
+                    reflectPath:'',
+                    startID:1,
+                    startAnimation:false,
+                    slider:false,
+                    sliderCursor:'default',
+                    sliderWidth:14,
+                    slideshow:true,
+                    slideshowSpeed:1500,
+                    slideshowAutoplay:true,
+                    xStep:150,
+                    onClick: function() { return hs.expand(this,
+                                  { src: this.getAttribute('longdesc'),
+                                     outlineType: 'rounded-white',
+                                     fadeInOut: true,
+                                     captionText: this.getAttribute('alt') } ); }
+                    });
+                    });
+                    //]]>
+                    </script>
+
+                </div>
+
+                </div>
+
+
+
+
+            </div>
+         </div>
+       </div>
+</div>
+
+
+
+</section>
+
+
+<script src="{% static 'vassets/js/jquery-2.1.1.js' %}"></script>
+<script src="{% static 'vassets/js/jquery.menu-aim.js' %}"></script> <!-- menu aim -->
+<script src="{% static 'vassets/js/main.js' %}"></script>
+
+
+         {% include 'application/footer.html' %}
+
+         </div>
+
+
+
+            <!-- </div> -->
+
+
+
+
+
+
+
+
+            <!-- ALL JS FILES -->
+
+
+      </html>
+      {% endblock base_content %}
+
+      {% block htmljs %}
+
+
+      {% endblock htmljs %}

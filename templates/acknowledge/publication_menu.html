@@ -1,0 +1,277 @@
+
+{% extends "application/base2.html" %}
+
+{% load static %}
+{% block header %}
+<!DOCTYPE html>
+{% include 'application/header.html' %}
+
+   {% endblock header %}
+   {% block css %}
+
+
+   {% endblock %}
+   {% block base_content %}
+
+
+     <script>
+       $(window).on('load',function(){
+
+     })
+       </script>
+       <!-------------------------------------------slider-------------------->
+
+    <!-------------------------------------------slider-------------------->
+
+      <!-- LOADER -->
+      <div id="preloader">
+         <img class="preloader" src="{% static 'images/loading-img.gif'%}" alt="">
+      </div>
+      <!-- END LOADER -->
+      <section id="tops" class="header2 " onmouseover="headerchange()" onmouseout="headerimagehide()" style=" z-index:9911; ">
+        <!-- <div class="overlay3">
+          </div> -->
+
+            <div class="container-fluid" >
+               <div class="header-top">
+                  <div class="row">
+
+                    <div class="col-md-8">
+                      <img class="pt-3" style="width: 120% !important;" src="{% static '/images/logo/NIP.png'%}">
+                    </div>
+                    <!-- <div class="col-md-8">
+                      <img class="ship-img W-100" style="width: 66% !important; display: none; " src="{% static '/images/logo/NIP.png'%}">
+                    </div> -->
+                     <!-- <div class="col-md-5">
+                        <div class="full">
+                           <div class="logo mt-1 pt-1">
+
+                              <span style="font-weight: bold;  color:#fff; font-size:28px;" class="mt-2 ml-2"> <img class="logoicon" src="{% static 'images/logo/NIP.png'%}"></span>
+
+                           </div>
+                        </div>
+                     </div> -->
+                     <div class="col-md-4">
+                        <div class="right_top_section">
+                          <!-- <img src="{% static 'images/gif/logo.jpg'%}" > -->
+
+                               <a href="http://160.11.70.24/" target="_blank" id="wns_id" class="dropbtn" onmouseover="facebook(this.id)" onmouseout="facebookout(this.id)"><img id="wns_obj" style="width:50px; height:50px;" src="{% static 'images/COMMAND-ICON/WNC.png' %}">
+                                  <img id="wns_objects" style="width:50px; display:none; height:50px;" src="{% static 'images/COMMAND-ICON/WNC-ORG.png' %}">
+                               </a>
+
+                               <a id="ens_id" href="https://purab.mil/"  target="_blank" class="dropbtn" onmouseover="facebook(this.id)" onmouseout="facebookout(this.id)"><img id="ens_obj" style="width:50px; height:50px;" src="{% static 'images/COMMAND-ICON/ENC.png' %}">
+                                 <img id="ens_objects" style="width:50px; display:none; height:50px;" src="{% static 'images/COMMAND-ICON/ENC-ORG.png' %}">
+                               </a>
+                               <a  id="sns_id" href="https://161.9.21.19/" target="_blank"  class="dropbtn" onmouseover="facebook(this.id)" onmouseout="facebookout(this.id)"><img id="sns_obj" style="width:50px; height:50px;" src="{% static 'images/COMMAND-ICON/SNC.png' %}">
+                                  <img id="sns_objects" style="width:50px; display:none; height:50px;" src="{% static 'images/COMMAND-ICON/SNC-ORG.png' %}">
+                               </a>
+                               <a id="ans_id" href="https://162.23.12.50/" target="_blank" class="dropbtn" onmouseover="facebook(this.id)" onmouseout="facebookout(this.id)"><img id="ans_obj" style="width:50px; height:50px;" src="{% static 'images/COMMAND-ICON/ANC.png' %}">
+                                 <img id="ans_objects" style="width:50px; display:none; height:50px;" src="{% static 'images/COMMAND-ICON/ANC-ORG.png' %}">
+                               </a>
+
+
+                                 <div class="dropdown">
+                                    <a onclick="myFunction()" class="dropbtn">{{user.name}}</a>
+
+                                <div id="myDropdown" class="dropdown-content"><input type="hidden" id="userId" value="{{user.name}}">
+                                  <a href="#home">Logout</a>
+
+                                </div>
+                        </div>
+
+                              <!-- <li class="login-modal">
+                                 <a href="#" class="login"><i class="fa fa-user"></i>Login</a>
+                              </li> -->
+                              <!-- <li>
+
+                                 <div class="cart-option">
+                                    <a href="#"><i class="fa fa-shopping-cart"></i>Register</a>
+                                 </div>
+                              </li> -->
+
+
+                        </div>
+                     </div>
+                  </div>
+               </div>
+
+            </div>
+         </section>
+
+
+         {% include 'application/nav.html' %}
+
+
+
+
+          <section id="contant" class="contant" style="background:#cddec085; padding-top:10% "data-aos="flip-right" data-aos="flip-left"
+               data-aos-easing="ease-out-cubic"
+               data-aos-duration="2000" >
+
+                <div class="container">
+                   <div class="row">
+                     <div class="col-lg-12 col-sm-12 col-xs-12">
+                       <div id="ccontainer" style="border-radius:30px; "></div>
+
+
+                     </div>
+                     <div class="col-lg-12 col-sm-12 col-xs-12">
+                      <div id="policycontainer"></div>
+                    </div>
+                   </div>
+                 </div>
+               </section>
+
+       <!-------------------------------------------------------->
+
+ <style>
+                    .urlImg
+                    {
+                      /*border-bottom:1px dotted grey; */
+                      /*background-color: #009BD4;*/
+                       color:#000; font-weight:bold;
+                       /*border:1px solid dotted grey;*/
+
+
+                    }
+                    .urlImg:hover {
+                        background-color: #fff;
+                        -webkit-transform: scale(1.2);
+                        color:#000;
+                  -ms-transform: scale(1.2);
+                  transform: scale(1.2);
+                  transition: 1s ease;
+                 /* border:1px solid dotted grey;*/
+                   top: 0;
+                  /* visibility: visible;*/
+    /*position: absolute;*/
+
+                      }
+                    </style>
+                    <script>
+                      function myfunti(ddd)
+                      {
+                       var idd = ddd.split("_")
+                       var id  = idd[1]
+                       var savinimg = "ddd_"+id
+                       var imgshow = document.getElementById(savinimg)
+                       imgshow.style.display='block'
+                       var savinghide = "dd_"+id
+                       var imghide = document.getElementById(savinghide)
+                       imghide.style.display='none'
+
+
+
+                      }
+
+                            function normalImg(ddd)
+                      {
+                       var idd = ddd.split("_")
+                       var id  = idd[1]
+                       var savinghide = "dd_"+id
+
+                       var imgshow = document.getElementById(savinghide)
+                       imgshow.style.display='block'
+                       var savinimg = "ddd_"+id
+                       var imghide = document.getElementById(savinimg)
+                       imghide.style.display='none'
+
+
+
+                      }
+                    </script>
+
+      <script>
+      var myvar;
+         jQuery(document).ready(function($) {
+            $('.counter-count').counterUp({
+               delay: 10,
+               time: 1000,
+            });
+         });
+
+         $(function() {
+            $.scrollify({
+               section : ".full-height",
+            });
+         });
+
+         $(document).ready(function() {
+            $('.carousel').carousel({
+              interval: 4000,
+              pauseOnHover     : true
+            })
+         });
+         AOS.init({
+            duration: 1200,
+         })
+
+   </script>
+
+
+
+                  <!------------------------------------------------------------------------>
+
+                  <section id="contant" class="contant" style="background:#deeef5; " data-aos="flip-left" data-aos="flip-left"
+                       data-aos-easing="ease-out-cubic"
+                       data-aos-duration="2000">
+
+         <div class="container">
+            <div class="row" id="ack_men" data-aos="flip-left" data-aos="zoom-in"
+           data-aos-easing="ease-out-cubic"
+           data-aos-duration="2000">
+
+
+
+
+            </div>
+         </div>
+      </section>
+
+
+
+
+      <section id="contant" class="contant" >
+         <div class="container">
+            <div class="row">
+               <div class="col-lg-6 col-sm-4 col-xs-12">
+
+
+
+
+
+
+               </div>
+              <div class="col-lg-6 col-sm-4 col-xs-12">
+              </div>
+               <style>
+                .highcharts-credits
+                {
+                  display: none;
+                }
+               </style>
+
+
+               </div>
+            </div>
+
+      </section>
+      <!-- </div> -->
+
+
+
+
+
+
+
+     {% include 'application/footer.html' %}
+      <!-- ALL JS FILES -->
+
+
+</html>
+{% endblock base_content %}
+
+{% block htmljs %}
+
+
+{% endblock htmljs %}

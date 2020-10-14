@@ -1,0 +1,70 @@
+{% load static %}
+<div class="heading-slider">
+	<div class="header-bottom">
+	                  <div class="row">
+	                     <div class="col-md-12">
+
+	                        <div class="full">
+	                           <div class="main-menu-section">
+	                              <div class="menu">
+	                                 <nav class="navbar navbar-inverse">
+	                                    <div class="navbar-header">
+	                                       <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".js-navbar-collapse">
+	                                       <span class="sr-only">Toggle navigation</span>
+	                                       <span class="icon-bar"></span>
+	                                       <span class="icon-bar"></span>
+	                                       <span class="icon-bar"></span>
+	                                       </button>
+	                                       <a class="navbar-brand" href="#">Menu</a>
+	                                    </div>
+	                                    <div class="collapse navbar-collapse js-navbar-collapse" style="">
+	                                       <ul class="nav navbar-nav">
+	                                          <li class="{% if request.resolver_match.url_name == 'applicationheasing' %}active{% endif %}" ><a href="index.html"><img src="{% static 'images/home_icon3.png' %}" alt=""></br>Home</a>
+
+    
+	                                          </li>
+
+	                                          <li class="dropdown mega-dropdown">
+	                                             <a href="match" class="dropdown-toggle" data-toggle="dropdown"><img src="{% static 'images/dashboard_iicons.png' %}" alt=""></br>Application<span class="caret"></span></a>
+	                                             <ul class="dropdown-menu mega-dropdown-menu" id="menu_bar"> 
+	                                             </ul>
+	                                          </li>
+
+	                                          <li class="dropdown mega-dropdown {% if request.resolver_match.url_name == 'ackpolicy_detail' or request.resolver_match.url_name == 'ackpolicy' %}active{% endif %}"><a href="/acknowledge/ackpolicy_detail/" class="dropdown-toggle" ><img src="{% static 'images/application_logo.png' %}" alt=""></br>Knowledge<span class="caret"></span></a>
+	                                          	<ul class="dropdown-menu mega-dropdown-menu" id="ack_bar">
+	                                          	</ul>
+
+	                                          </li>
+	                                          <li class="dropdown mega-dropdown"><a href="match" class="dropdown-toggle" data-toggle="dropdown">&nbsp;<img src="{% static 'images/social_icon.png' %}" alt=""></br>Social Sites<span class="caret"></span></a>
+	                                          	<ul class="dropdown-menu mega-dropdown-menu" id="socialmenu_bar">
+	                                          	</ul>
+	                                          </li>
+	                                          <li class="dropdown mega-dropdown"><a href="match" class="dropdown-toggle" data-toggle="dropdown">&nbsp;<img src="{% static 'images/other_sites_icons.png' %}" alt=""><br/>Other Sites<span class="caret"></span></a>
+	                                          	<ul class="dropdown-menu mega-dropdown-menu" id="othersiters_bar"> 
+	                                             </ul>
+	                                          </li>
+	                                          <li><a href="contact.html"><img src="{% static 'images/services_icon.png' %}" alt=""><br/>Services</a></li>
+	                                          
+	                                          <li><a href="contact.html"><img src="{% static 'images/informations_icon.png' %}" alt=""></br>Information</a></li>
+	                                          <li><a href="contact.html"><img src="{% static 'images/earth.png' %}" alt=""></br>Help</a></li>
+	                                       </ul>
+	                                    </div>
+	                                    <!-- /.nav-collapse -->
+	                                 </nav>
+	                                 <!-- <div class="search-bar">
+	                                    <div id="imaginary_container">
+	                                       <div class="input-group stylish-input-group">
+	                                          <input type="text" class="form-control"  placeholder="Search" >
+	                                          <span class="input-group-addon">
+	                                          <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+	                                          </span>
+	                                       </div>
+	                                    </div>
+	                                 </div> -->
+	                              </div>
+	                           </div>
+	                        </div>
+	                     </div>
+	                  </div>
+	 </div>
+ </div>

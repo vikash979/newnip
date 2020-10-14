@@ -1,0 +1,67 @@
+{% load static %}
+<div class="row">
+	 <div class="col-md-12" style="background:transparent">
+
+			<div class="full">
+				 <div class="main-menu-section" style="background:transparent">
+						<div class="menu" style="background:transparent">
+							 <nav class="navbar navbar-inverse">
+									<div class="navbar-header">
+										 <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".js-navbar-collapse">
+										 <span class="sr-only">Toggle navigation</span>
+										 <span class="icon-bar"></span>
+										 <span class="icon-bar"></span>
+										 <span class="icon-bar"></span>
+										 </button>
+										 <a class="navbar-brand" href="#">Menu</a>
+									</div>
+									<div class="collapse navbar-collapse js-navbar-collapse" style="">
+										 <ul class="nav navbar-nav">
+
+
+												<li class="{% if request.resolver_match.url_name == 'applicationheasing' %}active{% endif %} " ><a href="/home/"  ><img src="{% static 'images/icon/home1.png' %}" alt=""></br>Home</a>
+
+
+												</li>
+
+												<li class="dropdown mega-dropdown">
+													 <a href="match" class="dropdown-toggle" data-toggle="dropdown">&nbsp;&nbsp;&nbsp;<img src="{% static 'images/icon/Social Site3.png' %}" alt=""></br>Application<span class="caret"></span></a>
+													 <!-- <ul class="dropdown-menu mega-dropdown-menu" id="menu_bar">
+													 </ul> -->
+
+													 <!-- <ul class="dropdown-menu mega-dropdown-menu" id="menu_bar">
+														 </ul> -->
+												</li>
+
+												<li class="dropdown mega-dropdown {% if request.resolver_match.url_name == 'ackpolicy_detail' or request.resolver_match.url_name == 'ackpolicy' %}active{% endif %}"><a href="/ackpolicy_detail/" class="dropdown-toggle" >&nbsp;&nbsp;&nbsp;<img src="{% static 'images/icon/services2.png' %}" alt=""></br>Knowledge<span class="caret"></span></a>
+														{% if user.role != 3 %}
+													<ul class="dropdown-menu mega-dropdown-menu" id="ack_bar">
+													</ul>
+														{% endif %}
+
+
+												</li>
+												<li class="dropdown mega-dropdown"><a href="match" class="dropdown-toggle" data-toggle="dropdown">&nbsp;&nbsp;&nbsp;&nbsp;<img src="{% static 'images/icon/dashboard1.png' %}" alt=""></br>Social Sites<span class="caret"></span></a>
+													<!-- <ul class="dropdown-menu mega-dropdown-menu" id="socialmenu_bar">
+													</ul> -->
+												</li>
+												<li class="dropdown mega-dropdown"><a href="match" class="dropdown-toggle" data-toggle="dropdown">&nbsp;&nbsp;&nbsp;&nbsp;<img src="{% static 'images/icon/social1.png' %}" alt=""><br/>Other Sites<span class="caret"></span></a>
+													<!-- <ul class="dropdown-menu mega-dropdown-menu" id="othersiters_bar">
+													 </ul> -->
+												</li>
+												<li><a href="#">&nbsp;&nbsp;<img src="{% static 'images/icon/other_sites1.png' %}" alt=""><br/>Services</a></li>
+
+												<li class="dropdown mega-dropdown"><a href="#">&nbsp;&nbsp;&nbsp;&nbsp;<img src="{% static 'images/icon/information22.png' %}" alt=""></br>Information</a>
+
+												</li>
+												<li><a href="#"><img src="{% static 'images/icon/help1.png' %}" alt=""></br>&nbsp;Help</a></li>
+										 </ul>
+									</div>
+									<!-- /.nav-collapse -->
+							 </nav>
+
+						</div>
+				 </div>
+			</div>
+	 </div>
+</div>
