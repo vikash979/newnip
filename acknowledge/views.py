@@ -101,6 +101,10 @@ class policyViewobjApi(APIView):
 		return Response(serializer.data)
 
 
+
+
+
+
 class knowledgeGraphApi(APIView):
 	def get_all_children(self,menubar,id=None,lists=None):
 		if id == None:
@@ -170,8 +174,9 @@ def graphCount(request):
 		
 		for x in policy_name:
 			policyId  =  get_all_children(x['id'], Ack_submenu )
-			graph_count = ack_subMenuPolicyFile.objects.filter(parent_ob__in=policyId).count()
-			file_name = ack_publicationname.objects.filter(parent_ob__in=policyId).values('file')
+			graph_count = Ack_submenu.objects.filter(parent_ob__in=policyId).count()
+
+			file_name = Ack_submenu.objects.filter(parent_ob__in=policyId).values('file')
 			try:
 				for xx in file_name:
 					file_obj = file_location+xx['file']
@@ -200,8 +205,8 @@ def graphCount(request):
 		policy_name =  ack_subpublicationmenu.objects.filter(parent_ob_id=None).values('submenu_name','id')
 		for x in policy_name:
 			policyId  =  get_all_children(x['id'], ack_subpublicationmenu )
-			graph_count = ack_publicationname.objects.filter(parent_ob__in=policyId).count()
-			file_name = ack_publicationname.objects.filter(parent_ob__in=policyId).values('file')
+			graph_count = ack_subpublicationmenu.objects.filter(parent_ob__in=policyId).count()
+			file_name = ack_subpublicationmenu.objects.filter(parent_ob__in=policyId).values('file')
 			try:
 				for xx in file_name:
 					file_obj = file_location+xx['file']
@@ -230,9 +235,10 @@ def graphCount(request):
 		policy_name =  ack_subNavy_Instructionssmenu.objects.filter(parent_ob_id=None).values('submenu_name','id')
 		for x in policy_name:
 			policyId  =  get_all_children(x['id'], ack_subNavy_Instructionssmenu )
-			graph_count = ack_NavyInstructionname.objects.filter(parent_ob__in=policyId).count()
+			graph_count = ack_subNavy_Instructionssmenu.objects.filter(parent_ob__in=policyId).count()
 			bargraph_count = InstructionUser.objects.filter(user__in=policyId).count()
-			file_name = InstructionUser.objects.filter(parent_ob__in=policyId).values('file')
+			print("ssssssssssssuuuuuuuuuuuu", policyId)
+			file_name = ack_subNavy_Instructionssmenu.objects.filter(parent_ob__in=policyId).values('file')
 			try:
 				for xx in file_name:
 					file_obj = file_location+xx['file']
@@ -257,8 +263,8 @@ def graphCount(request):
 		policy_name =  ack_subGuidelinesmenu.objects.filter(parent_ob_id=None).values('submenu_name','id')
 		for x in policy_name:
 			policyId  =  get_all_children(x['id'], ack_subGuidelinesmenu )
-			graph_count = ack_guidelinesname.objects.filter(parent_ob__in=policyId).count()
-			file_name = ack_guidelinesname.objects.filter(parent_ob__in=policyId).values('file')
+			graph_count = ack_subGuidelinesmenu.objects.filter(parent_ob__in=policyId).count()
+			file_name = ack_subGuidelinesmenu.objects.filter(parent_ob__in=policyId).values('file')
 			try:
 				for xx in file_name:
 					file_obj = file_location+xx['file']
@@ -299,8 +305,8 @@ def graphCount(request):
 		
 		for x in policy_name:
 			policyId  =  get_all_children(x['id'], ack_subNavy_Orderssmenu )
-			graph_count = ack_Navyname.objects.filter(parent_ob__in=policyId).count()
-			file_name = ack_Navyname.objects.filter(parent_ob__in=policyId).values('file')
+			graph_count = ack_subNavy_Orderssmenu.objects.filter(parent_ob__in=policyId).count()
+			file_name = ack_subNavy_Orderssmenu.objects.filter(parent_ob__in=policyId).values('file')
 			if request.GET.get('search')!= None:
 				for xx in file_name:
 					file_obj = file_location+xx['file']
@@ -501,8 +507,11 @@ class AxknowledgePublicAPI(APIView):
 		serializer = serializers.AckenowledgepublicationSubmenuSerializer(ack_menu,many=True)
 		return Response(serializer.data)
 
-
-class knowledgeMat(APIView):
+def get_all_user_data(id,menubar,lists=None):
+	policy_name =  menubar.objects.filter(id=id ).values()
+	print("<<<<", policy_name)
+	
+class knowledgeMat(knowledgeGraphApi):
 
 	def pagination_data(self,numpages, users,page):
 		if numpages > 0:
@@ -537,7 +546,8 @@ class knowledgeMat(APIView):
 		return know_record
 
 	def get(self, request):
-		# print("!!!!!!!!!!!!", request.GET.get('menubar') )
+		print("!!!!!!yyyyyyyyyyyyyyyyyyyyyyyyyy!!!!!!", request.GET )
+		data_user= []
 		if request.GET.get('menubar') == 'Policy':
 			submenu = Ack_submenu.objects.filter(parent_ob_id=None,folder_type=2, status=2, file_type=request.GET.get('file_type'))
 			if request.GET.get('page') == None:
@@ -557,6 +567,29 @@ class knowledgeMat(APIView):
 			serializer = serializers.AckenowledgeSubmenuSerializer(users,many=True)
 			data_record = {"policy": serializer.data}
 			policy_file = ack_subMenuPolicyFile.objects.filter(parent_ob_id=request.GET.get('mainId'))
+			graph_data  = request.GET.get('menu_name')
+			menu_name = Ack_submenu.objects.filter(submenu_name=graph_data).values('id')
+			try:
+				for graph_name in menu_name:
+					# policyId =  get_all_user_data(graph_name['id'],Ack_submenu)
+					policyy =  super(knowledgeMat, self).get_all_children(Ack_submenu, graph_name['id'])
+					
+					graph_rec = KnowledgeUser.objects.filter(user__in=policyy)
+					
+					paginator_user = Paginator(graph_rec,5)
+				try:
+					graph_users = paginator_user.page(page)
+				except PageNotAnInteger:
+					graph_users = paginator_user.page(1)
+				except EmptyPage:
+					graph_users = paginator_user.page(paginator.num_pages)
+				numpages = paginator_user.num_pages
+				data_user = serializers.policyUserSerializer(graph_users, many=True).data
+				print("<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>", data_user)
+
+			except:
+				pass
+
 			data_obj = serializers.ack_subMenuPolicyFileSubmenuSerializer(policy_file, many=True)
 		if request.GET.get('menubar') == 'Publication':
 			submenu = ack_subpublicationmenu.objects.filter(parent_ob_id=None,folder_type=2,  file_type=request.GET.get('file_type'))
@@ -643,24 +676,43 @@ class knowledgeMat(APIView):
 			policy_file = ack_NavyInstructionname.objects.filter(parent_ob_id=request.GET.get('mainId'))
 			data_obj = serializers.AckenowledgeNavyInstructionSerializer(policy_file, many=True)
 		data_record['obj'] = data_obj.data
+		data_record['users'] = data_user
 		data_record['pagination'] = pagination_obj
 
 		return Response(data_record)
 import PyPDF2
 import re
 
-class AckpolicyAPI(APIView):
+
+
+class AckpolicyAPI(knowledgeMat):
 	def get(self,request, id):
 
 		if request.GET.get('menubar') == 'Policy':
-			submenu = Ack_submenu.objects.filter(parent_ob_id=id,folder_type=2, status=2, file_type=request.GET.get('file_type'))
+			submenu = Ack_submenu.objects.filter(parent_ob_id=id, status=2, file_type=request.GET.get('file_type'))
+			if request.GET.get('page') == None:
+				page =1
+			else:
+				page = int(request.GET.get('page'))
+			paginator = Paginator(submenu,5)
+			try:
+				users = paginator.page(page)
+			except PageNotAnInteger:
+				users = paginator.page(1)
+			except EmptyPage:
+				users = paginator.page(paginator.num_pages)
+			numpages = paginator.num_pages
+			# print(";;;;;;;;;;", numpages)
+			pagination_obj =  super(AckpolicyAPI, self).pagination_data(numpages,users,page)
+			print("ooooooooooo", pagination_obj)
 
-			serializer = serializers.AckenowledgeSubmenuSerializer(submenu,many=True)
+			serializer = serializers.AckenowledgeSubmenuSerializer(users,many=True)
 			data_record = {"policy": serializer.data}
 			policy_file = ack_subMenuPolicyFile.objects.filter(parent_ob_id=id)
 			data_obj = serializers.ack_subMenuPolicyFileSubmenuSerializer(policy_file, many=True)
 			
 			data_record['obj']  = data_obj.data
+			data_record['pagination']  = pagination_obj
 
 		elif request.GET.get('menubar') == 'Standards':
 			submenu = ack_subStandardsmenu.objects.filter(parent_ob_id=id,folder_type=2, file_type=request.GET.get('file_type'))
@@ -671,36 +723,93 @@ class AckpolicyAPI(APIView):
 			data_record['obj'] = data_obj.data
 
 		elif request.GET.get('menubar') == 'Navy Orders':
-			submenu = ack_subNavy_Orderssmenu.objects.filter(parent_ob_id=id,folder_type=2, file_type=request.GET.get('file_type'))
-			serializer = serializers.Ack_subNavy_OrderssmenuSerializer(submenu,many=True)
+			submenu = ack_subNavy_Orderssmenu.objects.filter(parent_ob_id=id, file_type=request.GET.get('file_type')).order_by('-id')
+			if request.GET.get('page') == None:
+				page =1
+			else:
+				page = int(request.GET.get('page'))
+			paginator = Paginator(submenu,5)
+			try:
+				users = paginator.page(page)
+			except PageNotAnInteger:
+				users = paginator.page(1)
+			except EmptyPage:
+				users = paginator.page(paginator.num_pages)
+			numpages = paginator.num_pages
+			pagination_obj =  super(AckpolicyAPI, self).pagination_data(numpages,users,page)
+			serializer = serializers.Ack_subNavy_OrderssmenuSerializer(users,many=True)
 			data_record = {"policy": serializer.data}
 			policy_file = ack_Navyname.objects.filter(parent_ob_id=id)
 			data_obj = serializers.AckenowledgeNavyOrdersSerializer(policy_file, many=True)
 			data_record['obj'] = data_obj.data
+			data_record['pagination']  = pagination_obj
 		elif request.GET.get('menubar') =='GuideLines':
-			submenu = ack_subGuidelinesmenu.objects.filter(parent_ob_id=id,folder_type=2, file_type=request.GET.get('file_type'))
-			serializer = serializers.AckenowledgeGuidelinesSubmenuSerializer(submenu,many=True)
+			submenu = ack_subGuidelinesmenu.objects.filter(parent_ob_id=id, file_type=request.GET.get('file_type'))
+			if request.GET.get('page') == None:
+				page =1
+			else:
+				page = int(request.GET.get('page'))
+			paginator = Paginator(submenu,5)
+			try:
+				users = paginator.page(page)
+			except PageNotAnInteger:
+				users = paginator.page(1)
+			except EmptyPage:
+				users = paginator.page(paginator.num_pages)
+			numpages = paginator.num_pages
+			pagination_obj =  super(AckpolicyAPI, self).pagination_data(numpages,users,page)
+			serializer = serializers.AckenowledgeGuidelinesSubmenuSerializer(users,many=True)
 			data_record = {"policy": serializer.data}
 			policy_file = ack_guidelinesname.objects.filter(parent_ob_id=id)
 			data_obj = serializers.AckguideLineSerializer(policy_file, many=True)
 			data_record['obj'] = data_obj.data
+			data_record['pagination']  = pagination_obj
 		elif request.GET.get('menubar') == 'Navy Instruction' :
-			submenu = ack_subNavy_Instructionssmenu.objects.filter(parent_ob_id=id,folder_type=2, file_type=request.GET.get('file_type'))
-			serializer = serializers.AckNavyInstmenuSerializer(submenu,many=True)
+			submenu = ack_subNavy_Instructionssmenu.objects.filter(parent_ob_id=id, file_type=request.GET.get('file_type'))
+			if request.GET.get('page') == None:
+				page =1
+			else:
+				page = int(request.GET.get('page'))
+			paginator = Paginator(submenu,5)
+			try:
+				users = paginator.page(page)
+			except PageNotAnInteger:
+				users = paginator.page(1)
+			except EmptyPage:
+				users = paginator.page(paginator.num_pages)
+			numpages = paginator.num_pages
+			pagination_obj =  super(AckpolicyAPI, self).pagination_data(numpages,users,page)
+			serializer = serializers.AckNavyInstmenuSerializer(users,many=True)
 			data_record = {"policy": serializer.data}
 			policy_file = ack_NavyInstructionname.objects.filter(parent_ob_id=id)
 			data_obj = serializers.AckenowledgeNavyInstructionSerializer(policy_file, many=True)
 			data_record['obj'] = data_obj.data
+			data_record['pagination']  = pagination_obj
             
 
 		else:
-			submenu = ack_subpublicationmenu.objects.filter(parent_ob_id=id, folder_type=2, file_type=request.GET.get('file_type'))
-			serializer = serializers.AckenowledgepublicationSubmenuSerializer(submenu,many=True)
+			submenu = ack_subpublicationmenu.objects.filter(parent_ob_id=id, file_type=request.GET.get('file_type'))
+			if request.GET.get('page') == None:
+				page =1
+			else:
+				page = int(request.GET.get('page'))
+			paginator = Paginator(submenu,5)
+			try:
+				users = paginator.page(page)
+			except PageNotAnInteger:
+				users = paginator.page(1)
+			except EmptyPage:
+				users = paginator.page(paginator.num_pages)
+			numpages = paginator.num_pages
+			print(";;;;;;;;;;", numpages)
+			pagination_obj =  super(AckpolicyAPI, self).pagination_data(numpages,users,page)
+			serializer = serializers.AckenowledgepublicationSubmenuSerializer(users,many=True)
 			data_record = {"policy": serializer.data}
 			policy_file = ack_publicationname.objects.filter(parent_ob_id=id)
 			
 			data_obj = serializers.AckenowledgePublicationMenuSerializer(policy_file, many=True)
 			data_record['obj'] = data_obj.data
+			data_record['pagination']  = pagination_obj
 
 		#print(":::::::::",serializer.data) ack_publicationname
 		return Response(data_record)

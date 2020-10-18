@@ -51,7 +51,7 @@ else{
                    
 
                    
-                   //alert(JSON.stringify(pieCounts))
+                   //alert(JSON.stringify(barknowledge))
 
                     Highcharts.setOptions({
                         colors: [ '#033b8f', '#75a537', '#24CBE5', '#6f4e37', '#FF9655', '#c19a6b', '#a3a5a7','#7d5a5a', '#ffc785','#8fbbaf','#cb9b42'],
@@ -71,6 +71,7 @@ else{
                         //backgroundColor:'#AFDEF9',
                         fontWeight:'bold',
                         fontSize:'24',
+
 
 
                         renderTo: 'cgraphhh',
@@ -120,6 +121,18 @@ else{
                         text: ''
                       },
                        plotOptions: {
+                           series: {
+                              cursor: 'pointer',
+                              point: {
+                                  events: {
+                                      click: function () {
+                                        modalpop(this.category)
+                                         //alert('Category: ' + this.category + ', value: ' + this.y);
+                                         
+                                      }
+                                  }
+                              }
+                          },
                             line: {
                                 marker: {
                                     enabled: true
@@ -389,4 +402,43 @@ function megamyFunction(valu, idd)
   var url = "/ackpolicy/?menutype="+ valu+ "&mainId=" + idd
    window.location.href = url;
 
+}
+
+
+function modalpop(idd)
+{
+  //alert(currentLocation)
+  var modal = document.getElementById("myModal");
+
+  // Get the button that opens the modal
+  var btn = document.getElementById("myBtn");
+
+  // Get the <span> element that closes the modal
+  var span = document.getElementsByClassName("close")[0];
+
+  var ackdetail =  $('#ackdetail').val()
+  var ackdetailId =  $('#ackdetailtype').val()
+  var fileid = 1
+  page = 1
+  var dataString = {"menubar":ackdetail, "file_type" : fileid,"mainId": ackdetailId,"page": page}
+  //alert(JSON.stringify(dataString))
+  $.ajax({
+       url:  '/policyViewmat/',
+       type: "GET",
+       dataType: "json",
+       
+       data:{"menubar":ackdetail, "file_type" : fileid,"mainId": ackdetailId,"page": page,"menu_name": idd},
+       success: function(response){
+        alert(JSON.stringify(response))
+       }
+     })
+
+  modal.style.display = "block";
+  span.onclick = function() {
+    modal.style.display = "none";
+  }
+}
+function closebtn()
+{
+  alert("ok")
 }

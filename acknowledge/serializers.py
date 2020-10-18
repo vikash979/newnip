@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from application.models import application_parent_menu
 from information.models import information_menu
-
+from users.models import User
 from othersites.models import otherSites_menu
 
 from .models import (ack_NavyInstructionname, ack_Navyname,graphDetail, ack_publicationname, 
@@ -86,9 +86,17 @@ class ack_subMenuPolicyFileSubmenuSerializer(DynamicFieldsSerializer):
 		fields = '__all__'
 
 class policyUserSerializer(DynamicFieldsSerializer):
+
+	user_data = serializers.SerializerMethodField()
+
 	class Meta:
 		model = KnowledgeUser
 		fields = '__all__'
+
+	def get_user_data(self,obj):
+		
+		user_name = User.objects.filter(id=obj.id).values('username')
+		return user_name
 
 class AckenowledgeSubmenuSerializer(DynamicFieldsSerializer):
 	ack_submenu_children = ack_subMenuPolicyFileSubmenuSerializer(many=True)

@@ -88,20 +88,31 @@ class Ack_submenu(models.Model):
     folder_type = models.SmallIntegerField(choices=folder_choice, default=2)
     status =  models.SmallIntegerField(choices=status_choice, default=2)
     file_type = models.SmallIntegerField(choices=file_choice, default=5)
-    #file = models.FileField(upload_to='policy/',blank=True,null=True,validators=[FileExtensionValidator(allowed_extensions=['pdf','PDF'])])
+    file = models.FileField(upload_to='policy/',blank=True,null=True,validators=[FileExtensionValidator(allowed_extensions=['pdf','PDF'])])
     parent = models.ForeignKey(acknoledge_menu,null=True, related_name ="ask_submenues" , limit_choices_to={'id': 1}, blank=True, on_delete=models.SET_NULL)
     ##############################late
 
-
+    # def save(self, *args, **kwargs):
+    #         name, extension = os.path.splitext(self.file.name)
+    #         self.submenu_name = name
+    #         super(ack_guidelinesname,self).save(*args, **kwargs)
 
     def __str__(self):
         return self.submenu_name
 
 
     def save(self, *args, **kwargs):
-        name =  self.submenu_name
-
-        print("llllllllllllllllll", self.submenu_name)
+        # name =  self.submenu_name
+        print("fff", self.folder_type)
+        if self.folder_type == 1:
+            name, extension = os.path.splitext(self.file.name)
+            print("ttttttttttttttttttttt", name)
+            self.submenu_name = name
+        else:
+            pass
+        super(Ack_submenu,self).save(*args, **kwargs)
+        # else:
+       
 
 
     def menu_users(self):
@@ -234,10 +245,12 @@ class ack_subpublicationmenu(models.Model):
 
     added_on = models.DateField(auto_now_add=True)
     updated_on = models.DateField(auto_now=True)
-    submenu_name =  models.CharField(max_length=200,unique=True)
+    submenu_name =  models.CharField(max_length=200, blank=True, null=True)
     parent_ob  = models.ForeignKey("self",null=True, blank=True, on_delete=models.SET_NULL)
     menu_type = models.SmallIntegerField(choices=menu_choice, default=1)
     folder_type = models.SmallIntegerField(choices=folder_choice, default=2)
+    file = models.FileField(upload_to='publicattion/',blank=True,null=True,validators=[FileExtensionValidator(allowed_extensions=['pdf','PDF'])])
+    publication_file  = models.ImageField(upload_to='pub_image/',blank=True,null=True,validators=[validate_image,FileExtensionValidator(allowed_extensions=['png','jpg','JPEG'])])
     # publicationicon = models.FileField(upload_to='publicattion/',blank=True,null=True,validators=[FileExtensionValidator(allowed_extensions=['png','jpg','JPEG'])])
 
     #publicationfile = models.FileField(upload_to='publicattion/',blank=True,null=True,validators=[FileExtensionValidator(allowed_extensions=['png','jpg','JPEG','pdf','PDF'])])
@@ -249,6 +262,15 @@ class ack_subpublicationmenu(models.Model):
         return self.submenu_name
     class Meta:
         ordering = ['-id']
+
+    def save(self, *args, **kwargs):
+        if self.folder_type == 1:
+            name, extension = os.path.splitext(self.file.name)
+            print("ttttttttttttttttttttt", name)
+            self.submenu_name = name
+        else:
+            pass
+        super(ack_subpublicationmenu,self).save(*args, **kwargs)
 
 
 class PublicationUser(models.Model):
@@ -311,10 +333,12 @@ class ack_subGuidelinesmenu(models.Model):
     #folder_title =  models.CharField(max_length=200)
     added_on = models.DateField(auto_now_add=True)
     updated_on = models.DateField(auto_now=True)
-    submenu_name =  models.CharField(max_length=200,unique=True)
+    submenu_name =  models.CharField(max_length=200, blank=True, null=True)
     # file = models.FileField(upload_to='guidelines/',blank=True,null=True,validators=[FileExtensionValidator(allowed_extensions=['png','jpg','JPEG']),newvalidate_image])
     parent = models.ForeignKey(acknoledge_menu,null=True, related_name ="ask_subguidelinesmenues" , limit_choices_to={'id': 5}, blank=True, on_delete=models.SET_NULL)
     file_type = models.SmallIntegerField(choices=file_choice, default=5)
+    file = models.FileField(upload_to='guidelines/',blank=True,null=True,validators=[FileExtensionValidator(allowed_extensions=['pdf','PDF','png','jpg','JPEG']),newvalidate_image])
+
     #guidelinefile = models.FileField(upload_to='guidelLines/',blank=True,null=True,validators=[FileExtensionValidator(allowed_extensions=['pdf','PDF','png','jpg','JPEG']),validate_image])
 
     def __str__(self):
@@ -322,6 +346,14 @@ class ack_subGuidelinesmenu(models.Model):
 
     class Meta:
         ordering = ['-id']
+
+    def save(self, *args, **kwargs):
+        if self.folder_type == 1:
+            name, extension = os.path.splitext(self.file.name)
+            self.submenu_name = name
+        else:
+            pass
+        super(ack_subGuidelinesmenu,self).save(*args, **kwargs)
 
 class GuideLinesUser(models.Model):
     user = models.ForeignKey(ack_subGuidelinesmenu,null=True, related_name ="Guide_user", blank=True, on_delete=models.SET_NULL)
@@ -427,8 +459,19 @@ class ack_subNavy_Orderssmenu(models.Model):
     #navyfile = models.FileField(upload_to='navy_orders/',blank=True,null=True,validators=[FileExtensionValidator(allowed_extensions=['pdf','PDF','png','jpg','JPEG']),validate_image])
     parent = models.ForeignKey(acknoledge_menu,null=True, related_name ="ask_subnavy_ordersmenues" , limit_choices_to={'id': 3}, blank=True, on_delete=models.SET_NULL)
     file_type = models.SmallIntegerField(choices=file_choice, default=5)
+    file = models.FileField(upload_to='navy_orders/',blank=True,null=True,validators=[FileExtensionValidator(allowed_extensions=['pdf','PDF','png','jpg','JPEG']),validate_image])
     def __str__(self):
         return self.submenu_name
+
+
+
+    def save(self, *args, **kwargs):
+        if self.folder_type == 1:
+            name, extension = os.path.splitext(self.file.name)
+            self.submenu_name = name
+        else:
+            pass
+        super(ack_subNavy_Orderssmenu,self).save(*args, **kwargs)
 
 class NavyUser(models.Model):
     user = models.ForeignKey(ack_subNavy_Orderssmenu,null=True, related_name ="Navy_user", blank=True, on_delete=models.SET_NULL)
@@ -475,12 +518,12 @@ class ack_subNavy_Instructionssmenu(models.Model):
     )
     added_on = models.DateField(auto_now_add=True)
     updated_on = models.DateField(auto_now=True)
-    submenu_name =  models.CharField(max_length=200,unique=True)
+    submenu_name =  models.CharField(max_length=200, blank=True, null=True)
     parent_ob  = models.ForeignKey("self",null=True, blank=True, on_delete=models.SET_NULL)
     menu_type = models.SmallIntegerField(choices=menu_choice, default=1)
     folder_type = models.SmallIntegerField(choices=folder_choice, default=2)
-    # file = models.FileField(upload_to='navy_instructionfile/',blank=True,null=True,validators=[FileExtensionValidator(allowed_extensions=['pdf','PDF','png','jpg','JPEG']),validate_image])
-    #folder_title =  models.CharField(max_length=200)
+    file = models.FileField(upload_to='navy_instructionfile/',blank=True,null=True,validators=[FileExtensionValidator(allowed_extensions=['pdf','PDF','png','jpg','JPEG']),validate_image])
+    # folder_title =  models.CharField(max_length=200)
     #navyinstructionfile = models.FileField(upload_to='navy_instruction/',blank=True,null=True,validators=[FileExtensionValidator(allowed_extensions=['pdf','PDF','png','jpg','JPEG']),validate_image])
 
     parent = models.ForeignKey(acknoledge_menu,null=True, related_name ="ask_subnavy_instructionmenues" , limit_choices_to={'id': 4}, blank=True, on_delete=models.SET_NULL)
@@ -488,6 +531,15 @@ class ack_subNavy_Instructionssmenu(models.Model):
 
     def __str__(self):
         return self.submenu_name
+
+
+    def save(self, *args, **kwargs):
+        if self.folder_type == 1:
+            name, extension = os.path.splitext(self.file.name)
+            self.submenu_name = name
+        else:
+            pass
+        super(ack_subNavy_Instructionssmenu,self).save(*args, **kwargs)
 
 
 

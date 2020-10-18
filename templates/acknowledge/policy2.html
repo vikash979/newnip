@@ -256,19 +256,68 @@
          min-height: 20px;
 
      }
+
+
+     /* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
    </style>
 
+<div class="container" id="backg">
+
+
+    <section id="tops" class="header2 " onmouseover="headerchange()" onmouseout="headerimagehide()" style=" z-index:9911;   " onmouseover="quickhide()" onmouseover="menuhover()">
+      <div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content" >
+    <span class="close">&times;</span>
+    <p>Some text in the Modal..</p>
+  </div>
+
+</div>
    <div id="preloader">
        <img class="preloader" src="{% static 'images/loading-img.gif'%}" alt="">
     </div>
     <!-- END LOADER -->
     <div class="logo_icon" style="position:absolute; z-index:20000; margin-top:1.0vh;  " >
-  		<img id="cnss_order_id" class="indian_facebook" src="{% static 'images/COMMAND-ICON/Indian-Navy_1.png' %}">
-  	</div>
-<div class="container" id="backg">
-
-
-    <section id="tops" class="header2 " onmouseover="headerchange()" onmouseout="headerimagehide()" style=" z-index:9911;   " onmouseover="quickhide()" onmouseover="menuhover()">
+      <img id="cnss_order_id" class="indian_facebook" src="{% static 'images/COMMAND-ICON/Indian-Navy_1.png' %}">
+    </div>
       <!-- <div class="overlay3">
         </div> -->
 
@@ -306,7 +355,7 @@
 
                     <div class="row" style="background-image: url({% static 'images/prettyphoto/CNS-Message-BG.png' %}); background-repeat:no-repeat; background-size:cover !important; box-shadow: 3px 3px 5px #292929; width:100%; margin-left: 0px;z-index:999; position:relative">
                        <!-- <div class="col-lg-1 col-md-1 col-xl-1 "></div> -->
-                       <div class="col-lg-12 col-sm-12 col-xs-12" style="background:#fff">
+                       <div class="col-lg-12 col-sm-12 col-xs-12" style="background:#fff; z-index:999;">
 
                          <div class="col-lg-6 col-sm-12 col-xs-12" id="cgraphhh" style="border-radius:30px; "></div>
                          <div class="col-lg-6 col-sm-12 col-xs-12" id="containerii" style="border-radius:30px; "></div>
@@ -315,13 +364,13 @@
 
                      
 
-                        <div class="col-lg-12 col-sm-12 col-xs-12">
-                          <input type="hidden" name="" id="ackdetail" value="{{menu_bar}}">
-                          <input type="hidden" name="" id="ackdetailtype" value="{{maneu_typeId}}">
+                        <div class="col-lg-12 col-sm-12 col-xs-12" style="z-index:999;">
+                          <input type="hidden" name="" id="ackdetail" value="{{menu_bar}}" style="z-index:999;">
+                          <input type="hidden" name="" id="ackdetailtype" value="{{maneu_typeId}}" style="z-index:999;">
 
 
 
-                              <div class="news-post-widget table table-bordered journeyTable" id="post_widget_data " style="box-shadow: 0px 3px 14px #a39c9c;
+                              <div class="news-post-widget table table-bordered journeyTable" id="post_widget_data " style="box-shadow: 0px 3px 14px #a39c9c;z-index:999;
                                   border-top-left-radius: 30px; border-top-right-radius: 30px;background:rgba(255, 255, 255, 0.78) none repeat scroll 0% 0%; text-align: left  ">
                                 <button class="tablink tabs__item "   style="box-shadow: 0px 3px 14px #a39c9c;
                                 border-top-left-radius: 30px; border-top-left-radius: 30px;  " onclick="matapi('searchtreee','1','1'); openPage('NHQ', this,  '#0087c9' );  "  id="defaultOpen">PB</button>
@@ -362,13 +411,15 @@
                                         <ul class="nested" id="nested_{{manu_bar.id}}" >
 
                                         </ul>
-                                      </li>
+                                        
 
+                                      </li>
+                                      
                                       {% endfor %}
                                       <li></li>
                                     </ul>
                                   
-
+                                    
 
                                     
                                   </div>
