@@ -18,6 +18,7 @@ from django.contrib import admin
 from acknowledge import views as ack_views
 from application import views as app_views
 from user import views as user_views
+from adminpanel import views as ad_views
 
 from blogs import views as blog_views
 from django.conf import settings
@@ -57,6 +58,10 @@ urlpatterns = [
     url(r'^ack_detail/$', ack_views.AcknowledgeAPI.as_view(), name="ack_detail"),
 	url(r'^ackpolicy/$', ack_views.acknowledgeViews.as_view(), name="ackpolicy"),
     url(r'^graphview/$', ack_views.graphCount, name="graphview"),
+
+    url(r'^uplod/$', ack_views.upload_pdf, name="uplod"),
+
+
     url(r'^filterview/$', ack_views.ProductList.as_view(), name="filterview"),
     url(r'^PublicfilterList/$', ack_views.PublicList.as_view(), name="PublicfilterList"),
     url(r'^guidefilterList/$', ack_views.guideList.as_view(), name="guidefilterList"),
@@ -91,4 +96,13 @@ urlpatterns = [
 
     ##########################User########################
     url(r'^user_ob/$', user_views.userViewset.as_view({'get': 'list', 'post': 'create'}), name="user_ob"),
+
+
+    # ##########################################################Adminpanel #####################
+
+    url(r'^graphview/$', ack_views.graphCount, name="graphview"),
+
+
+    url(r'^admiview/$', ad_views.adminview.as_view(), name="admiview"),
+
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
