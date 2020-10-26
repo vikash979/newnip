@@ -165,7 +165,6 @@ def graphCount(request):
 	policyobjIds = []
 	barobjIds = []
 	file_Data = []
-	print("---------",request.GET.get('search'))
 	if request.GET.get('search')!= None:
 		String = request.GET.get('search')
 	file_location = os.getcwd()+"/media/"
@@ -704,7 +703,6 @@ class AckpolicyAPI(knowledgeMat):
 			numpages = paginator.num_pages
 			# print(";;;;;;;;;;", numpages)
 			pagination_obj =  super(AckpolicyAPI, self).pagination_data(numpages,users,page)
-			print("ooooooooooo", pagination_obj)
 
 			serializer = serializers.AckenowledgeSubmenuSerializer(users,many=True)
 			data_record = {"policy": serializer.data}

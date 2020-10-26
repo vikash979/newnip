@@ -1,0 +1,659 @@
+{% extends "application/base4.html" %}
+
+
+{% load static %}
+{% block header %}
+{% include 'application/header_2.html' %}
+<!-----------wave----------->
+
+<link rel="stylesheet" href="{% static 'css/wave.css' %}"> <!-- CSS reset -->
+<!------------------->
+
+
+  <link rel="stylesheet" href="{% static 'vassets/css/reset.css' %}"> <!-- CSS reset -->
+  <link rel="stylesheet" href="{% static 'vassets/css/style.css' %}"> <!-- Resource style -->
+  <script src="{% static 'vassets/js/modernizr.js' %}"></script> <!-- Modernizr -->
+  <script src = "{% static 'js/menubar.js' %}"></script>
+  <script type="text/javascript" src = "{% static 'js/accordian.js' %}"></script>
+
+  <script type="text/javascript" src = "{% static 'js/graph.js' %}"></script>
+
+  <script  src="{% static 'js/a076d05399.js' %}" ></script>
+  <!---------------------Old navy Slider---------------------->
+
+
+  <link href="{% static 'sliders/css/DesktopModules_CrossImageFlow_js_imageflow.packed.css' %}" media="all" type="text/css" rel="stylesheet"/>
+
+
+  <script type="text/javascript" src="{% static 'sliders/js/ImageFlow.Packed.js' %}"></script>
+
+  <!----------------------------End of Old Navy Slider--------->
+
+   {% endblock header %}
+   {% block css %}
+
+
+   {% endblock %}
+   {% block base_content %}
+   <style>
+
+     ul, #myULtag {
+       list-style-type: none;
+     }
+
+     #myULtag {
+       margin: 0;
+       padding: 0;
+       border-left: 1px dotted #aaa;
+     }
+
+     .box {
+       cursor: pointer;
+       -webkit-user-select: none; /* Safari 3.1+ */
+       -moz-user-select: none; /* Firefox 2+ */
+       -ms-user-select: none; /* IE 10+ */
+       user-select: none;
+     }
+
+     .box::before {
+       content: "\2610";
+       color: black;
+       display: inline-block;
+       margin-right: 6px;
+     }
+
+     .check-box::before {
+       content: "\2611";
+       color: dodgerblue;
+     }
+
+     .nested {
+       display: none;
+       padding-left: 18px;
+       border-left: 1px dotted #aaa;
+     }
+
+     .actives {
+       display: block;
+     }
+
+
+     /*------------------------------*/
+     #fontSizeWrapper { font-size: 16px; }
+
+   #fontSize {
+     width: 100px;
+     font-size: 1em;
+     }
+
+   /* ————————————————————–
+     Tree core styles
+   */
+   .tree { margin: 1em; }
+
+   .tree input {
+     position: absolute;
+     clip: rect(0, 0, 0, 0);
+     }
+
+   .tree input ~ ul { display: none; }
+
+   .tree input:checked ~ ul { display: block; }
+
+   /* ————————————————————–
+     Tree rows
+   */
+   .tree li {
+     line-height: 1.2;
+     position: relative;
+     padding: 0 0 1em 1em;
+     }
+
+   .tree ul li { padding: 1em 0 0 1em; }
+
+   .tree > li:last-child { padding-bottom: 0; }
+
+   /* ————————————————————–
+     Tree labels
+   */
+   .tree_label {
+     position: relative;
+     display: inline-block;
+     /* background: #fff; */
+     }
+
+   label.tree_label { cursor: pointer; }
+
+   label.tree_label:hover { color: #666; }
+
+   /* ————————————————————–
+     Tree expanded icon
+   */
+   label.tree_label:before {
+     background: #000;
+     color: #fff;
+     position: relative;
+     z-index: 1;
+     float: left;
+     margin: 0 1em 0 -2em;
+     width: 1em;
+     height: 1em;
+     border-radius: 1em;
+     content: '+';
+     text-align: center;
+     line-height: .9em;
+     }
+
+   :checked ~ label.tree_label:before { content: '–'; }
+
+   /* ————————————————————–
+     Tree branches
+   */
+   .tree li:before {
+     position: absolute;
+     top: 0;
+     bottom: 0;
+     left: -.5em;
+     display: block;
+     width: 0;
+     border-left: 1px solid #777;
+     content: "";
+     }
+
+   .tree_label:after {
+     position: absolute;
+     top: 0;
+     left: -1.5em;
+     display: block;
+     height: 0.5em;
+     width: 1em;
+     border-bottom: 1px solid #777;
+     border-left: 1px solid #777;
+     border-radius: 0 0 0 .3em;
+     content: '';
+     }
+
+   label.tree_label:after { border-bottom: 0; }
+
+   :checked ~ label.tree_label:after {
+     border-radius: 0 .3em 0 0;
+     border-top: 1px solid #777;
+     border-right: 1px solid #777;
+     border-bottom: 0;
+     border-left: 0;
+     bottom: 0;
+     top: 0.5em;
+     height: auto;
+     }
+
+   .tree li:last-child:before {
+     height: 1em;
+     bottom: auto;
+     }
+
+   .tree > li:last-child:before { display: none; }
+
+   .tree_custom {
+     display: block;
+     background: #eee;
+     padding: 1em;
+     border-radius: 0.3em;
+   }
+
+   .dropbtn {
+
+     color: white;
+     padding: 16px;
+     font-size: 16px;
+     border: none;
+     cursor: pointer;
+   }
+
+   .dropbtn:hover, .dropbtn:focus {
+
+   }
+
+   .dropdown {
+     position: relative;
+     display: inline-block;
+   }
+
+   .dropdown-content {
+     display: none;
+     position: absolute;
+     background-color: #fff;
+     min-width: 160px;
+     overflow: auto;
+     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+     z-index: 10;
+   }
+
+   .dropdown-content a {
+     color: black;
+     padding: 12px 16px;
+     text-decoration: none;
+     display: block;
+   }
+   input[type=text] {
+   float: right;
+   padding: 6px;
+   margin-top: 8px;
+   margin-right: 16px;
+   border: none;
+   font-size: 17px;
+   border: 1px solid #000;
+ }
+   .dropdown a:hover {color: #ddd;}
+
+   .show {display: block;}
+     .header2 {
+
+         float: left;
+         width: 84%;
+         position: absolute;
+         z-index: 1;
+         top: 0;
+         min-height: 20px;
+
+     }
+
+
+     /* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+   </style>
+
+<div class="container" id="backg">
+
+
+    <section id="tops" class="header2 " onmouseover="headerchange()" onmouseout="headerimagehide()" style=" z-index:9911;   " onmouseover="quickhide()" onmouseover="menuhover()">
+      <div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content" >
+    <span class="close">&times;</span>
+    <p>Some text in the Modal..</p>
+  </div>
+
+</div>
+   <div id="preloader">
+       <img class="preloader" src="{% static 'images/loading-img.gif'%}" alt="">
+    </div>
+    <!-- END LOADER -->
+    <div class="logo_icon" style="position:absolute; z-index:20000; margin-top:1.0vh;  " >
+      <img id="cnss_order_id" class="indian_facebook" src="{% static 'images/COMMAND-ICON/Indian-Navy_1.png' %}">
+    </div>
+      <!-- <div class="overlay3">
+        </div> -->
+
+          <!-- <div class="" style="" > -->
+            <div class="col-md-12 p-0 m-0 ">
+              <img class="logoicons" style="" src="{% static '/images/logo/logo2.png'%}">
+            </div>
+             <div class="header-top">
+                <div class="">
+                   <div class="col-md-9" style="margin-top:-27px !important">
+                      <div class="right_top_section">
+                        <ul class="exo-menu"  id="exo-menu" style="font-family:WhitneyHTF-Book ;" onmouseover="menuhover()">
+                          <li><a class="" style="font-family:WhitneyHTF-Book ; font-weight:bold" href="/homesmain/"> Home</a></li>
+
+                          </ul>
+                        <!-- <img src="{% static 'images/gif/logo.jpg'%}" > -->
+
+
+
+                      </div>
+                   </div>
+                </div>
+             </div>
+
+          <!-- </div> -->
+       </section>
+
+       <section id="top" style="z-index:999; "  >
+          <div class="full-slider " style="margin-top:0px;border:none;" onmouseover="menuhover()">
+            {% include 'application/slider2.html' %}
+          </div>
+
+          <div class=" pt-1 mt-0 mb-1 img-rounded " style="z-index:99999" onmouseover="menuhover()" >
+
+
+                    <div class="row" style="background-image: url({% static 'images/prettyphoto/CNS-Message-BG.png' %}); background-repeat:no-repeat; background-size:cover !important; box-shadow: 3px 3px 5px #292929; width:100%; margin-left: 0px;z-index:999; position:relative">
+                       <!-- <div class="col-lg-1 col-md-1 col-xl-1 "></div> -->
+                       <div class="col-lg-12 col-sm-12 col-xs-12" style="background:#fff; z-index:999;">
+
+                         <div class="col-lg-6 col-sm-12 col-xs-12" id="cgraphhh" style="border-radius:30px; "></div>
+                         <div class="col-lg-6 col-sm-12 col-xs-12" id="containerii" style="border-radius:30px; "></div>
+
+                       </div>
+
+                     
+
+                        <div class="col-lg-12 col-sm-12 col-xs-12" style="z-index:999;">
+                          <input type="hidden" name="" id="ackdetail" value="{{menu_bar}}" style="z-index:999;">
+                          <input type="hidden" name="" id="ackdetailtype" value="{{maneu_typeId}}" style="z-index:999;">
+
+
+
+                              <div class="news-post-widget table table-bordered journeyTable" id="post_widget_data " style="box-shadow: 0px 3px 14px #a39c9c;z-index:999;
+                                  border-top-left-radius: 30px; border-top-right-radius: 30px;background:rgba(255, 255, 255, 0.78) none repeat scroll 0% 0%; text-align: left  ">
+                                <button class="tablink tabs__item "   style="box-shadow: 0px 3px 14px #a39c9c;
+                                border-top-left-radius: 30px; border-top-left-radius: 30px;  " onclick="matapi('searchtreee','1','1'); openPage('NHQ', this,  '#0087c9' );  "  id="defaultOpen">PB</button>
+                                <button class="tablink tabs__link " style="box-shadow: 0px 3px 14px #a39c9c;
+                                border-top-left-radius: 30px; border-top-left-radius: 30px;  "  onclick="matapi('mat','2','1'); openPage('ENC', this, '#0087c9')" >MAT</button>
+                                <button class="tablink tabs__link "   style="box-shadow: 0px 3px 14px #a39c9c;
+                                border-top-left-radius: 30px; border-top-left-radius: 30px;  "onclick="matapi('sbi', '3','1');  openPage('SNC', this, '#0087c9')">SB1</button>
+
+                                <button class="tablink tabs__link "  style="box-shadow: 0px 3px 14px #a39c9c;
+                                border-top-left-radius: 30px; border-top-left-radius: 30px;  " onclick="matapi('sbi2','4','1'); openPage('WNC', this, '#0087c9')">SB2</button>
+                                <button class="tablink tabs__link "   onclick="matapi('misl','5','1'); openPage('ANC', this, '#0087c9')" style="box-shadow: 0px 3px 14px #a39c9c;
+                                border-top-right-radius: 30px; border-top-right-radius: 30px; border-top-left-radius: 30px;  ">Others</button>
+
+                                  <div id="NHQ" class="tabcontente " >
+                                    <div class="input-group">
+                                      <input type="text" class="form-control text_search" placeholder="Search" name="search" id="file_search" onkeyup="knowledgefile(this.id, this.value)" >
+                                      <div class="input-group-btn">
+                                        <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                                      </div>
+                                    </div>
+
+                                    <div class="input-group">
+                                      <input type="text" class="form-control text_search" placeholder="Search" name="search" id="text_search" onkeyup="knowledgefile(this.id, this.value)" >
+                                      <div class="input-group-btn">
+                                        <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                                      </div>
+                                    </div>
+                                    <ul class="tree" style="background-color: #f0f0f0" id="searchtreee">
+                                     
+                                     {% for manu_bar in sub_menu %}
+
+
+
+
+                                      <li  class="{% if forloop.counter|divisibleby:2 %}even{% else %}odd{% endif %}" style="padding-top:4%"  >
+                                        <input type="checkbox" id="c_{{manu_bar.id}}" onclick="megafolder(this.id,'{{manu_bar.file_type}}'); " />
+                                        <label class="tree_label tablinktree col-lg-12 col-sm-12 col-xs-12"  for="c_{{manu_bar.id}}"><span style="  color:#fff; padding-top:3%">{{manu_bar.submenu_name}}--{{manu_bar.menu_users}}</span></label>
+                                        <ul class="nested" id="nested_{{manu_bar.id}}" >
+
+                                        </ul>
+                                        
+
+                                      </li>
+                                      
+                                      {% endfor %}
+                                      <li></li>
+                                    </ul>
+                                  
+                                    
+
+                                    
+                                  </div>
+                                  <div id="ENC" class="tabcontente" >
+                                    <ul class="tree" style="background-color: #f0f0f0" id="mat">
+
+                                    </ul>
+
+                                    
+
+                                    <!-- <div class="col-lg-12 col-sm-12 col-xs-12"> <h3>ENC e-General Message</h3></div> -->
+
+
+                                  </div>
+
+
+                                  <div id="SNC" class="tabcontente">
+
+                                    <ul class="tree" style="background-color: #f0f0f0" id="sbi">
+
+                                    </ul>    
+                                  </div>
+
+                                 <div id="WNC" class="tabcontente">
+
+                                    <ul class="tree" style="background-color: #f0f0f0" id="sbi2">
+
+                                    </ul>    
+                                  </div>
+
+
+                                  <div id="ANC" class="tabcontente">
+
+                                    <ul class="tree" style="background-color: #f0f0f0" id="misl">
+
+                                    </ul>    
+                                  </div>
+                                  <div class="col-lg-6 col-sm-12 col-xs-12 pagination"  id="pagination" style="">
+
+
+                            {% if sub_menu.has_other_pages == True %}
+                             <a href="#">&laquo;</a>
+                                {% if sub_menu.has_other_pages == True %}
+
+
+                                {% if sub_menu.has_previous == True %}
+
+
+
+                                <a id="page{{sub_menu.previous_page_number}}" href="/ackpolicy/?menutype={{menu_bar}}&&mainId={{maneu_typeId}}&&page={{sub_menu.previous_page_number}}">prev</a>
+
+                                {% endif %}
+
+                                {% endif %}
+
+
+
+                                {% for i in PAGINATION_COUNT%}
+
+                                {% if i == policy.number %}
+
+
+
+                                <a id="page{{i}}" class="selected active" href="/ackpolicy/?menutype={{menu_bar}}&&mainId={{maneu_typeId}}&&page={{i}}" >{{i}}</a>
+
+
+<!--
+                                <a id="page{{i}}" class="selected active" href="/blog/blog_list/?page={{i}}">{{i}}</a> -->
+
+                                {% else %}
+                               <!--  <a id="page{{i}}" href="/blog/blog_list/?page={{i}}">{{i}}</a> -->
+
+                                 <a id="page{{i}}" class="" href="/ackpolicy/?menutype={{menu_bar}}&&mainId={{maneu_typeId}}&&page={{i}}">{{i}}</a>
+
+                                {% endif %}
+
+
+                                {% endfor %}
+                                {% if sub_menu.has_next == True %}
+                                <a id="page{{sub_menu.next_page_number}}" href="/ackpolicy/?menutype={{menu_bar}}&&mainId={{maneu_typeId}}&&page={{sub_menu.next_page_number}}">next</a>
+                                {% endif %}
+                                <a href="#">&raquo;</a>
+                                {% endif %}
+                              </div>
+                                  
+
+
+
+
+                        </div>
+
+                            </div>
+
+
+                     </div>
+
+                    </div>
+
+
+                  <!-- </div> -->
+
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+      <script>
+      function openCity(evt, cityName) {
+
+        if(cityName =='London')
+        {
+          $('#img_cns').show()
+          $('#img_ig').hide()
+          $('#img_dng').hide()
+          $('#ig').show()
+          $('#DNG').show()
+          $('#cns').hide()
+
+
+        }
+        if(cityName =='Paris')
+        {
+          $('#img_cns').hide()
+          $('#img_ig').show()
+          $('#img_dng').hide()
+          $('#ig').hide()
+          $('#DNG').show()
+          $('#cns').show()
+        }
+
+        if(cityName =='Tokyo')
+        {
+          $('#img_cns').hide()
+          $('#img_ig').hide()
+          $('#img_dng').show()
+          $('#ig').show()
+          $('#DNG').hide()
+          $('#cns').show()
+        }
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+          tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(cityName).style.display = "block";
+        evt.currentTarget.className += " active";
+      }
+
+      // Get the element with id="defaultOpen" and click on it
+      document.getElementById("defaultOpen").click();
+
+      /////////////////////////////////////////////////////
+
+      $(document).ready(function(){
+
+
+      	//----------Select the first tab and div by default
+
+      	$('#vertical_tab_nav > ul > li > a').eq(0).addClass( "selected" );
+      	$('#vertical_tab_nav > div > article').eq(0).css('display','block');
+
+
+      	//---------- This assigns an onclick event to each tab link("a" tag) and passes a parameter to the showHideTab() function
+
+      		$('#vertical_tab_nav > ul').click(function(e){
+
+            if($(e.target).is("a")){
+
+              /*Handle Tab Nav*/
+              $('#vertical_tab_nav > ul > li > a').removeClass( "selected");
+              $(e.target).addClass( "selected");
+
+              /*Handles Tab Content*/
+              var clicked_index = $("a",this).index(e.target);
+              $('#vertical_tab_nav > div > article').css('display','none');
+              $('#vertical_tab_nav > div > article').eq(clicked_index).fadeIn();
+
+            }
+
+              $(this).blur();
+              return false;
+
+      		});
+
+      });//end ready
+      </script>
+
+
+       </div>
+</div>
+
+
+
+</section>
+
+
+<script src="{% static 'vassets/js/jquery-2.1.1.js' %}"></script>
+<script src="{% static 'vassets/js/jquery.menu-aim.js' %}"></script> <!-- menu aim -->
+<script src="{% static 'vassets/js/main.js' %}"></script>
+
+
+         {% include 'application/footer.html' %}
+
+         </div>
+
+
+
+            <!-- </div> -->
+
+
+
+
+
+
+
+
+            <!-- ALL JS FILES -->
+
+
+      </html>
+      {% endblock base_content %}
+
+      {% block htmljs %}
+
+
+      {% endblock htmljs %}

@@ -59,8 +59,6 @@ urlpatterns = [
 	url(r'^ackpolicy/$', ack_views.acknowledgeViews.as_view(), name="ackpolicy"),
     url(r'^graphview/$', ack_views.graphCount, name="graphview"),
 
-    url(r'^uplod/$', ack_views.upload_pdf, name="uplod"),
-
 
     url(r'^filterview/$', ack_views.ProductList.as_view(), name="filterview"),
     url(r'^PublicfilterList/$', ack_views.PublicList.as_view(), name="PublicfilterList"),
@@ -102,7 +100,10 @@ urlpatterns = [
 
     url(r'^graphview/$', ack_views.graphCount, name="graphview"),
 
-
+    url(r'^policydetail/$', ad_views.policyview.as_view(), name="policydetail"),
     url(r'^admiview/$', ad_views.adminview.as_view(), name="admiview"),
+    url(r'^adminfileper/$', ad_views.acknowledgedataViews.as_view(), name="adminfileper"),
+    url(r'^user_list/$', ad_views.userList.as_view(), name="user_list"),
+    
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

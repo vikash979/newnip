@@ -123,6 +123,40 @@ class Ack_submenu(models.Model):
 
     class Meta:
         ordering = ['-id']
+class folderPermission(models.Model):
+    folder_choice = (
+        (1, "read"),
+        (2, "write"),
+        (3, "update"),
+        (2, "admin"),
+    )
+    permission_type = models.SmallIntegerField(choices=folder_choice, default=1)
+    user_detail = models.ForeignKey(User,null=True, related_name ="user_permission" ,  blank=True, on_delete=models.SET_NULL)
+    policy = models.ForeignKey(Ack_submenu,null=True, related_name ="folder_related", blank=True, on_delete=models.SET_NULL)
+
+    def __unicode__(self): 
+        user_detail = self.user_detail
+        policy = self.policy
+
+    def __str__(self):
+        if self.permission_type == 1:
+            permission = "read"
+        if self.permission_type == 2:
+            permission ="write"
+        if self.permission_type == 3:
+            permission = "update"
+        if self.permission_type == 4:
+            permission = "admin"
+        return (self.policy.submenu_name  +", "+ permission.upper() +" ,"+ self.user_detail.name)
+
+    @classmethod
+    def update(cls):
+        status = cls.objects.filter(id=1)
+        print(":::::::::::::", status)
+        print(status)
+
+        
+
 
 
 # class ManyUseroptio(models.Model):

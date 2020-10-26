@@ -17,16 +17,276 @@
   <!---------------------Old navy Slider---------------------->
 
 
-  <link href="{% static 'sliders/css/DesktopModules_CrossImageFlow_js_imageflow.packed.css' %}" media="all" type="text/css" rel="stylesheet"/>
-
-
-  <script type="text/javascript" src="{% static 'sliders/js/ImageFlow.Packed.js' %}"></script>
-
   <!----------------------------End of Old Navy Slider--------->
 
   <!---------------------------adminpanel-------------------->
-  <link rel="stylesheet" href="{% static 'admin/css/menu.css' %}"> <!-- CSS reset -->
-  <script type="text/javascript" src="{% static 'admin/js/sidemenu.js' %}"></script>
+  <link rel="stylesheet" href="{% static 'adminpanel/css/menu.css' %}"> <!-- CSS reset -->
+  <script type="text/javascript" src="{% static 'adminpanel/js/sidemenu.js' %}"></script>
+  <script type="text/javascript" src = "{% static 'js/ackaccordian.js' %}"></script>
+
+  <style>
+
+     ul, #myULtag {
+       list-style-type: none;
+     }
+
+     #myULtag {
+       margin: 0;
+       padding: 0;
+       border-left: 1px dotted #aaa;
+     }
+
+     .box {
+       cursor: pointer;
+       -webkit-user-select: none; /* Safari 3.1+ */
+       -moz-user-select: none; /* Firefox 2+ */
+       -ms-user-select: none; /* IE 10+ */
+       user-select: none;
+     }
+
+     .box::before {
+       content: "\2610";
+       color: black;
+       display: inline-block;
+       margin-right: 6px;
+     }
+
+     .check-box::before {
+       content: "\2611";
+       color: dodgerblue;
+     }
+
+     .nested {
+       display: none;
+       padding-left: 18px;
+       border-left: 1px dotted #aaa;
+     }
+
+     .actives {
+       display: block;
+     }
+
+
+     /*------------------------------*/
+     #fontSizeWrapper { font-size: 16px; }
+
+   #fontSize {
+     width: 100px;
+     font-size: 1em;
+     }
+
+   /* ————————————————————–
+     Tree core styles
+   */
+   .tree { margin: 1em; }
+
+   .tree input {
+     position: absolute;
+     clip: rect(0, 0, 0, 0);
+     }
+
+   .tree input ~ ul { display: none; }
+
+   .tree input:checked ~ ul { display: block; }
+
+   /* ————————————————————–
+     Tree rows
+   */
+   .tree li {
+     line-height: 1.2;
+     position: relative;
+     padding: 0 0 1em 1em;
+     }
+
+   .tree ul li { padding: 1em 0 0 1em; }
+
+   .tree > li:last-child { padding-bottom: 0; }
+
+   /* ————————————————————–
+     Tree labels
+   */
+   .tree_label {
+     position: relative;
+     display: inline-block;
+     /* background: #fff; */
+     }
+
+   label.tree_label { cursor: pointer; }
+
+   label.tree_label:hover { color: #666; }
+
+   /* ————————————————————–
+     Tree expanded icon
+   */
+   label.tree_label:before {
+     background: #000;
+     color: #fff;
+     position: relative;
+     z-index: 1;
+     float: left;
+     margin: 0 1em 0 -2em;
+     width: 1em;
+     height: 1em;
+     border-radius: 1em;
+     content: '+';
+     text-align: center;
+     line-height: .9em;
+     }
+
+   :checked ~ label.tree_label:before { content: '–'; }
+
+   /* ————————————————————–
+     Tree branches
+   */
+   .tree li:before {
+     position: absolute;
+     top: 0;
+     bottom: 0;
+     left: -.5em;
+     display: block;
+     width: 0;
+     border-left: 1px solid #777;
+     content: "";
+     }
+
+   .tree_label:after {
+     position: absolute;
+     top: 0;
+     left: -1.5em;
+     display: block;
+     height: 0.5em;
+     width: 1em;
+     border-bottom: 1px solid #777;
+     border-left: 1px solid #777;
+     border-radius: 0 0 0 .3em;
+     content: '';
+     }
+
+   label.tree_label:after { border-bottom: 0; }
+
+   :checked ~ label.tree_label:after {
+     border-radius: 0 .3em 0 0;
+     border-top: 1px solid #777;
+     border-right: 1px solid #777;
+     border-bottom: 0;
+     border-left: 0;
+     bottom: 0;
+     top: 0.5em;
+     height: auto;
+     }
+
+   .tree li:last-child:before {
+     height: 1em;
+     bottom: auto;
+     }
+
+   .tree > li:last-child:before { display: none; }
+
+   .tree_custom {
+     display: block;
+     background: #eee;
+     padding: 1em;
+     border-radius: 0.3em;
+   }
+
+   .dropbtn {
+
+     color: white;
+     padding: 16px;
+     font-size: 16px;
+     border: none;
+     cursor: pointer;
+   }
+
+   .dropbtn:hover, .dropbtn:focus {
+
+   }
+
+   .dropdown {
+     position: relative;
+     display: inline-block;
+   }
+
+   .dropdown-content {
+     display: none;
+     position: absolute;
+     background-color: #fff;
+     min-width: 160px;
+     overflow: auto;
+     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+     z-index: 10;
+   }
+
+   .dropdown-content a {
+     color: black;
+     padding: 12px 16px;
+     text-decoration: none;
+     display: block;
+   }
+   input[type=text] {
+   float: right;
+   padding: 6px;
+   margin-top: 8px;
+   margin-right: 16px;
+   border: none;
+   font-size: 17px;
+   border: 1px solid #000;
+ }
+   .dropdown a:hover {color: #ddd;}
+
+   .show {display: block;}
+     .header2 {
+
+         float: left;
+         width: 84%;
+         position: absolute;
+         z-index: 1;
+         top: 0;
+         min-height: 20px;
+
+     }
+
+
+     /* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+   </style>
+
 
    {% endblock header %}
    {% block css %}
@@ -58,6 +318,32 @@
 
 
     <section id="tops" class="header2 " onmouseover="headerchange()" onmouseout="headerimagehide()" style=" z-index:9911;   " onmouseover="quickhide()" onmouseover="menuhover()">
+       <div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content"  style="height:300px" >
+    <span class="close">&times;</span>
+      <div class="col-md-6">
+        <p>
+      <select type="text" id="user_ob" name="filfolder" class="form-control" placeholder="Folder File">
+          <option >--Select folder or File</option>
+          <option value="1"> file</option>
+          <option value="2"> folder</option>
+
+        </select></p>
+
+    </div>
+    <div class="col-md-6">
+      <input type="hidden" name="permissiontype" id="permissiontype">
+
+    </div>
+      <div class="col-md-12">
+      <input type="submit" class="btn btn-primary" name="addpermission" id="addpermission" value="Add Permission">
+
+    </div>
+  </div>
+
+</div>
       <!-- <div class="overlay3">
         </div> -->
 
@@ -88,7 +374,7 @@
        <section id="top" style="z-index:999; "  >
           <div class="full-slider " style="margin-top:0px;border:none;" onmouseover="menuhover()">
             {% include 'application/slider2.html' %}
-            {% include 'admin/admincss.html' %}
+           
           </div>
 
           <div class=" pt-1 mt-0 mb-1 img-rounded " style="z-index:99999" onmouseover="menuhover()" >
@@ -206,27 +492,33 @@
                                   </div>
                                   <!-- /.card-header -->
                                   <div class="card-body table-responsive p-0">
-                                    <table class="table table-hover text-nowrap">
-                                      <thead>
-                                        <tr>
-                                          <th>ID</th>
-                                          <th>Policy Name</th>
-                                          <th>Date</th>
-                                          <th>Parent Policy</th>
-                                          <th>Edit</th>
-                                        </tr>
-                                      </thead>
-                                      <tbody>
-                                        <tr>
-                                          <td>183</td>
-                                          <td>John Doe</td>
-                                          <td>11-7-2014</td>
-                                          <td><span class="tag tag-success">Approved</span></td>
-                                          <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                                        </tr>
+                                      <ul class="tree" style="background-color: #f0f0f0" id="searchtreee">
+                                     
+                                     {% for manu_bar in menu %}
+
+
+
+
+                                      <li  class="{% if forloop.counter|divisibleby:2 %}even{% else %}odd{% endif %}" style="padding-top:4%"  >
+                                        <input type="checkbox" id="c_{{manu_bar.id}}" onclick="megafolder(this.id,'{{manu_bar.file_type}}'); " />
+
+                                        <label class="tree_label tablinktree col-lg-12 col-sm-12 col-xs-12"  for="c_{{manu_bar.id}}"><span style="  color:#fff; padding-top:3%">{{manu_bar.submenu_name}}</span> <select name="permission" onchange="filepermission(this.value)" id="permission_{{manu_bar.id}}">
+                                          <option value="">--</option>
+                                          <option value="1">read</option>
+                                          <option value="2">write</option>
+                                          <option value="3">update</option>
+                                          <option value="4">admin</option>
+                                        </select></label>
+                                        <ul class="nested" id="nested_{{manu_bar.id}}" >
+
+                                        </ul>
                                         
-                                      </tbody>
-                                    </table>
+
+                                      </li>
+                                      
+                                      {% endfor %}
+                                      <li></li>
+                                    </ul>
                                   </div>
                                   <!-- /.card-body -->
                                 </div>

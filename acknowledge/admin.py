@@ -2,7 +2,7 @@ from django.contrib import admin
 from .models import (graphDetailUsed, ack_subMenuPolicyFile, ack_NavyInstructionname, ack_Navyname, ack_Standardsname, 
 	ack_guidelinesname, BRsmenu, ack_subpublicationmenu,acknoledge_menu,parent_menu,Ack_submenu,ack_policyname, 
 	ack_policypolicyfile,ack_publicationname, ack_subGuidelinesmenu, ack_subStandardsmenu, ack_subNavy_Orderssmenu, graphDetail, 
-	 ack_subNavy_Instructionssmenu, KnowledgeUser, PublicationUser, InstructionUser, NavyUser, StandardUser, GuideLinesUser)
+	 ack_subNavy_Instructionssmenu, KnowledgeUser, PublicationUser, InstructionUser, NavyUser, StandardUser, GuideLinesUser, folderPermission)
 admin.site.register(acknoledge_menu)
 admin.site.register(parent_menu)
 admin.site.register(Ack_submenu)
@@ -30,3 +30,5 @@ admin.site.register(GuideLinesUser)
 admin.site.register(StandardUser)
 admin.site.register(NavyUser)
 admin.site.register(InstructionUser)
+admin.site.register(folderPermission)
+

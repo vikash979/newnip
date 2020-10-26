@@ -9,24 +9,18 @@
 <link rel="stylesheet" href="{% static 'css/wave.css' %}"> <!-- CSS reset -->
 <!------------------->
 
-
-  <link rel="stylesheet" href="{% static 'vassets/css/reset.css' %}"> <!-- CSS reset -->
-  <link rel="stylesheet" href="{% static 'vassets/css/style.css' %}"> <!-- Resource style -->
-  <script src="{% static 'vassets/js/modernizr.js' %}"></script> <!-- Modernizr -->
   <script src = "{% static 'js/menubar.js' %}"></script>
   <!---------------------Old navy Slider---------------------->
 
 
-  <link href="{% static 'sliders/css/DesktopModules_CrossImageFlow_js_imageflow.packed.css' %}" media="all" type="text/css" rel="stylesheet"/>
-
-
-  <script type="text/javascript" src="{% static 'sliders/js/ImageFlow.Packed.js' %}"></script>
-
   <!----------------------------End of Old Navy Slider--------->
 
   <!---------------------------adminpanel-------------------->
-  <link rel="stylesheet" href="{% static 'admin/css/menu.css' %}"> <!-- CSS reset -->
-  <script type="text/javascript" src="{% static 'admin/js/sidemenu.js' %}"></script>
+  <link rel="stylesheet" href="{% static 'adminpanel/css/menu.css' %}"> <!-- CSS reset -->
+  <script type="text/javascript" src="{% static 'adminpanel/js/sidemenu.js' %}"></script>
+  <style>
+
+  </style>
   
 
    {% endblock header %}
@@ -107,9 +101,7 @@
 
 
 
-<script>
 
-</script>
 
                          
 
@@ -247,13 +239,14 @@
                                     <div class="col-md-6">
 
                                           <div class="custom-file">
-                                            <input type="file" name="policyfile" class="custom-file-input" id="exampleInputFile" multiple>
+                                            <input type="file" name="policyfile" class="filestyle custom-file-input" id="exampleInputFile" multiple>
                                             <label class="custom-file-label" for="exampleInputFile" >Choose file</label>
                                           </div>
                                         
                                     </div>
 
                                       <div class="col-md-6">
+                                        
 
                                        <input  type="submit" id="submit" class="btn btn-primary" name="addpolicy" value="Add Policy">
                                         
